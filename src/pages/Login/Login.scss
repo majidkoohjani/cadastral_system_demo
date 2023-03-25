@@ -1,0 +1,24 @@
+@import "../../assets/styles/colors.scss";
+
+.login-page {
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    & > main {
+        flex: 1 1 auto;
+
+        & > div:first-child {
+            background-color: $gray--f2;
+        }
+
+        & > div:last-child {
+            background-color: $green--00;
+        }
+    }
+
+    & > footer {
+        background-color: $gray--e6;
+    }
+}
