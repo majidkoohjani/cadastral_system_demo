@@ -1,5 +1,32 @@
 @import "../fonts/yekan/yekan.scss";
+@import "../styles/colors.scss";
 
-// h1, h2, h3, h4, h5, h6, p, a, small, strong, li, div, em, caption, td, th, span, label, input, button {
-//     font-family: "Yekan";
-// }
+* {
+    font-family: "Yekan";
+    user-select: none;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+.max-width-310px {
+    max-width: 310px;
+    width: 310px;
+}
+
+.margin-y10px {
+    margin: 10px 0;
+}
+
+.text-green {
+    color: $green--0b;
+}
+
+.text-white {
+    color: $white--ff;
+}
+
+.text-red {
+    color: $red--ff6;
+}

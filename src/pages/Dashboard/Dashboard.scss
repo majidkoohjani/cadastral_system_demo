@@ -1,0 +1,21 @@
+@import "../../assets/styles/colors.scss";
+
+.dashboard-page {
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: stretch;
+
+    & > header {
+        & > div > img.logo {
+            width: 100px;
+            // height: 40px;
+            background-image: url("../../assets/images/logo.png");
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            background-blend-mode: saturation;
+        }
+    }
+}

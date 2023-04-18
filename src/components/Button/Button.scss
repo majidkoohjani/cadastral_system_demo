@@ -1,0 +1,26 @@
+@import "../../assets/styles/colors.scss";
+
+.button {
+    margin: 3px 4px;
+    padding: 4px 8px;
+    display: block;
+    border: 2px solid;
+    border-radius: 50px;
+    width: 150px;
+
+    &-default {}
+
+    &-danger {
+        & {
+            background-color: $red--ff6;
+            border-color: $red--ff6;
+            color: $white--ef;
+        }
+
+        &-outline {
+            background-color: transparent;
+            border-color: $red--ff6;
+            color: $green--0b;
+        }
+    }
+}
