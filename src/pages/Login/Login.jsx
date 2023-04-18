@@ -10,8 +10,8 @@ import linkedin from "../../assets/images/linkedin.svg";
 import instagram from "../../assets/images/instagram.svg";
 import email from "../../assets/images/envelope.svg";
 import globe from "../../assets/images/globe.svg"
-import "./Login.scss";
 import { Link } from "react-router-dom";
+import "./Login.scss";
 
 export default function Login() {
     
@@ -27,8 +27,8 @@ export default function Login() {
                     </p>
                 </div>
                 <div className="content-column col-12 col-md-6">
-                    <Alert text="یکپارچه کردن اطلاعات بر پایه شناسه جهانی ملک" mode="success" />
-                    <Alert text="مدلی نوآورانه در حوزه یکپارچه سازی و هوشمندسازی اطلاعات در دولت" mode="success" />
+                    <Alert text="یکپارچه کردن اطلاعات بر پایه شناسه جهانی ملک" mode="success" customClass="font-nazanin" />
+                    <Alert text="مدلی نوآورانه در حوزه یکپارچه سازی و هوشمندسازی اطلاعات در دولت" mode="success" customClass="font-nazanin" />
                     <div className="margin-top-50px">
                         <p className="text-white">
                             <img src={image10} className="icon" />

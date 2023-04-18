@@ -1,9 +1,14 @@
 @import "../fonts/yekan/yekan.scss";
+@import "../fonts/b_nazanin/bNazanin.scss";
 @import "../styles/colors.scss";
 
 * {
     font-family: "Yekan";
     user-select: none;
+}
+
+.font-nazanin {
+    font-family: "B Nazanin";
 }
 
 a {
