@@ -15,8 +15,7 @@
             max-height: 200px;
         }
 
-        & > div.col {
-            width: 100%;
+        & > div.content-column {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -34,5 +33,66 @@
 
     & > footer {
         background-color: $gray--e6;
+
+        .footer__list {
+            list-style-type: none;
+            margin: 5px 0;
+            padding: 0;
+            text-align: right;
+
+            &-item {
+                display: inline-block;
+                margin: 0 10px;
+
+                .language--change {
+                    background-color: transparent;
+                    border: none;
+                    cursor: pointer;
+                    color: $green--00;
+                    font-family: "Tahoma";
+                    font-size: 0.75rem;
+                    font-weight: bold;
+
+                    &:focus {
+                        border: none;
+                        outline: none;
+                    }
+                }
+
+                & > a {
+                    color: $green--00;
+                    
+                }
+            }
+        }
+
+        .social-media__list {
+            list-style-type: none;
+            margin: 5px 0;
+            padding: 0;
+            text-align: left;
+
+            &-item {
+                display: inline-block;
+                margin: 0 3px;
+
+                & > a {
+                    & > .icon-container {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        width: 32px;
+                        height: 32px;
+                        border-radius: 50%;
+                        border: 1px solid $green--00;
+
+                        & > img {
+                            width: 16px;
+                            height: 16px;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
