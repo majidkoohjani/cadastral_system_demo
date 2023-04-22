@@ -1,8 +1,11 @@
 export default class Storage {
+    // Properties
+    static #errorMessage = "Storage.js file > Storage class > ";
+
     // Private methods
     static #setter(key = "", value = null) {
         if (typeof key !== "string" || key.length < 1 || !value)
-            throw "Storage.js file > Storage class > setter method > wrong input parameters!";
+            throw `${this.#errorMessage}setter method > wrong input parameters!`;
         
         localStorage.setItem(key, JSON.stringify(value));
 
@@ -11,11 +14,21 @@ export default class Storage {
 
     static #getter(key = "") {
         if (typeof key !== "string" || key.length < 1)
-            throw "Storage.js file > Storage class > getter method > wrong input parameters!";
+            throw `${this.#errorMessage}getter method > wrong input parameters!`;
         
         return JSON.parse(localStorage.getItem(key));
     }
 
     // Public methods
-    
+    static setLanguage(value = null) {
+        if (!value) {
+            throw `${this.#errorMessage}setLanguage method > wrong input parameters!`;
+        }
+
+        return this.#setter("language", value);
+    }
+
+    static getLanguage() {
+        return this.#getter("language");
+    }
 }

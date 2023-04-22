@@ -12,6 +12,7 @@ import email from "../../assets/images/envelope.svg";
 import globe from "../../assets/images/globe.svg"
 import { Link } from "react-router-dom";
 import "./Login.scss";
+import LanguageSwitch from "../../components/LanguageSwitch/LanguageSwitch";
 
 export default function Login() {
     
@@ -53,11 +54,7 @@ export default function Login() {
                 <div className="col-12 col-sm-6">
                     <ul className="footer__list">
                         <li className="footer__list-item">
-                            <img src={globe} height="16" width="16" />
-                            <select name="language" className="language--change">
-                                <option value="fa" selected>FA</option>
-                                <option value="en">EN</option>
-                            </select>
+                            <LanguageSwitch />
                         </li>
                         <li className="footer__list-item">
                             <Link to="/about">درباره ما</Link>

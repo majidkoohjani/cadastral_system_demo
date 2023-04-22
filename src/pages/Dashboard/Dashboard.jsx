@@ -1,12 +1,13 @@
 import logo from "../../assets/images/logo.png";
 import Title from "../../components/Title/Title";
 import { services } from "../../core/constants/dummyData";
+import LanguageSwitch from "../../components/LanguageSwitch/LanguageSwitch";
 import "./Dashboard.scss";
 
 export default function Dashboard() {
     return (
         <div className="container dashboard-page">
-            <header className="row">
+            <header className="row" style={{borderBottom: "2px solid #000000"}}>
                 <div className="col-2">
                     <img src={logo} alt="Logo" className="logo" />
                 </div>
@@ -23,7 +24,7 @@ export default function Dashboard() {
                             جستجو
                         </div>
                         <div className="col-3">
-                            خروج
+                            <LanguageSwitch />
                         </div>
                     </div>
                 </nav>
