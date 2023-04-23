@@ -14,9 +14,9 @@ export default function LanguageSwitch() {
     return (
         <>
             <img src={globe} height="16" width="16" />
-            <select name="language" className="language--change" onChange={onChangeLanguage}>
-                <option value="fa" selected={language === "fa"}>FA</option>
-                <option value="en" selected={language === "en"}>EN</option>
+            <select name="language" className="language--change" defaultValue={language} onChange={onChangeLanguage}>
+                <option value="fa">FA</option>
+                <option value="en">EN</option>
             </select>
         </>
     );

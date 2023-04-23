@@ -6,6 +6,8 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import About from "./pages/About/About";
 import Contact from "./pages/Contact/Contact";
 import Error404 from "./pages/Errors/Error404";
+import Services from "./pages/Dashboard/Services/Services";
+import Service from "./pages/Dashboard/Services/Service/Service";
 import "bootstrap/dist/css/bootstrap-reboot.min.css";
 import "bootstrap/dist/css/bootstrap-grid.min.css";
 import "./assets/styles/global.scss";
@@ -20,7 +22,17 @@ root.render(
           ["/login", "/signin", "/ورود"].map((route, index) => <Route path={route} key={index} element={<Login />} />)
         }
         {
-          ["/", "/home", "/dashboard", "/services", "/خانه"].map((route, index) => <Route path={route} key={index} element={<Dashboard />} />)
+          ["/logout", "/signout", "/خروج"].map((route, index) => <Route path={route} key={index} element={<Login />} />)
+        }
+        {
+          ["/", "/home", "/dashboard", "/خانه"].map((route, index) => {
+              return (
+                  <Route path={route} key={index} element={<Dashboard />}>
+                      <Route path="services" element={<Services />} />
+                      <Route path="service/:id/sub-services" element={<Service />} />
+                  </Route>
+              );
+          })
         }
         {
           ["/about", "/about-us", "/درباره", "/درباره-ما"].map((route, index) => <Route path={route} key={index} element={<About />} />)

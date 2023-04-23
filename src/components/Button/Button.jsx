@@ -1,9 +1,9 @@
 import "./Button.scss";
 
-export default function Button({children = null, type = "default", customClass = ""}) {
+export default function Button({children = null, type = "default", customClass = "", onClick = () => {}}) {
 
     const onClickHandler = (event) => {
-        console.log(event.target);
+        onClick();
     }
 
     return (

@@ -1,0 +1,57 @@
+@import "../../assets/styles/colors";
+
+.search-box {
+  width: 100%;
+  height: 35px;
+  background-color: $gray--d8;
+  border: none;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 6px;
+
+  &__button {
+    width: 30px;
+    height: 100%;
+
+    & > button {
+      border: none;
+      background-color: transparent;
+      height: 100%;
+      width: 100%;
+      padding: 0;
+
+      &:focus {
+        outline: none;
+      }
+
+      & > .magnifier-icon {
+        width: 16px;
+        height: 16px;
+        rotate: 90deg;
+      }
+    }
+  }
+
+  &__input {
+    width: 100%;
+    height: 100%;
+
+    & > input {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background-color: transparent;
+      color: $black;
+
+      &::placeholder {
+        color: $gray--a8;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

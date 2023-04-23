@@ -10,6 +10,20 @@
 
     &-default {}
 
+    &-primary {
+        & {
+            background-color: $blue--27;
+            border-color: $blue--27;
+            color: $white--ef;
+        }
+
+        &-outline {
+            background-color: transparent;
+            border-color: $blue--27;
+            color: $blue--27;
+        }
+    }
+
     &-danger {
         & {
             background-color: $red--ff6;

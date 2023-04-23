@@ -1,6 +1,7 @@
 @import "../../assets/styles/colors.scss";
 
 .dashboard-page {
+    position: relative;
     direction: rtl;
     display: flex;
     flex-direction: column;
@@ -9,16 +10,80 @@
     font-size: 0.75rem;
 
     & > header {
-        font-weight: bold;
+        font-size: 0.9rem;
+        padding: 10px 0;
+
+        & > nav {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+
+            & > div.items-list {
+                width: 100%;
+                height: 100%;
+                padding-bottom: 25px;
+                justify-content: flex-end;
+                align-items: center;
+                border-bottom: 2px solid $gray--bf;
+            }
+        }
         
         & > div > img.logo {
-            width: 100px;
-            // height: 40px;
-            background-image: url("../../assets/images/logo.png");
-            background-repeat: no-repeat;
-            background-size: contain;
-            background-position: center;
-            background-blend-mode: saturation;
+            max-width: 160px;
+            max-height: 85px;
+        }
+    }
+
+    & > main {
+        height: 100vh;
+
+        & > aside {
+            display: flex;
+            flex-direction: column;
+
+            .aside-list {
+                border-left: 2px solid $gray--bf;
+
+                &__item {
+                    text-transform: capitalize;
+                    font-size: 0.9rem;
+                    display: block;
+                    margin: 25px 0;
+
+                    &__link {
+                        display: block;
+                        color: $black;
+                        font: inherit;
+
+                        & > img {
+                            width: 24px;
+                            height: 24px;
+                            margin-left: 6px;
+                        }
+
+                        &:visited {
+                            color: $black;
+                        }
+                    }
+                }
+            }
+        }
+
+        & > article {
+            z-index: 10001;
+        }
+    }
+
+    & > footer.fixed-footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        & > img {
+            max-width: 300px;
+            max-height: 300px;
+            opacity: 0.3;
         }
     }
 }

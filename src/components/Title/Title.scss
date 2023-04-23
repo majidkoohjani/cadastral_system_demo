@@ -1,3 +1,11 @@
 @import "../../assets/styles/colors.scss";
 
+.title {
+    font-size: 1rem !important;
 
+    & > a {
+        &:hover {
+            color: $black;
+        }
+    }
+}
