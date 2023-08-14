@@ -19,16 +19,33 @@ export default class Storage {
         return JSON.parse(localStorage.getItem(key));
     }
 
+    static #delete(key = "", clearAll = false) {
+        if (clearAll) {
+            localStorage.clear();
+        }
+        else {
+            localStorage.removeItem(key);
+        }
+    }
+
     // Public methods
     static setLanguage(value = null) {
-        if (!value) {
-            throw `${this.#errorMessage}setLanguage method > wrong input parameters!`;
-        }
-
         return this.#setter("language", value);
     }
 
     static getLanguage() {
         return this.#getter("language");
+    }
+
+    static setLoginInfo(value = null) {
+        return this.#setter("userInfo", value);
+    }
+
+    static getLoginInfo() {
+        return this.#getter("userInfo");
+    }
+
+    static deleteLoginInfo() {
+        this.#delete("userInfo");
     }
 }

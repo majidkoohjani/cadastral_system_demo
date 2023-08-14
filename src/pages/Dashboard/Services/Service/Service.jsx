@@ -31,7 +31,7 @@ const Service = () => {
                  {`${service.title} ${service.id} - ${service.description}`}
              </h6>
             {
-                service?.subServices?.length > 0 ? service?.subServices?.map(subService => <Title key={subService.id} text={`${subService.id}. ${subService.title}`} link="#" customClasses="margin-y12px" />) : <p>موردی جهت نمایش یافت نشد</p>
+                service?.subServices?.length > 0 ? service?.subServices?.map(subService => <Title key={subService.id} text={`${subService.id}. ${subService.title}`} link={`/service/${serviceID}/sub-services/${subService.id}`} customClasses="margin-y12px" />) : <p>موردی جهت نمایش یافت نشد</p>
             }
         </>
     );

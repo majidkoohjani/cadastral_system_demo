@@ -9,20 +9,22 @@ import aparat from "../../assets/images/aparat.svg";
 import linkedin from "../../assets/images/linkedin.svg";
 import instagram from "../../assets/images/instagram.svg";
 import email from "../../assets/images/envelope.svg";
-import globe from "../../assets/images/globe.svg"
+// import globe from "../../assets/images/globe.svg";
 import { Link, useNavigate } from "react-router-dom";
-import "./Login.scss";
 import LanguageSwitch from "../../components/LanguageSwitch/LanguageSwitch";
+import "./Login.scss";
 
 export default function Login() {
-    const navigate = useNavigate();
+    
     
     return (
         <div className="container-fluid login-page">
             <main className="row">
                 <div className="content-column col-12 col-md-6">
                     <img src={logo} alt="لوگو - Logo" className="logo" />
-                    <Button type="danger" customClass="max-width-310px" onClick={() => navigate("/services")}>ورود</Button>
+                    <button className="button button-danger max-width-310px" data-bs-toggle="modal" data-bs-target="#authModal">
+                    ورود
+                    </button>
                     <Button type="danger-outline" customClass="max-width-310px">ثبت نام</Button>
                     <p className="text-green">
                         لطفا قبل از ورود به سامانه <span className="text-red">فایل راهنما (pdf)</span> را مطالعه نمائید.

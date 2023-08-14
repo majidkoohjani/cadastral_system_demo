@@ -1,0 +1,61 @@
+@import "../../assets/styles/colors";
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: $black--00;
+    opacity: 0.7;
+    z-index: 1000001;
+    cursor: wait;
+
+    .loader {
+        animation: loader-animate 1.5s linear infinite;
+        clip: rect(0, 80px, 80px, 40px);
+        height: 80px;
+        width: 80px;
+        position: absolute;
+        left: calc(50% - 40px);
+        top: calc(50% - 40px);
+        &:after {
+            animation: loader-animate-after 1.5s ease-in-out infinite;
+            clip: rect(0, 80px, 80px, 40px);
+            content: '';
+            border-radius: 50%;
+            height: 80px;
+            width: 80px;
+            position: absolute;
+        }
+    }
+    @keyframes loader-animate {
+        0% {
+            transform: rotate(0deg)
+        }
+        100% {
+            transform: rotate(220deg)
+        }
+    }
+    @keyframes loader-animate-after {
+        0% {
+            box-shadow: inset #fff 0 0 0 17px;
+            transform: rotate(-140deg);
+        }
+        50% {
+            box-shadow: inset #fff 0 0 0 2px;
+        }
+        100% {
+            box-shadow: inset #fff 0 0 0 17px;
+            transform: rotate(140deg);
+        }
+    }
+}

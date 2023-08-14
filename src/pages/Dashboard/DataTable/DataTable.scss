@@ -1,0 +1,30 @@
+@import "../../../assets/styles/colors.scss";
+
+.data-table {
+    border-spacing: 2px;
+    border-collapse: separate;
+
+    & th {
+        background-color: $green--0b6;
+        color: $white--ff;
+        text-transform: capitalize;
+        padding: 5px 10px; 
+        -ms-writing-mode: tb-rl;
+        -webkit-writing-mode: vertical-rl;
+        writing-mode: vertical-rl;
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    & td {
+        background-color: $gray--D9;
+        color: $black--00;
+        text-transform: capitalize;
+        padding: 5px 10px;
+        -ms-writing-mode: tb-rl;
+        -webkit-writing-mode: vertical-rl;
+        writing-mode: vertical-rl;
+        text-align: center;
+        white-space: nowrap;
+    }
+}
