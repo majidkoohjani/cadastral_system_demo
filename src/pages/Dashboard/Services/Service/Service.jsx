@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { services } from "../../../../core/constants/dummyData";
 import Title from "../../../../components/Title/Title";
+import { translate } from "../../../../core/helpers/Translator";
 import "./Service.scss";
 
 const Service = () => {
@@ -28,10 +29,10 @@ const Service = () => {
     return (
         <>
              <h6 className="font-weight--bold">
-                 {`${service.title} ${service.id} - ${service.description}`}
+                 {`${translate(service.title)} ${service.id} - ${translate(service.description)}`}
              </h6>
             {
-                service?.subServices?.length > 0 ? service?.subServices?.map(subService => <Title key={subService.id} text={`${subService.id}. ${subService.title}`} link={`/service/${serviceID}/sub-services/${subService.id}`} customClasses="margin-y12px" />) : <p>موردی جهت نمایش یافت نشد</p>
+                service?.subServices?.length > 0 ? service?.subServices?.map(subService => <Title key={subService.id} id={subService.id} addIdToTitle text={subService.title} link={`/service/${serviceID}/sub-services/${subService.id}`} customClasses="margin-y12px capitalize-title" />) : <p>موردی جهت نمایش یافت نشد</p>
             }
         </>
     );

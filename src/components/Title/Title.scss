@@ -3,6 +3,12 @@
 .title {
     font-size: 1rem !important;
 
+    &.capitalize-title {
+        strong {
+            text-transform: capitalize;
+        }
+    }
+
     & > a {
         &:hover {
             color: $black;

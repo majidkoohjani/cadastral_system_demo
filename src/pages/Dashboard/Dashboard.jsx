@@ -5,6 +5,7 @@ import asideItems from "../../core/constants/asideItems";
 import Storage from "../../core/helpers/Storage";
 import logo from "../../assets/images/logo.png";
 import footerImage from "../../assets/images/08.png";
+import { downloadFile } from "fs-browsers";
 import "./Dashboard.scss";
 
 export default function Dashboard() {
@@ -42,7 +43,7 @@ export default function Dashboard() {
                         {
                             asideItems.map(item => {
                                 return <li key={item.id} className="aside-list__item">
-                                    <Link to={item.location} className="aside-list__item__link">
+                                    <Link to={item?.location ?? item.file} target={item?.download === true ? "_blank" : "_self"} download={item?.download === true ? "true" : false} className="aside-list__item__link">
                                         <img src={item.icon} alt={item.icon} />
                                         { item[`${language}Text`] }
                                     </Link>

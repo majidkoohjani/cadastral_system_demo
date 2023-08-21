@@ -6,7 +6,7 @@ function determineLang() {
 }
 
 function translate(key = "") {
-    return translatesFaEn[key][determineLang()];
+    return translatesFaEn?.[key]?.[determineLang()] ?? key;
 }
 
 export {translate};

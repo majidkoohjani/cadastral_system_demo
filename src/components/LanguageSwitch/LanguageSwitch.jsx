@@ -9,6 +9,7 @@ export default function LanguageSwitch() {
     const onChangeLanguage = (event) => {
         Storage.setLanguage(event.target.value);
         setLanguage(event.target.value);
+        window.location.reload();
     }
 
     return (

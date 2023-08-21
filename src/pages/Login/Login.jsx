@@ -12,11 +12,10 @@ import email from "../../assets/images/envelope.svg";
 // import globe from "../../assets/images/globe.svg";
 import { Link, useNavigate } from "react-router-dom";
 import LanguageSwitch from "../../components/LanguageSwitch/LanguageSwitch";
+import helpFile from "../../assets/help.pdf";
 import "./Login.scss";
 
 export default function Login() {
-    
-    
     return (
         <div className="container-fluid login-page">
             <main className="row">
@@ -27,7 +26,7 @@ export default function Login() {
                     </button>
                     <Button type="danger-outline" customClass="max-width-310px">ثبت نام</Button>
                     <p className="text-green">
-                        لطفا قبل از ورود به سامانه <span className="text-red">فایل راهنما (pdf)</span> را مطالعه نمائید.
+                        لطفا قبل از ورود به سامانه <a href={helpFile} download={"help.pdf"} className="text-red">فایل راهنما (pdf)</a> را مطالعه نمائید.
                     </p>
                 </div>
                 <div className="content-column col-12 col-md-6">
@@ -77,21 +76,21 @@ export default function Login() {
                             </a>
                         </li>
                         <li className="social-media__list-item">
-                            <a href="#" target="_blank" rel="noopener noreferrer">
+                            <a href="https://instagram.com/metacadastral_system?igshid=ZDc4ODBmNjlmNQ" target="_blank" rel="noopener noreferrer">
                                 <div className="icon-container">
                                     <img src={instagram} alt="Instagram" />
                                 </div>
                             </a>
                         </li>
                         <li className="social-media__list-item">
-                            <a href="#" target="_blank" rel="noopener noreferrer">
+                            <a href="mailto:Metacadastral.system@gmail.com" target="_blank" rel="noopener noreferrer">
                                 <div className="icon-container">
                                     <img src={email} alt="Email" />
                                 </div>
                             </a>
                         </li>
                         <li className="social-media__list-item">
-                            <a href="#" target="_blank" rel="noopener noreferrer">
+                            <a href="http://www.linkedin.com/in/metacadastral-system-33352b281" target="_blank" rel="noopener noreferrer">
                                 <div className="icon-container">
                                     <img src={linkedin} alt="LinkedIn" />
                                 </div>

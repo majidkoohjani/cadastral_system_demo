@@ -11,7 +11,8 @@ export default [
         faText: "دستور العمل کار با سامانه",
         enText: "user manual",
         icon: require("../../assets/images/instruction.png"),
-        location: "/user-manual"
+        file: require("../../assets/instructions.pdf"),
+        download: true
     },
     {
         id: 3,
@@ -32,14 +33,16 @@ export default [
         faText: "سوالات متداول",
         enText: "FAQ",
         icon: require("../../assets/images/faq.png"),
-        location: "/faq"
+        file: require("../../assets/faq.pdf"),
+        download: true
     },
     {
         id: 6,
         faText: "قابلیت های بیشتر",
         enText: "more features",
         icon: require("../../assets/images/features.png"),
-        location: "/more-features"
+        file: require("../../assets/more-features.pdf"),
+        download: true
     },
     {
         id: 7,
