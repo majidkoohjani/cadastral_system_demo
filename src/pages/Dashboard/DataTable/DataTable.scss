@@ -10,16 +10,30 @@
     padding: 8px 16px;
 }
 
+.buttons-and-messenger {
+    display: flex;
+    column-gap: 90px;
+    margin-top: auto;
+    margin-bottom: 0;
+}
+
 .data-table {
     direction: ltr;
     border-spacing: 2px;
     border-collapse: separate;
+    caption-side: top;
+    height: fit-content;
+
+    & > caption {
+        text-align: center;
+        text-transform: capitalize;
+    }
 
     & th {
         background-color: $green--0b6;
         color: $white--ff;
         text-transform: capitalize;
-        padding: 5px 10px;
+        padding: 3px 2px;
         text-align: center;
         white-space: nowrap;
 
@@ -35,8 +49,7 @@
         background-color: $gray--D9;
         color: $black--00;
         text-transform: capitalize;
-        padding: 5px 10px;
-        
+        padding: 3px 2px;
         text-align: center;
         white-space: nowrap;
 

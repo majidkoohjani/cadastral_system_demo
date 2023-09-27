@@ -1,6 +1,7 @@
 import { useState } from "react";
 import magnifier from "../../assets/images/magnifier.svg";
 import "./SearchBox.scss";
+import { translate } from "../../core/helpers/Translator";
 
 const SearchBox = () => {
     const [searchText, setSearchText] = useState("");
@@ -21,7 +22,7 @@ const SearchBox = () => {
                 </button>
             </div>
             <div className="search-box__input">
-                <input type="text" placeholder="جست و جو در سایت" value={searchText} onChange={onChangeSearchText} />
+                <input type="text" placeholder={translate("search-website")} value={searchText} onChange={onChangeSearchText} />
             </div>
         </div>
     );

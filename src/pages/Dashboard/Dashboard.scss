@@ -8,10 +8,26 @@
     height: 100vh;
     align-items: stretch;
     font-size: 0.75rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    &.ltr {
+        direction: ltr !important;
+
+        & > main {
+            & > aside {
+                .aside-list {
+                    border-right: 2px solid $gray--bf;
+                    border-left: 0;
+                }
+            }
+        }
+    }
 
     & > header {
         font-size: 0.9rem;
         padding: 10px 0;
+        text-transform: capitalize;
 
         & > nav {
             display: flex;
@@ -44,6 +60,7 @@
 
             .aside-list {
                 border-left: 2px solid $gray--bf;
+                border-right: 0;
 
                 &__item {
                     text-transform: capitalize;
@@ -59,7 +76,7 @@
                         & > img {
                             width: 24px;
                             height: 24px;
-                            margin-left: 6px;
+                            margin: 0 6px;
                         }
 
                         &:visited {
@@ -80,11 +97,11 @@
     & > footer.fixed-footer {
         position: absolute;
         bottom: 0;
-        left: 0;
+        left: 5%;
 
         & > img {
-            max-width: 300px;
-            max-height: 300px;
+            max-width: 250px;
+            max-height: 250px;
             opacity: 0.3;
         }
     }

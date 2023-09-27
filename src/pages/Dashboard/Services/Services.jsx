@@ -5,7 +5,7 @@ const Services = () => {
     return (
         <>
             {
-                services.map(service => <Title key={service.id} id={service.id} title={service.title} text={service.description} link={`/service/${service.id}/sub-services`} addIdToTitle customClasses="margin-y12px font-weight--bold capitalize-title" />)
+                services.map(service => <Title key={service.id} id={service.id} title={service.title} text={service.description} link={`/service/${service.id}/sub-services`} addIdToTitle customClasses="my-1 font-weight--bold capitalize-title" />)
             }
         </>
     );

@@ -7,26 +7,31 @@ import logo from "../../assets/images/logo.png";
 import footerImage from "../../assets/images/08.png";
 import { downloadFile } from "fs-browsers";
 import "./Dashboard.scss";
+import { translate } from "../../core/helpers/Translator";
 
 export default function Dashboard() {
     const language = Storage.getLanguage();
 
     return (
-        <div className="container dashboard-page">
+        <div className={`container-fluid dashboard-page ${language === 'fa' ? 'rtl' : 'ltr'}`}>
             <header className="row my-3">
                 <div className="col-2">
                     <img src={logo} alt="Logo" className="logo" />
                 </div>
-                <nav className="col-10">
+                <nav className="col-8 mx-auto">
                     <div className="row items-list">
                         <div className="col-3">
                             <ul className="m-0">
-                                <li>کد ملی کاربر: </li>
-                                <li>نوع کد ملی: </li>
+                                <li>
+                                    {`${translate("user-nc")}: ${Storage.getLoginInfo().displayName}`}
+                                </li>
+                                <li>
+                                    {`${translate("nc-type")}: `}
+                                </li>
                             </ul>
                         </div>
                         <div className="col-3">
-                            آخرین زمان ورود: 
+                            {`${translate("last-login")}: `}
                         </div>
                         <div className="col-3">
                             <SearchBox />
@@ -52,7 +57,7 @@ export default function Dashboard() {
                         }
                     </ul>
                 </aside>
-                <article className="col-10">
+                <article className="col-10 d-flex flex-column">
                     <Outlet />
                 </article>
             </main>

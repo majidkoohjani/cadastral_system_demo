@@ -47,6 +47,7 @@
 
       &::placeholder {
         color: $gray--a8;
+        text-transform: capitalize;
       }
 
       &:focus {

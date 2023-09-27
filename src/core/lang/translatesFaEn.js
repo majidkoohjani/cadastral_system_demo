@@ -647,4 +647,28 @@ export default {
         "fa": "زیر خدمت",
         "en": "sub-service"
     },
+    "source-table": {
+        "fa": "ردیف اطلاعات مبدا",
+        "en": "origin table"
+    },
+    "destination-table": {
+        "fa": "ردیف اطلاعات مقصد",
+        "en": "destination table"
+    },
+    "search-website": {
+        "fa": "جست و جو در سایت",
+        "en": "search in website"
+    },
+    "last-login": {
+        "fa": "آخرین زمان ورود",
+        "en": "last login"
+    },
+    "nc-type": {
+        "fa": "نوع کدملی",
+        "en": "national code type"
+    },
+    "user-nc": {
+        "fa": "کدملی کاربر",
+        "en": "user national code"
+    },
 };
