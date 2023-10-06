@@ -1,0 +1,22 @@
+.map {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: space-between;
+    row-gap: 5px;
+    column-gap: 10px;
+    width: 410px;
+    height: 240px;
+    margin: 10px auto;
+
+    // &-section {
+    //     &:nth-child(odd) {
+    //         flex: 0 0 60%;
+    //         background-color: yellow;
+    //     }
+
+    //     &:nth-child(even) {
+    //         flex: 0 0 30%;
+    //         background-color: black;
+    //     }
+    // }
+}

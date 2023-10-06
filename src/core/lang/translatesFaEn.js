@@ -3,6 +3,74 @@ export default {
         "fa": "",
         "en": ""
     },
+    "username": {
+        "fa": "نام کاربری",
+        "en": "username"
+    },
+    "password": {
+        "fa": "کلمه عبور",
+        "en": "password"
+    },
+    "read-manual-message-1": {
+        "fa": "لطفا قبل از ورود به سامانه",
+        "en": "Please study the"
+    },
+    "read-manual-message-2": {
+        "fa": "را مطالعه فرمایید",
+        "en": "before entering the system"
+    },
+    "manual": {
+        "fa": "فایل راهنما (pdf)",
+        "en": "Manual"
+    },
+    "system-desc-1": {
+        "fa": "یکپارچه کردن اطلاعات بر پایه شناسه جهانی ملک",
+        "en": "Integration of information based on the international real estate identification"
+    },
+    "system-desc-2": {
+        "fa": "مدلی نوآورانه در حوزه یکپارچه سازی و هوشمندسازی اطلاعات در دولت الکترونیک",
+        "en": "An Innovative model in the field of integration and modernization of information in the electronic government"
+    },
+    "system-goal-1": {
+        "fa": "ارائه ساختار اقتصادی _ اداری جدید برای کشورها بمنظور فقرزدائی",
+        "en": "Introducing a new economical-administrative structure to countries for poverty alleviation"
+    },
+    "system-goal-2": {
+        "fa": "مشخص شدن علت هر تراکنش بانکی قبل از انجام تراکنش توسط ساختار سامانه",
+        "en": "Determining the reason for every bank transaction before conducting it"
+    },
+    "system-goal-3": {
+        "fa": "انجام همه تراکنشهای اقتصادی و اداری همه اشخاص فقط با یک دامنه اینترنتی",
+        "en": "Conducting administrative and economical transactions under one domain"
+    },
+    "system-goal-4": {
+        "fa": "جابجایی هر دارایی از مکانی به مکان دیگر و یا از شخصی به شخص دیگر با اجازه یک مرکز داده",
+        "en": "Transfer of ownership or relocation of property from one place to another or one person to another under one database"
+    },
+    "dashboard-title": {
+        "fa": "پنل کاربری",
+        "en": "Dashboard"
+    },
+    "site-main-title": {
+        "fa": "سامانه فوق کاداستر",
+        "en": "Meta-Cadastral System"
+    },
+    "about-us": {
+        "fa": "درباره ما",
+        "en": "About us"
+    },
+    "contact-us": {
+        "fa": "ارتباط با ما",
+        "en": "Contact us"
+    },
+    "register": {
+        "fa": "ثبت نام",
+        "en": "register"
+    },
+    "login": {
+        "fa": "ورود",
+        "en": "login"
+    },
     "service-1": {
         "fa": "میخواهم اطلاعات داراییهایم را در نقشه املاک کشور ببینیم",
         "en": "I want to see my property’s information on the country’s real estate map"
@@ -623,6 +691,10 @@ export default {
         "fa": "این زیر خدمت برای شما مجاز نمیباشد",
         "en": "You are not allowed!"
     },
+    "404-error": {
+        "fa": "درخواست پیدا نشد!!!!",
+        "en": "Request not found!!!!"
+    },
     "network-error" : {
         "fa": "اتصال به اینترنت برقرار نیست!",
         "en": "Check your internet connection!"
@@ -665,10 +737,26 @@ export default {
     },
     "nc-type": {
         "fa": "نوع کدملی",
-        "en": "national code type"
+        "en": "ID type"
     },
     "user-nc": {
         "fa": "کدملی کاربر",
-        "en": "user national code"
+        "en": "user ID"
+    },
+    "operation-denied": {
+        "fa": "مجاز به به تغییر این سلول نمی باشید.",
+        "en": "unauthorized operation!"
+    },
+    "send-msg-to-user": {
+        "fa": "ارسال پیام به کاربر دیگر",
+        "en": "send a message to other users"
+    },
+    "submit": {
+        "fa": "ثبت",
+        "en": "submit"
+    },
+    "exit-subservice": {
+        "fa": "خروج از زیر خدمت",
+        "en": "exit the subservice"
     },
 };

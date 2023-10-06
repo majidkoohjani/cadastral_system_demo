@@ -57,11 +57,11 @@ export default function AuthComponent(props) {
     }
 
     return (
-        <Modal id="authModal" title="ورود">
+        <Modal id="authModal" title={translate("login")}>
             <div className="d-flex flex-column gap-3 mx-auto my-2" style={{maxWidth: "70%"}}>
-                <TextInput type="text" placeholder="نام کاربری" autoFocus={true} name="username" value={username} onChange={onFieldsChanged} />
-                <TextInput type="password" placeholder="کلمه عبور" name="password" value={password} onChange={onFieldsChanged} />
-                <button className="button button-danger mx-auto" onClick={loginHandler}>ورود</button>
+                <TextInput type="text" placeholder={ translate("username") } autoFocus={true} name="username" value={username} onChange={onFieldsChanged} />
+                <TextInput type="password" placeholder={ translate("password") } name="password" value={password} onChange={onFieldsChanged} />
+                <button className="button button-danger mx-auto" onClick={loginHandler}>{translate("login")}</button>
             </div>
         </Modal>
     );

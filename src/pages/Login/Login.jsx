@@ -1,6 +1,7 @@
 import Button from "../../components/Button/Button";
 import Alert from "../../components/Alert/Alert";
-import logo from "../../assets/images/logo.png";
+import logoFa from "../../assets/images/logo-fa.png";
+import logoEn from "../../assets/images/logo-en.png";
 import image10 from "../../assets/images/10.png";
 import image11 from "../../assets/images/11.png";
 import image12 from "../../assets/images/12.png";
@@ -13,41 +14,46 @@ import email from "../../assets/images/envelope.svg";
 import { Link, useNavigate } from "react-router-dom";
 import LanguageSwitch from "../../components/LanguageSwitch/LanguageSwitch";
 import helpFile from "../../assets/help.pdf";
+import Storage from "../../core/helpers/Storage";
+import { translate } from "../../core/helpers/Translator";
 import "./Login.scss";
 
 export default function Login() {
+    const language = Storage.getLanguage();
+    document.title = translate("site-main-title");
+
     return (
         <div className="container-fluid login-page">
-            <main className="row">
+            <main className="row row-reverse" style={{direction: language === "fa" ? "rtl" : "ltr"}}>
                 <div className="content-column col-12 col-md-6">
-                    <img src={logo} alt="لوگو - Logo" className="logo" />
-                    <button className="button button-danger max-width-310px" data-bs-toggle="modal" data-bs-target="#authModal">
-                    ورود
-                    </button>
-                    <Button type="danger-outline" customClass="max-width-310px">ثبت نام</Button>
+                    <img src={language === "fa" ? logoFa : logoEn} alt="لوگو - Logo" className="logo" />
+                    <button className="button button-danger max-width-310px" data-bs-toggle="modal" data-bs-target="#authModal">{ translate("login") }</button>
+                    <Button type="danger-outline" customClass="max-width-310px">{ translate("register") }</Button>
                     <p className="text-green">
-                        لطفا قبل از ورود به سامانه <a href={helpFile} download={"help.pdf"} className="text-red">فایل راهنما (pdf)</a> را مطالعه نمائید.
+                        { `${translate("read-manual-message-1")} ` }
+                        <a href={helpFile} download={"help.pdf"} className="text-red">{ translate("manual") }</a>
+                        { ` ${translate("read-manual-message-2")}` }
                     </p>
                 </div>
                 <div className="content-column col-12 col-md-6">
-                    <Alert text="یکپارچه کردن اطلاعات بر پایه شناسه جهانی ملک" mode="success" customClass="font-nazanin" />
-                    <Alert text="مدلی نوآورانه در حوزه یکپارچه سازی و هوشمندسازی اطلاعات در دولت" mode="success" customClass="font-nazanin" />
+                    <Alert text={translate("system-desc-1")} mode="success" customClass="font-nazanin" />
+                    <Alert text={translate("system-desc-2")} mode="success" customClass="font-nazanin" />
                     <div className="margin-top-50px">
                         <p className="text-white">
                             <img src={image10} className="icon" />
-                            ارائه ساختار اقتصادی _ اداری جدید برای کشورها به منظور فقرزدائی
+                            { translate("system-goal-1") }
                         </p>
                         <p className="text-white">
                             <img src={image11} className="icon" />
-                            مشخص شدن علت هر تراکنش بانکی قبل از انجام تراکنش توسط ساختار سامانه
+                            { translate("system-goal-2") }
                         </p>
                         <p className="text-white">
                             <img src={image12} className="icon" />
-                            انجام همه تراکنش های اقتصادی و اداری همه اشخاص فقط با یک دامنه
+                            { translate("system-goal-3") }
                         </p>
                         <p className="text-white">
                             <img src={image13} className="icon" />
-                            جابجایی هر دارایی از مکانی به مکان دیگر و یا از شخصی به شخص دیگر با اجازه یک مرکز داده
+                            { translate("system-goal-4") }
                         </p>
                     </div>
                 </div>
@@ -59,10 +65,10 @@ export default function Login() {
                             <LanguageSwitch />
                         </li>
                         <li className="footer__list-item">
-                            <Link to="/about">درباره ما</Link>
+                            <Link to="/about">{ translate("about-us") }</Link>
                         </li>
                         <li className="footer__list-item">
-                            <Link to="/contact">ارتباط با ما</Link>
+                            <Link to="/contact">{ translate("contact-us") }</Link>
                         </li>
                     </ul>
                 </div>

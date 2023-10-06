@@ -3,20 +3,21 @@ import LanguageSwitch from "../../components/LanguageSwitch/LanguageSwitch";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import asideItems from "../../core/constants/asideItems";
 import Storage from "../../core/helpers/Storage";
-import logo from "../../assets/images/logo.png";
+import logoFa from "../../assets/images/logo-fa.png";
+import logoEn from "../../assets/images/logo-en.png";
 import footerImage from "../../assets/images/08.png";
-import { downloadFile } from "fs-browsers";
-import "./Dashboard.scss";
 import { translate } from "../../core/helpers/Translator";
+import "./Dashboard.scss";
 
 export default function Dashboard() {
     const language = Storage.getLanguage();
+    document.title = `${translate("dashboard-title")} | ${translate("site-main-title")}`;
 
     return (
         <div className={`container-fluid dashboard-page ${language === 'fa' ? 'rtl' : 'ltr'}`}>
-            <header className="row my-3">
+            <header className="row">
                 <div className="col-2">
-                    <img src={logo} alt="Logo" className="logo" />
+                    <img src={language === "fa" ? logoFa : logoEn} alt="Logo" className="logo" />
                 </div>
                 <nav className="col-8 mx-auto">
                     <div className="row items-list">
@@ -42,7 +43,7 @@ export default function Dashboard() {
                     </div>
                 </nav>
             </header>
-            <main className="row mt-4">
+            <main className="row">
                 <aside className="col-2">
                     <ul className="my-0 p-0 aside-list">
                         {
@@ -57,7 +58,7 @@ export default function Dashboard() {
                         }
                     </ul>
                 </aside>
-                <article className="col-10 d-flex flex-column">
+                <article className="col-10">
                     <Outlet />
                 </article>
             </main>

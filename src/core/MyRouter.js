@@ -48,16 +48,14 @@ const MyRouter = () => {
                             );
                         })
                     }
-                    
-                    {
-                        ["/about", "/about-us", "/درباره", "/درباره-ما"].map((route, index) => <Route path={route} key={index} element={<About />} />)
-                    }
-
-                    {
-                        ["/contact", "/contact-us", "/تماس", "/تماس-با-ما"].map((route, index) => <Route path={route} key={index} element={<Contact />} />)
-                    }
                 </Route>
+                {
+                    ["/about", "/about-us", "/درباره", "/درباره-ما"].map((route, index) => <Route path={route} key={index} element={<About />} />)
+                }
 
+                {
+                    ["/contact", "/contact-us", "/تماس", "/تماس-با-ما"].map((route, index) => <Route path={route} key={index} element={<Contact />} />)
+                }
                 <Route path="*" element={<Error404 />}/>
             </Routes>
         </BrowserRouter>
