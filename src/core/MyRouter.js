@@ -15,7 +15,7 @@ const ProtectedRoute = ({user, redirectPath = "/login"}) => {
 
     
     if (!Storage.getLoginInfo()) {
-        return redirect(redirectPath);
+        window.location.href = "/login";
     }
 
     return <Outlet />;

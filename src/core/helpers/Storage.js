@@ -34,6 +34,12 @@ export default class Storage {
     }
 
     static getLanguage() {
+        let lang = this.#getter("language");
+
+        if (lang === null) {
+            this.#setter("language", "en");
+        }
+
         return this.#getter("language");
     }
 

@@ -69,7 +69,7 @@ export default {
     },
     "login": {
         "fa": "ورود",
-        "en": "login"
+        "en": "log in"
     },
     "service-1": {
         "fa": "میخواهم اطلاعات داراییهایم را در نقشه املاک کشور ببینیم",
@@ -733,7 +733,7 @@ export default {
     },
     "last-login": {
         "fa": "آخرین زمان ورود",
-        "en": "last login"
+        "en": "last log in"
     },
     "nc-type": {
         "fa": "نوع کدملی",

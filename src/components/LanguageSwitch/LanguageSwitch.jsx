@@ -4,7 +4,7 @@ import globe from "../../assets/images/globe.svg";
 import "./LanguageSwitch.scss";
 
 export default function LanguageSwitch() {
-    const [language, setLanguage] = useState(Storage.getLanguage() || "fa");
+    const [language, setLanguage] = useState(Storage.getLanguage() || "en");
 
     const onChangeLanguage = (event) => {
         Storage.setLanguage(event.target.value);

@@ -13,6 +13,7 @@
         .logo {
             max-width: 450px;
             max-height: 200px;
+            margin-bottom: 25px;
         }
 
         & > div.content-column {
@@ -38,7 +39,7 @@
             list-style-type: none;
             margin: 5px 0;
             padding: 0;
-            text-align: right;
+            // text-align: right;
 
             &-item {
                 display: inline-block;
@@ -70,7 +71,7 @@
             list-style-type: none;
             margin: 5px 0;
             padding: 0;
-            text-align: left;
+            // text-align: left;
 
             &-item {
                 display: inline-block;

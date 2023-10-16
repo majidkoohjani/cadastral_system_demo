@@ -47,7 +47,7 @@ export default [
     {
         id: 7,
         faText: "خروج از سامانه",
-        enText: "logout",
+        enText: "log out",
         icon: require("../../assets/images/logout.png"),
         location: "/logout"
     },

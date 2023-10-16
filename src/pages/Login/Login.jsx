@@ -13,7 +13,8 @@ import email from "../../assets/images/envelope.svg";
 // import globe from "../../assets/images/globe.svg";
 import { Link, useNavigate } from "react-router-dom";
 import LanguageSwitch from "../../components/LanguageSwitch/LanguageSwitch";
-import helpFile from "../../assets/help.pdf";
+import helpFa from "../../assets/help-fa.pdf";
+import helpEn from "../../assets/help-en.pdf";
 import Storage from "../../core/helpers/Storage";
 import { translate } from "../../core/helpers/Translator";
 import "./Login.scss";
@@ -31,13 +32,13 @@ export default function Login() {
                     <Button type="danger-outline" customClass="max-width-310px">{ translate("register") }</Button>
                     <p className="text-green">
                         { `${translate("read-manual-message-1")} ` }
-                        <a href={helpFile} download={"help.pdf"} className="text-red">{ translate("manual") }</a>
+                        <a href={language === "fa" ? helpFa : helpEn} download={"help.pdf"} className="text-red">{ translate("manual") }</a>
                         { ` ${translate("read-manual-message-2")}` }
                     </p>
                 </div>
                 <div className="content-column col-12 col-md-6">
                     <Alert text={translate("system-desc-1")} mode="success" customClass="font-nazanin" />
-                    <Alert text={translate("system-desc-2")} mode="success" customClass="font-nazanin" />
+                    <Alert text={translate("system-desc-2")} mode="success" customClass={`font-nazanin ${language === "en" && "font-smaller"}`} />
                     <div className="margin-top-50px">
                         <p className="text-white">
                             <img src={image10} className="icon" />
@@ -59,8 +60,8 @@ export default function Login() {
                 </div>
             </main>
             <footer className="row">
-                <div className="col-12 col-sm-6">
-                    <ul className="footer__list">
+                <div className={`col-12 col-sm-6 ${language === "en" ? "order-1" : ""}`}>
+                    <ul className={`footer__list d-flex`} style={{flexDirection: language === "en" ? "row-reverse" : "row"}}>
                         <li className="footer__list-item">
                             <LanguageSwitch />
                         </li>
@@ -68,7 +69,7 @@ export default function Login() {
                             <Link to="/about">{ translate("about-us") }</Link>
                         </li>
                         <li className="footer__list-item">
-                            <Link to="/contact">{ translate("contact-us") }</Link>
+                            <a href="mailto:Metacadastral.system@gmail.com">{ translate("contact-us") }</a>
                         </li>
                     </ul>
                 </div>
