@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import Storage from "../../core/helpers/Storage.js";
 import {translate} from "../../core/helpers/Translator.js";
 import { redirect } from "react-router-dom";
+import eventBus from "../../core/helpers/EventBus";
 
 export default function AuthComponent(props) {
     const [username, setUsername] = useState("");
@@ -22,6 +23,7 @@ export default function AuthComponent(props) {
     }
 
     const loginHandler = () => {
+        eventBus.dispatchEvent("enablePreloader");
         Authentication.login(username, password).then(response => {
             const {access_token, user: { national_code, name }} = response.data;
 
@@ -53,6 +55,8 @@ export default function AuthComponent(props) {
             toast.error(message, {
                 position: toast.POSITION.TOP_RIGHT
             });
+        }).finally(() => {
+            eventBus.dispatchEvent("disablePreloader");
         });
     }
 

@@ -6,8 +6,7 @@ class Main
 {
     // public functions
     postRequest = async (url = "", data = {}) => {
-        return axios.post(`${this.#urlGenerator(url)}`, {
-            data: {...data},
+        return axios.post(`${this.#urlGenerator(url)}`, {...data}, {
             headers: {
                 Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`
             }

@@ -10,7 +10,6 @@ import aparat from "../../assets/images/aparat.svg";
 import linkedin from "../../assets/images/linkedin.svg";
 import instagram from "../../assets/images/instagram.svg";
 import email from "../../assets/images/envelope.svg";
-// import globe from "../../assets/images/globe.svg";
 import { Link, useNavigate } from "react-router-dom";
 import LanguageSwitch from "../../components/LanguageSwitch/LanguageSwitch";
 import helpFa from "../../assets/help-fa.pdf";
@@ -74,7 +73,7 @@ export default function Login() {
                     </ul>
                 </div>
                 <div className="col-12 col-sm-6">
-                    <ul className="social-media__list">
+                    <ul className="social-media__list" style={{float: language === "en" ? "right" : "left"}}>
                         <li className="social-media__list-item">
                             <a href="#" target="_blank" rel="noopener noreferrer">
                                 <div className="icon-container">

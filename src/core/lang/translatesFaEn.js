@@ -3,6 +3,140 @@ export default {
         "fa": "",
         "en": ""
     },
+    "call-frontend": {
+        "fa": "خطای برنامه به وجود آمد. با تیم فنی تماس بگیرید.",
+        "en": "Technical error happened. Contact programmers!!!"
+    },
+    "wrong-value-entered": {
+        "fa": "لطفا عدد مجاز وارد کنید",
+        "en": "Please enter a permitted number in the cell"
+    },
+    "msg-30": {
+        "fa": "لطفا بدانید همه ملکهای بالاتر از میدان، محدوده محله بالا هستند و همه ملکهای پایینتر از میدان، محدوده محله پایین هستند. اگر ملک مرتبطت بالاتر از میدان است ملک 43 دفتر محله ات است و اگر پایینتر از میدان است دفتر محله ات ملک 25 است",
+        "en": "Please know, all properties above the square are the neighborhood above and all properties below the square are the neighborhood below. If the aforementioned property is above the square the manager's office is property 43 and if it is below the square is property 25"
+    },
+    "msg-29": {
+        "fa": "لطفا کد ملی ات را در ستون 10 عوض کن و دکمه ثبت را بزن",
+        "en": "Please enter the desired ID number in your desired row instead of yours in column 10 and hit the submit button"
+    },
+    "msg-28": {
+        "fa": `لطفا داده ها را تغییر ندهید
+        برای اینکه بدانید این ملک یا کالای منقول همچنان متعلق به دولت هست یا خیر به دو زیرخدمت قبلی مراجعه کنید
+       `,
+        "en": `Please don't change any of the data. Please refer to previous two subservices to see if this real estate or movable property is currently government owned.`
+    },
+    "msg-27": {
+        "fa": "لطفا در ستون 22 فقط یکی از ردیفهای مبدا و در ستون 22 فقط یکی از ردیفهای مقصد کد 0000 را درج کن و سپس دکمه ثبت را بزن. متن نامه را از طریق ارسال پیام به کاربر دیگر میتوانید بفرستید.",
+        "en": "Please enter 0000 in only one origin row in column 22 and only one destination row in column 22 and hit the submit button .You can send the letter via a message to the other user."
+    },
+    "msg-26": {
+        "fa": `لطفا داده ها را تغییر ندهید
+        لطفا بدانید در نسخه دمو در این زیرخدمت، در مورد شخص حقیقی، تراکنش غیرمعیشتی که شارژ بانکی از ملک مسکونی فرستاده شده است نمایش داده نمیشود.
+        `,
+        "en": `Please don't change any of the data. Please note that in demo of this subservice, regarding natural person, non-basic needs transactions from residential properties will not be shown.`
+    },
+    "msg-25": {
+        "fa": `لطفا داده ها را تغییر ندهید
+        لطفا بدانید در نسخه دمو در این زیرخدمت، علاوه بر شناسه تراکنشهای  معیشتی، ممکن است شناسه تراکنشهایی که بابت تامین مبلغ خرید ملک و یا تامین مبلغ مزایده یا جذب سرمایه ایجاد کرده اید در نتایج وجود داشته باشند
+        `,
+        "en": `Please don't change any of the data. Please know that in the demo, this subservice covers basic needs transactions and mistakenly, might show auctions, investment offers and real estate purchases.`
+    },
+    "msg-24": {
+        "fa": "a قبض",
+        "en": "a قبض"
+    },
+    "msg-23": {
+        "fa": "a مسکن",
+        "en": "a مسکن"
+    },
+    "msg-22": {
+        "fa": "a درمان",
+        "en": "a درمان"
+    },
+    "msg-21": {
+        "fa": "a مبلمان",
+        "en": "a مبلمان"
+    },
+    "msg-20": {
+        "fa": "a جابجایی",
+        "en": "a جابجایی"
+    },
+    "msg-19": {
+        "fa": "a مدرسه",
+        "en": "a مدرسه"
+    },
+    "msg-18": {
+        "fa": "a انتظامی",
+        "en": "a انتظامی"
+    },
+    "msg-17": {
+        "fa": "a تفریح",
+        "en": "a تفریح"
+    },
+    "msg-16": {
+        "fa": "50 - a = b",
+        "en": "50 - a = b"
+    },
+    "msg-15": {
+        "fa": "a پوشاک",
+        "en": "a پوشاک"
+    },
+    "msg-14": {
+        "fa": "لطفا مقدار تراکنش را در ستون 22 فقط یک ردیف از مبدا و ستون 22 فقط یک ردیف از مقصد وارد کن. لطفا مقدار تراکنش در مبدا و مقصد شبیه هم باشد. در تراکنشهای معیشتی شما میتوانید مقدار تراکنش را بیشتر از موجودی بانکی تان وارد کنید. دکمه ثبت را بزن.",
+        "en": "Please enter the transaction amount in only one origin row in column 22 and only one destination row in column 22  The transaction amount must be the same in origin and destination. In basic needs transactions you can enter a number higher than your bank account’s balance. Hit the submit button."
+    },
+    "msg-13": {
+        "fa": "100 – a = b",
+        "en": "100 – a = b"
+    },
+    "msg-12": {
+        "fa": "a خوراک",
+        "en": "a خوراک"
+    },
+    "msg-11": {
+        "fa": "لطفا بدانید برای چهار نیاز معیشتی حیاتی( خوراک، درمان، مسکن، قبض)، هر کدام تا  100 واحد پول تامین هستید و برای شش نیاز دیگر، هر کدام تا 50 واحد پول تامین هستید( عدد قابل اجرا).",
+        "en": "Please know you can be provided with 100 units for your each one of your 4 essential basic needs (food, healthcare , housing, utilities) and you can be provided with 50 units for each of the six other needs (Guaranteed Amount = Performable Number)"
+    },
+    "msg-10": {
+        "fa": "لطفا بدانید مقدار استاندارد ماهانه هر نوع نیاز معیشتی شما هر کدام 100 واحد پول است",
+        "en": "Please know the standard amount for each of your basic needs is 100 units (Standard Monthly Amount)."
+    },
+    "msg-9": {
+        "fa": "لطفا در ستون 7 عدد 1 را حذف کن و دکمه ثبت را بزن.",
+        "en": "Please remove 1 in column 7and hit the submit button"
+    },
+    "msg-8": {
+        "fa": "لطفا شماره حساب بانکی خود را در ردیفی که در ستون 5 عدد 3 وجود دارد در ستون 8 ثبت کن و شماره حساب بانکی اعضای خانواده را در ردیفهایی که در ستون 5 عدد 4 وجود دارد در ستون 8 ثبت کن  و دکمه ثبت را بزن",
+        "en": 'Please enter your bank account number in column 8 (choose the row with "3" in column 5). Please enter the family’s bank accounts in column 8 (choose the row with “4" in column 5). Hit the submit button.'
+    },
+    "msg-7": {
+        "fa": "لطفا ابتدا اطلاعات یک کد کالا را وارد کن و دکمه ثبت را بزن و سپس اطلاعات کد کالای بعدی را وارد کن. برای این منظور از چهار ردیف متعلق به یک کد کالا فقط دو ردیف شماره فرد را مد نظر قرار بده و در ستون 8  و 9 و  10 و 11 داده وارد کن. لطفا در مورد یک کد کالا مجموع درصد دو صاحب آن را بیشتر از صد درصد یعنی 1.00 وارد نکن.",
+        "en": "Please enter the information of one product code and  hit the submit button and then enter the next product code. Each product code has four rows. Only use the two odd numbered rows for entering the data in columns 8,9,10 and 11. Please do not make the combined share of the owners higher than 1.00"
+    },
+    "msg-6": {
+        "fa": "لطفا در یک ردیف دلخواهت در ستون 7 عدد 1 را حذف کن و دکمه ثبت را بزن",
+        "en": "Please remove 1 in your desired row in column 7and hit the submit button"
+    },
+    "msg-5": {
+        "fa": "لطفا در یک ردیف دلخواهت در ستون 9 قیمت جدید را وارد کن و دکمه ثبت را بزن",
+        "en": "Please enter the new price in column 9, desired row and hit the submit button"
+    },
+    "msg-4": {
+        "fa": "لطفا در یک ردیف دلخواهت بجای کد ملی خودت در ستون 10 کد ملی دلخواه را وارد کن و دکمه ثبت را بزن",
+        "en": "Please enter the desired ID number in your desired row instead of yours in column 10 and hit the submit button"
+    },
+    "msg-3": {
+        "fa": "لطفا مقدار تراکنش را در ستون 22 فقط یک ردیف از مبدا و ستون 22 فقط یک ردیف از مقصد وارد کن. لطفا مقدار تراکنش در مبدا و مقصد شبیه هم باشد. دکمه ثبت را بزن",
+        "en": "Please enter the transaction amount in only one origin row in column 22 and only one destination row in column 22. The transaction amount must be the same in origin and destination."
+    },
+    "msg-2": {
+        "fa": "لطفا در ردیف دلخواهت قبل از ستون زمان ( ستون شماره صفر) تیک بزن و دکمه ثبت را بزن",
+        "en": "Please hit  √ on column 0 (before the date column) in your desired row and  hit the submit button."
+    },
+    "msg-1": {
+        "fa": "لطفا داده ها را تغییر ندهید.",
+        "en": "Please don't change any of the data."
+    },
     "username": {
         "fa": "نام کاربری",
         "en": "username"
@@ -719,7 +853,7 @@ export default {
         "fa": "زیر خدمت",
         "en": "sub-service"
     },
-    "source-table": {
+    "origin-table": {
         "fa": "ردیف اطلاعات مبدا",
         "en": "origin table"
     },
@@ -758,5 +892,21 @@ export default {
     "exit-subservice": {
         "fa": "خروج از زیر خدمت",
         "en": "exit the subservice"
+    },
+    "update-field": {
+        "fa": "به روز رسانی",
+        "en": "update"
+    },
+    "default-placeholder": {
+        "fa": "مقدار را وارد کنید",
+        "en": "enter the value"
+    },
+    "updated-successfully": {
+        "fa": "عملیات با موفقیت انجام شد.",
+        "en": "operation done successfully."
+    },
+    "updated-failed": {
+        "fa": "عملیات با موفقیت انجام نشد.",
+        "en": "operation failed!"
     },
 };

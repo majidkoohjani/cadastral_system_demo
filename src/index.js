@@ -18,6 +18,6 @@ root.render(
     <MyRouter />
     <AuthComponent />
     <ToastContainer rtl />
-    {/* <Preloader /> */}
+    <Preloader />
   </React.StrictMode>
 );
