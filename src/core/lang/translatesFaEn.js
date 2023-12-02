@@ -3,6 +3,14 @@ export default {
         "fa": "",
         "en": ""
     },
+    "500-error": {
+        "fa": "خطا در سرور رخ داد.",
+        "en": "Server internal error."
+    },
+    "error-just-one-row": {
+        "fa": "لطفا ضوابط پیام مخصوص این زیرخدمت را رعایت کنید",
+        "en": "Please comply with all the conditions in this subservice message"
+    },
     "call-frontend": {
         "fa": "خطای برنامه به وجود آمد. با تیم فنی تماس بگیرید.",
         "en": "Technical error happened. Contact programmers!!!"

@@ -11,9 +11,7 @@ export default class ServicesUpdate
 
         switch (type.toLocaleLowerCase()) {
             case "inurl":
-                // params.map(param => {
-                //     url += `/${data[param]}`;
-                // });
+                url += `/${ServicesUpdate.#getInUrlFinalPath(params, data)}`;
                 break;
             case "payload":
                 dataToSend = ServicesUpdate.#getDataToSend(params, data);
@@ -25,9 +23,38 @@ export default class ServicesUpdate
         return this.#apiBridge.postRequest(url, dataToSend);
     }
 
+    static #getInUrlFinalPath = (pattern = {}, data = {}) => {
+        let tables = Object.keys(pattern).filter(table => table === "origin" || table === "destination");
+        let fieldsNeeded = {};
+        let tempURL = "";
+
+        tables.forEach(table => {
+            let fields = Object.keys(pattern[table]);
+
+            fields.forEach(field => {
+                if (pattern[table][field]?.hasOwnProperty("order")) {
+                    fieldsNeeded[pattern[table][field]["nameToSend"]] = {
+                        order: pattern[table][field].order,
+                        value: data[table][field],
+                    };
+                }
+            })
+        });
+
+        let sortable = Object.values(fieldsNeeded);
+
+        let sortedList = [...sortable].sort((a, b) => a.order - b.order);
+
+        sortedList.forEach(item => {
+            tempURL += `${item.value}/`;
+        })
+
+        return tempURL;
+    }
+
     static #getDataToSend = (pattern = {}, data = {}) => {
         let finalData = {};
-        let tables = Object.keys(pattern);
+        let tables = Object.keys(pattern).filter(table => table === "origin" || table === "destination");
 
         tables.map(table => {
             let fields = Object.keys(pattern[table]);
