@@ -60,10 +60,20 @@ export default class ServicesUpdate
             let fields = Object.keys(pattern[table]);
 
             fields.map(field => {
-                finalData[table] = {
-                    ...finalData[table],
-                    [pattern[table][field]?.nameToSend ?? field]: ServicesUpdate.#checkDataValidationForServer(data[table][field], pattern[table][field]),
-                };
+                if (field !== "check") {
+                    if (pattern.hasOwnProperty("removeTableNameFromPayload") && pattern?.removeTableNameFromPayload === true) {
+                        finalData = {
+                            ...finalData,
+                            [pattern[table][field]?.nameToSend ?? field]: ServicesUpdate.#checkDataValidationForServer(data[table][field], pattern[table][field]),
+                        };
+                    }
+                    else {
+                        finalData[table] = {
+                            ...finalData[table],
+                            [pattern[table][field]?.nameToSend ?? field]: ServicesUpdate.#checkDataValidationForServer(data[table][field], pattern[table][field]),
+                        };
+                    }
+                }
             });
         });
 

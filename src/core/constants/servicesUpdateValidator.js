@@ -1331,13 +1331,14 @@ const servicesRules =  {
         1: {
             message: "msg-2",
             requestModel: {
-                type: "inurl",
+                type: "payload",
                 params: {
                     lockCheckbox: false,
+                    removeTableNameFromPayload: true,
                     origin: {
                         rowID: {
                             type: "auto",
-                            nameToSend: "row_id",
+                            nameToSend: "row_oid",
                             order: 1
                         },
                         "check": {
@@ -1401,13 +1402,14 @@ const servicesRules =  {
         5: {
             message: "msg-2",
             requestModel: {
-                type: "inurl",
+                type: "payload",
                 params: {
                     lockCheckbox: false,
+                    removeTableNameFromPayload: true,
                     origin: {
                         rowID: {
                             type: "auto",
-                            nameToSend: "row_id",
+                            nameToSend: "row_oid",
                             order: 1
                         },
                         "check": {
@@ -1471,13 +1473,14 @@ const servicesRules =  {
         9: {
             message: "msg-2",
             requestModel: {
-                type: "inurl",
+                type: "payload",
                 params: {
                     lockCheckbox: false,
+                    removeTableNameFromPayload: true,
                     origin: {
                         rowID: {
                             type: "auto",
-                            nameToSend: "row_id",
+                            nameToSend: "row_oid",
                             order: 1
                         },
                         "check": {
@@ -1620,13 +1623,14 @@ const servicesRules =  {
         3: {
             message: "msg-2",
             requestModel: {
-                type: "inurl",
+                type: "payload",
                 params: {
                     lockCheckbox: false,
+                    removeTableNameFromPayload: true,
                     origin: {
                         rowID: {
                             type: "auto",
-                            nameToSend: "row_id",
+                            nameToSend: "row_oid",
                             order: 1
                         },
                         "check": {
@@ -1647,13 +1651,14 @@ const servicesRules =  {
         5: {
             message: "msg-2",
             requestModel: {
-                type: "inurl",
+                type: "payload",
                 params: {
                     lockCheckbox: false,
+                    removeTableNameFromPayload: true,
                     origin: {
                         rowID: {
                             type: "auto",
-                            nameToSend: "row_id",
+                            nameToSend: "row_oid",
                             order: 1
                         },
                         "check": {

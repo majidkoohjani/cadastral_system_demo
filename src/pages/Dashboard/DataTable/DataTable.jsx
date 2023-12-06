@@ -50,9 +50,17 @@ export default function DataTable(props) {
 
             if (obj !== null) {
                 if (obj?.hasOwnProperty("origin")) {
+                    let tmpDst = [];
+
+                    if (obj?.hasOwnProperty("destination")) {
+                        tmpDst = [...obj.destination];
+                    } else if (obj?.hasOwnProperty("destination_list")) {
+                        tmpDst = [...obj.destination_list];
+                    }
+
                     tempData = {
                         origin: [...obj.origin],
-                        destination: [...obj.destination],
+                        destination: [...tmpDst],
                     };
                 } else {
                     if (obj.length > 0) {
@@ -227,9 +235,15 @@ export default function DataTable(props) {
                         break;
                 }
             }).catch(error => {
-                toast.error(`${translate("updated-failed")}\r\n${error.message}`, {
-                    position: toast.POSITION.TOP_RIGHT
-                });
+                if (error.code === "ERR_NETWORK") {
+                    toast.error(translate("500-error"), {
+                        position: toast.POSITION.TOP_RIGHT
+                    });
+                } else {
+                    toast.error(`${translate("updated-failed")}\r\n${error.message}`, {
+                        position: toast.POSITION.TOP_RIGHT
+                    });
+                }
             }).finally(() => {
                 eventBus.dispatchEvent("disablePreloader");
             });

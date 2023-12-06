@@ -45,7 +45,7 @@ export default class Validator
     }
 
     #validateParities = (params = {}, data = {}) => {
-        let result = false;
+        let result = true;
 
         let tables = Object.keys(params).filter(item => item === "origin" || item === "destination");
 
