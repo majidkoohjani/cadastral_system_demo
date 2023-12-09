@@ -18,6 +18,7 @@ export default function DataTable(props) {
     const updateRules = getSubServiceUpdateRules(serviceID, subServiceID);
     const [data, setData] = useState(null);
     const [message, setMessage] = useState("");
+    const [serverMessage, setServerMessage] = useState("");
     const [lockColumns, setLockColumns] = useState("");
     const navigate = useNavigate();
     /*
@@ -106,6 +107,7 @@ export default function DataTable(props) {
             }
             setData({...tempData});
             setMessage(updateRules.message);
+            setServerMessage(fetchedData.message);
             setLockColumns(lockedColumn);
             setDataToBeUpdated({});
         }).catch(error => {
@@ -183,14 +185,36 @@ export default function DataTable(props) {
                 return;
             }
 
+            if (e.target.type === "checkbox" && e.target.checked === true) {
+                let selectedOne = data[tableName].find(item => item._id === rowID && item?.selected === true);
+
+                if (selectedOne) {
+                    resetElement(e);
+                    toast.error(translate("recall-request-denied"), {
+                        position: toast.POSITION.TOP_RIGHT
+                    });
+                    return;
+                }
+            }
+
             let dataToValidate = e.target.type === "checkbox" ? e.target.checked : e.target.value;
 
             if (validator.validate(dataToValidate, {...updateRules.requestModel.params[tableName][cellName]})) {
                 if (e.target.type === "checkbox" && dataToValidate === false) {
-                    setDataToBeUpdated({
-                        ...dataToBeUpdated,
-                        [tableName]: {}
-                    });
+                    if (updateRules.requestModel.params[tableName]["check"]?.canBeUsedAsDelete) {
+                        setDataToBeUpdated({
+                            ...dataToBeUpdated,
+                            [tableName]: {
+                                rowID,
+                                [cellName]: dataToValidate,
+                            }
+                        });
+                    } else {
+                        setDataToBeUpdated({
+                            ...dataToBeUpdated,
+                            [tableName]: {}
+                        });
+                    }
                 } else {
                     setDataToBeUpdated({
                         ...dataToBeUpdated,
@@ -219,10 +243,10 @@ export default function DataTable(props) {
             eventBus.dispatchEvent("enablePreloader");
 
             ServicesUpdate.update(`${serviceID}/${subServiceID}`, {...updateRules.requestModel}, dataToBeUpdated).then(response => {
-                const status = response.status;
+                const {status, data} = response;
 
                 switch (status) {
-                    case 200:
+                    case 200 || 201:
                         toast.success(translate("updated-successfully"), {
                             position: toast.POSITION.TOP_RIGHT
                         });
@@ -233,6 +257,17 @@ export default function DataTable(props) {
                             position: toast.POSITION.TOP_RIGHT
                         });
                         break;
+                }
+
+                if (data?.message?.length) {
+                    toast.success(data.message, {
+                        position: toast.POSITION.TOP_RIGHT
+                    });
+                }
+                if (data?.message2?.length) {
+                    toast.success(data.message2, {
+                        position: toast.POSITION.TOP_RIGHT
+                    });
                 }
             }).catch(error => {
                 if (error.code === "ERR_NETWORK") {
@@ -246,6 +281,7 @@ export default function DataTable(props) {
                 }
             }).finally(() => {
                 eventBus.dispatchEvent("disablePreloader");
+                fetchData();
             });
         } else {
             toast.error(translate("error-just-one-row"), {
@@ -316,7 +352,7 @@ export default function DataTable(props) {
                 {
                     data[tableCaption].map((record, index) => <tr key={index} data-row={index + 1}>
                         <th className="horizontal-view">
-                            <input type="checkbox" name={`${tableCaption}-check-${index}`} onChange={(e) => handleCellValueChanged(e, index + 1, 0, tableCaption, record["_id"], "check" )} disabled={updateRules.requestModel.params.lockCheckbox} />
+                            <input type="checkbox" name={`${tableCaption}-check-${index}`} key={record?.selected ?? false} data-before-update={record?.selected ?? false} onChange={(e) => handleCellValueChanged(e, index + 1, 0, tableCaption, record["_id"], "check" )} disabled={updateRules.requestModel.params.lockCheckbox} defaultChecked={record?.selected ?? false} />
                         </th>
                         <td className="clickable-td">
                             <input type="text" name={`${tableCaption}-time-${index}`} key={record.time} data-before-update={record.time} defaultValue={ record.time } maxLength="14" onChange={(e) => handleCellValueChanged(e, index + 1, 1, tableCaption, record["_id"], "time" )} onDoubleClick={(e) => handleCellUpdate(e, 1)} readOnly />
@@ -397,6 +433,8 @@ export default function DataTable(props) {
                 message?.length > 0 &&
                 <div className="message-box">
                     { translate(message) }
+                    <br />
+                    { serverMessage }
                 </div>
             }
 

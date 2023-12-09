@@ -122,6 +122,7 @@ const servicesRules =  {
                         },
                         "check": {
                             type: "checkbox",
+                            canBeUsedAsDelete: true
                         },
                     },
                 },
@@ -333,6 +334,7 @@ const servicesRules =  {
                         },
                         "check": {
                             type: "checkbox",
+                            canBeUsedAsDelete: true
                         },
                     },
                 },
@@ -1343,6 +1345,7 @@ const servicesRules =  {
                         },
                         "check": {
                             type: "checkbox",
+                            canBeUsedAsDelete: true,
                         },
                     },
                 },
@@ -1414,6 +1417,7 @@ const servicesRules =  {
                         },
                         "check": {
                             type: "checkbox",
+                            canBeUsedAsDelete: true,
                         },
                     },
                 },
@@ -1485,6 +1489,7 @@ const servicesRules =  {
                         },
                         "check": {
                             type: "checkbox",
+                            canBeUsedAsDelete: true,
                         },
                     },
                 },
@@ -1514,6 +1519,7 @@ const servicesRules =  {
                         },
                         "check": {
                             type: "checkbox",
+                            canBeUsedAsDelete: true,
                         },
                     },
                 },
@@ -1635,6 +1641,7 @@ const servicesRules =  {
                         },
                         "check": {
                             type: "checkbox",
+                            canBeUsedAsDelete: true,
                         },
                     },
                 },
@@ -1663,6 +1670,7 @@ const servicesRules =  {
                         },
                         "check": {
                             type: "checkbox",
+                            canBeUsedAsDelete: true,
                         },
                     },
                 },

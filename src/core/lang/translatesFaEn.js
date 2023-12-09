@@ -3,6 +3,10 @@ export default {
         "fa": "",
         "en": ""
     },
+    "recall-request-denied": {
+        "fa": "برای ارسال مجدد فراخوان ابتدا تیک را برداشته دکمه ثبت را بزنید تا فراخوان حذف شود.",
+        "en": "To resend, first remove the check and press the submit button to delete the previous call."
+    },
     "500-error": {
         "fa": "خطا در سرور رخ داد.",
         "en": "Server internal error."
