@@ -8,6 +8,7 @@ import logoEn from "../../assets/images/logo-en.png";
 import footerImage from "../../assets/images/08.png";
 import { translate } from "../../core/helpers/Translator";
 import "./Dashboard.scss";
+import Clock from "../../components/Clock/Clock";
 
 export default function Dashboard() {
     const language = Storage.getLanguage();
@@ -31,8 +32,15 @@ export default function Dashboard() {
                                 </li>
                             </ul>
                         </div>
-                        <div className="col-3">
-                            {`${translate("last-login")}: `}
+                        <div className="col-4">
+                            <ul className="m-0">
+                                <li>
+                                    {`${translate("last-login")}: `}
+                                </li>
+                                <li>
+                                    {`${translate("current-dt")}: `}<Clock />
+                                </li>
+                            </ul>
                         </div>
                         <div className="col-3">
                             <SearchBox />
