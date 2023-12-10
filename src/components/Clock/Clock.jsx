@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Storage from "../../core/helpers/Storage";
+import moment from "moment-timezone";
 
 export default function Clock() {
     const [time, setTime] = useState();
@@ -7,20 +8,13 @@ export default function Clock() {
     
     useEffect(() => {
         setInterval(() => {
-            let dt = new Date();
+            let dt = moment().tz("Asia/Tehran");
 
-            let finalString = "";
-            const day = dt.getDate()
-
-            if (language === "fa") {
-                finalString = `${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()} ${dt.getFullYear()}/${dt.getMonth() + 1}/${day}`;
-            } else {
-                finalString = `${dt.getFullYear()}/${dt.getMonth() + 1}/${day} ${dt.getHours()}:${dt.getMinutes()}:${dt.getSeconds()}`;
-            }
+            let finalString = language === "en" ? `${dt.format("YYYY/MM/DD")} ${dt.format("HH:mm:ss")}` : `${dt.format("HH:mm:ss")} ${dt.format("YYYY/MM/DD")}`;
 
             setTime(finalString);
         }, 1000);
     }, []);
 
-    return <span>{time}</span>;
+    return time;
 }
