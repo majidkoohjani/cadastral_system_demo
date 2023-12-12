@@ -1,5 +1,5 @@
 import {Link, useNavigate, useParams} from "react-router-dom";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Services from "../../../core/api/Services";
 import { toast } from "react-toastify";
 import { translate } from "../../../core/helpers/Translator";
@@ -111,7 +111,7 @@ export default function DataTable(props) {
             }
             setData({...tempData});
             setMessage(updateRules?.message ?? "");
-            setSm(fetchedData.message);
+            setSm(`${fetchedData.message}`);
             setLockColumns(lockedColumn);
             setDataToBeUpdated({});
         }).catch(error => {
@@ -271,8 +271,16 @@ export default function DataTable(props) {
                     },
                 ]);
 
-                navigate(0);
             }).catch(error => {
+                Storage.setNextReloadMessage([
+                    {
+                        message: error?.response?.data?.message ?? ""
+                    },
+                    {
+                        message: error?.response?.data?.message2 ?? ""
+                    },
+                ]);
+
                 if (error.code === "ERR_NETWORK") {
                     toast.error(translate("500-error"), {
                         position: toast.POSITION.TOP_RIGHT
@@ -284,6 +292,7 @@ export default function DataTable(props) {
                 }
             }).finally(() => {
                 eventBus.dispatchEvent("disablePreloader");
+                navigate(0);
                 // fetchData();
             });
         } else {
@@ -440,11 +449,11 @@ export default function DataTable(props) {
                     }
                     { translate(message) }
                     {
-                        serverMessages?.length ? serverMessages.map(serverMessage => {
-                            return <>
+                        serverMessages?.length ? serverMessages.map((serverMessage, index) => {
+                            return <React.Fragment key={index}>
                             <br />
                             { serverMessage.message }
-                            </>;
+                            </React.Fragment>;
                         }) : ""
                     }
                 </div>
