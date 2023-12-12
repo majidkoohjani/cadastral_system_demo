@@ -23,8 +23,7 @@ class Main
     }
 
     putRequest = async (url = "", data = {}) => {
-        return axios.put(`${this.#urlGenerator(url)}`, {
-            data: {...data},
+        return axios.put(`${this.#urlGenerator(url)}`, {...data}, {
             headers: {
                 Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`
             }
@@ -33,7 +32,6 @@ class Main
 
     deleteRequest = async (url = "", data = {}) => {
         return axios.delete(`${this.#urlGenerator(url)}`, {
-            data: {...data},
             headers: {
                 Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`
             }
@@ -41,8 +39,7 @@ class Main
     }
 
     patchRequest = async (url = "", data = {}) => {
-        return axios.patch(`${this.#urlGenerator(url)}`, {
-            data: {...data},
+        return axios.patch(`${this.#urlGenerator(url)}`, {...data}, {
             headers: {
                 Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`
             }

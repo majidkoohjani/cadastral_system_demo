@@ -7,14 +7,13 @@ export default class ServicesUpdate
     static update = async (serviceIdentifierString = "", requestModel = null, data = {}) => {
         let url = `services/${serviceIdentifierString}`;
         let dataToSend = {};
-        let requestType = "post"
 
-        const {type = "", params = {}} = requestModel;
+        let {type = "", params = {}, requestType = "post"} = requestModel;
 
         switch (type.toLocaleLowerCase()) {
             case "inurl":
                 let tmpUrl = "";
-                [requestType, tmpUrl] = ServicesUpdate.#getInUrlFinalPath(params, data);
+                [requestType, tmpUrl] = ServicesUpdate.#getInUrlFinalPath(params, data, requestType);
                 url += `/${tmpUrl}`;
                 break;
             case "payload":
@@ -24,14 +23,13 @@ export default class ServicesUpdate
                 break;
         }
 
-        return requestType === "post" ? this.#apiBridge.postRequest(url, dataToSend) : this.#apiBridge.deleteRequest(url, dataToSend);
+        return this.#apiBridge[`${requestType}Request`](url, dataToSend);
     }
 
-    static #getInUrlFinalPath = (pattern = {}, data = {}) => {
+    static #getInUrlFinalPath = (pattern = {}, data = {}, method = "post") => {
         let tables = Object.keys(pattern).filter(table => table === "origin" || table === "destination");
         let fieldsNeeded = {};
         let tempURL = "";
-        let requestType = "post";
 
         tables.forEach(table => {
             let fields = Object.keys(pattern[table]);
@@ -39,7 +37,7 @@ export default class ServicesUpdate
             fields.forEach(field => {
                 if (field === "check" && data[table][field] === false) {
                     if (pattern[table][field]?.canBeUsedAsDelete) {
-                        requestType = "delete";
+                        method = "delete";
                     }
                 }
 
@@ -60,7 +58,7 @@ export default class ServicesUpdate
             tempURL += `${item.value}/`;
         })
         
-        return [requestType, tempURL];
+        return [method, tempURL];
     }
 
     static #getDataToSend = (pattern = {}, data = {}) => {
@@ -101,6 +99,13 @@ export default class ServicesUpdate
             default:
                 finalValue = value;
                 break;
+        }
+
+        if (rules?.addMinusBeforeSend) {
+            finalValue = "-" + finalValue;
+        }
+        else if (rules?.addPlusBeforeSend) {
+            finalValue = "+" + finalValue;
         }
 
         return finalValue;

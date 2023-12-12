@@ -180,13 +180,15 @@ const servicesRules =  {
                     origin: {
                         rowID: {
                             type: "auto",
-                            nameToSend: "row_oid"
+                            nameToSend: "row_oid",
+                            order: 1,
                         },
                         "national_code_bought_assets": {
-                            type: "numeric",
+                            type: "numeric-string",
                             min: 1,
                             max: 100,
                             nameToSend: "dst_national_code",
+                            order: 2,
                         },
                     },
                 },
@@ -1259,9 +1261,38 @@ const servicesRules =  {
         1: {
             message: "msg-27",
             requestModel: {
+                type: "payload",
                 params: {
-                    lockCheckbox: true
-                }
+                    lockCheckbox: true,
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row"
+                        },
+                        "transaction_amount": {
+                            type: "numeric-string",
+                            min: 1,
+                            max: 9999,
+                            nameToSend: "amount",
+                            parityCondition: "transaction_amount",
+                            addMinusBeforeSend: true,
+                        },
+                    },
+                    destination: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row"
+                        },
+                        "transaction_amount": {
+                            type: "numeric-string",
+                            min: 1,
+                            max: 9999,
+                            nameToSend: "amount",
+                            parityCondition: "transaction_amount",
+                            addPlusBeforeSend: true,
+                        },
+                    }
+                    },
             }
         },
         2: {
@@ -1397,8 +1428,24 @@ const servicesRules =  {
         4: {
             message: "msg-29",
             requestModel: {
+                type: "inurl",
+                requestType: "put",
                 params: {
-                    lockCheckbox: true
+                    lockCheckbox: true,
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row_oid",
+                            order: 1
+                        },
+                        "national_code_bought_assets": {
+                            type: "numeric-string",
+                            min: 1,
+                            max: 100,
+                            nameToSend: "dst_national_code",
+                            order: 2,
+                        },
+                    },
                 }
             }
         },
