@@ -110,7 +110,7 @@ export default function DataTable(props) {
                 };
             }
             setData({...tempData});
-            setMessage(updateRules.message);
+            setMessage(updateRules?.message ?? "");
             setSm(fetchedData.message);
             setLockColumns(lockedColumn);
             setDataToBeUpdated({});
@@ -436,11 +436,11 @@ export default function DataTable(props) {
                 message?.length > 0 &&
                 <div className="message-box">
                     {
-                        sm.length ? <>{sm}<br /></> : ""
+                        sm?.length ? <>{sm}<br /></> : ""
                     }
                     { translate(message) }
                     {
-                        serverMessages.length ? serverMessages.map(serverMessage => {
+                        serverMessages?.length ? serverMessages.map(serverMessage => {
                             return <>
                             <br />
                             { serverMessage.message }
