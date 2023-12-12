@@ -54,4 +54,18 @@ export default class Storage {
     static deleteLoginInfo() {
         this.#delete("userInfo");
     }
+
+    static setNextReloadMessage(messages = []) {
+        sessionStorage.setItem("server-messages", JSON.stringify(messages));
+    }
+
+    static getNextReloadMessages() {
+        let messages = JSON.parse(sessionStorage.getItem("server-messages")) ?? [];
+
+        return messages;
+    }
+
+    static removeNextReloadMessage() {
+        sessionStorage.removeItem("server-messages");
+    }
 }

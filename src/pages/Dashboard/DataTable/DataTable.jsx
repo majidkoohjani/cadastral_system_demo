@@ -18,9 +18,10 @@ export default function DataTable(props) {
     const updateRules = getSubServiceUpdateRules(serviceID, subServiceID);
     const [data, setData] = useState(null);
     const [message, setMessage] = useState("");
-    const [serverMessage, setServerMessage] = useState("");
+    const [sm, setSm] = useState("");
+    const [serverMessages, setServerMessages] = useState([...Storage.getNextReloadMessages()]);
     const [lockColumns, setLockColumns] = useState("");
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
     /*
     * The structure will be like below:
     * {
@@ -36,6 +37,9 @@ export default function DataTable(props) {
 
     useEffect(() => {
         fetchData();
+        if (serverMessages.length > 0) {
+            Storage.removeNextReloadMessage();
+        }
     }, []);
 
     const fetchData = () => {
@@ -107,7 +111,7 @@ export default function DataTable(props) {
             }
             setData({...tempData});
             setMessage(updateRules.message);
-            setServerMessage(fetchedData.message);
+            setSm(fetchedData.message);
             setLockColumns(lockedColumn);
             setDataToBeUpdated({});
         }).catch(error => {
@@ -250,7 +254,6 @@ export default function DataTable(props) {
                         toast.success(translate("updated-successfully"), {
                             position: toast.POSITION.TOP_RIGHT
                         });
-                        // navigate(0);
                         break;
                     default:
                         toast.error(translate("updated-failed"), {
@@ -259,16 +262,16 @@ export default function DataTable(props) {
                         break;
                 }
 
-                if (data?.message?.length) {
-                    toast.success(data.message, {
-                        position: toast.POSITION.TOP_RIGHT
-                    });
-                }
-                if (data?.message2?.length) {
-                    toast.success(data.message2, {
-                        position: toast.POSITION.TOP_RIGHT
-                    });
-                }
+                Storage.setNextReloadMessage([
+                    {
+                        message: data?.message ?? ""
+                    },
+                    {
+                        message: data?.message2 ?? ""
+                    },
+                ]);
+
+                navigate(0);
             }).catch(error => {
                 if (error.code === "ERR_NETWORK") {
                     toast.error(translate("500-error"), {
@@ -281,7 +284,7 @@ export default function DataTable(props) {
                 }
             }).finally(() => {
                 eventBus.dispatchEvent("disablePreloader");
-                fetchData();
+                // fetchData();
             });
         } else {
             toast.error(translate("error-just-one-row"), {
@@ -432,9 +435,18 @@ export default function DataTable(props) {
             {
                 message?.length > 0 &&
                 <div className="message-box">
+                    {
+                        sm.length ? <>{sm}<br /></> : ""
+                    }
                     { translate(message) }
-                    <br />
-                    { serverMessage }
+                    {
+                        serverMessages.length ? serverMessages.map(serverMessage => {
+                            return <>
+                            <br />
+                            { serverMessage.message }
+                            </>;
+                        }) : ""
+                    }
                 </div>
             }
 
