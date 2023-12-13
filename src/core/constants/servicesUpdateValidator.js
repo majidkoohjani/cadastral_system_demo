@@ -197,32 +197,92 @@ const servicesRules =  {
         5: {
             message: "msg-4",
             requestModel: {
+                type: "inurl",
                 params: {
-                    lockCheckbox: true
+                    lockCheckbox: true,
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row_oid",
+                            order: 1
+                        },
+                        "national_code_bought_assets": {
+                            type: "numeric-string",
+                            min: 1,
+                            max: 100,
+                            nameToSend: "dst_national_code",
+                            order: 2,
+                        },
+                    },
                 }
             }
         },
         6: {
             message: "msg-5",
             requestModel: {
+                type: "inurl",
                 params: {
-                    lockCheckbox: true
+                    lockCheckbox: true,
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row_oid",
+                            order: 1
+                        },
+                        "price_assets": {
+                            type: "numeric",
+                            min: 1,
+                            max: 9999,
+                            nameToSend: "amount",
+                            order: 2,
+                        },
+                    },
                 }
             }
         },
         7: {
             message: "msg-4",
             requestModel: {
+                type: "inurl",
                 params: {
-                    lockCheckbox: true
+                    lockCheckbox: true,
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row_oid",
+                            order: 1
+                        },
+                        "national_code_bought_assets": {
+                            type: "numeric-string",
+                            min: 1,
+                            max: 100,
+                            nameToSend: "dst_national_code",
+                            order: 2,
+                        },
+                    },
                 }
             }
         },
         8: {
             message: "msg-4",
             requestModel: {
+                type: "inurl",
                 params: {
-                    lockCheckbox: true
+                    lockCheckbox: true,
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row_oid",
+                            order: 1
+                        },
+                        "national_code_bought_assets": {
+                            type: "numeric-string",
+                            min: 1,
+                            max: 100,
+                            nameToSend: "dst_national_code",
+                            order: 2,
+                        },
+                    },
                 }
             }
         },
@@ -1516,8 +1576,24 @@ const servicesRules =  {
         8: {
             message: "msg-29",
             requestModel: {
+                type: "inurl",
+                requestType: "put",
                 params: {
-                    lockCheckbox: true
+                    lockCheckbox: true,
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row_oid",
+                            order: 1
+                        },
+                        "national_code_bought_assets": {
+                            type: "numeric-string",
+                            min: 1,
+                            max: 100,
+                            nameToSend: "dst_national_code",
+                            order: 2,
+                        },
+                    },
                 }
             }
         },

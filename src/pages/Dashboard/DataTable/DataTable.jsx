@@ -111,7 +111,7 @@ export default function DataTable(props) {
             }
             setData({...tempData});
             setMessage(updateRules?.message ?? "");
-            setSm(`${fetchedData.message}`);
+            setSm(`${fetchedData?.message ?? ""}`);
             setLockColumns(lockedColumn);
             setDataToBeUpdated({});
         }).catch(error => {
