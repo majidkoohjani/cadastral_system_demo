@@ -10,6 +10,7 @@ import { getSubServiceUpdateRules } from "../../../core/constants/servicesUpdate
 import "./DataTable.scss";
 import ServicesUpdate from "../../../core/api/ServicesUpdate";
 import Validator from "../../../core/helpers/Validator";
+import Chat from "../../../components/Chat/Chat";
 
 const validator = new Validator();
 
@@ -220,13 +221,41 @@ export default function DataTable(props) {
                         });
                     }
                 } else {
-                    setDataToBeUpdated({
-                        ...dataToBeUpdated,
-                        [tableName]: {
-                            rowID,
-                            [cellName]: dataToValidate,
+                    if (updateRules.requestModel?.params?.multipleRowsAllowed) {
+                        let tempdata = {...dataToBeUpdated};
+
+                        let thisIs = 0;
+                        if (Object.keys(tempdata?.[tableName] ?? {}).length < 1) {
+                            thisIs = 1;
+                        } else {
+                            thisIs = 2;
                         }
-                    });
+
+                        tempdata = {
+                            ...tempdata,
+                            [tableName]: {
+                                ...tempdata?.[tableName],
+                                [rowID]: {
+                                    ...tempdata?.[tableName]?.[rowID],
+                                    rowID,
+                                    [cellName]: dataToValidate,
+                                    "this_is": tempdata?.[tableName]?.[rowID]?.["this_is"] ?? thisIs
+                                }
+                            }
+                        };
+
+                        setDataToBeUpdated({
+                            ...tempdata
+                        });
+                    } else {
+                        setDataToBeUpdated({
+                            ...dataToBeUpdated,
+                            [tableName]: {
+                                rowID,
+                                [cellName]: dataToValidate,
+                            }
+                        });
+                    }
                 }
             } else {
                 e.stopPropagation();
@@ -270,7 +299,6 @@ export default function DataTable(props) {
                         message: data?.message2 ?? ""
                     },
                 ]);
-
             }).catch(error => {
                 Storage.setNextReloadMessage([
                     {
@@ -468,7 +496,9 @@ export default function DataTable(props) {
                 </div>
             }
             <div className="row justify-content-center align-items-center map-message">
-                <div className="col-6"></div>
+                <div className="col-6">
+                    <Chat />
+                </div>
                 <div className="col-6">
                     <Map />
                 </div>

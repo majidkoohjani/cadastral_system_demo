@@ -289,48 +289,195 @@ const servicesRules =  {
         9: {
             message: "msg-6",
             requestModel: {
+                type: "payload",
                 params: {
-                    lockCheckbox: true
+                    lockCheckbox: true,
+                    removeTableNameFromPayload: true,
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row_oid",
+                        },
+                        "row_status": {
+                            type: "null",
+                            mustBeNull: true,
+                            nameToSend: "column_7",
+                        },
+                    }
                 }
             }
         },
         10: {
             message: "msg-7",
             requestModel: {
+                type: "payload",
                 params: {
-                    lockCheckbox: true
+                    lockCheckbox: true,
+                    multipleRowsAllowed: {
+                        count: 2,
+                        table: "origin",
+                    },
+                    removeTableNameFromPayload: true,
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row_oid",
+                        },
+                        "assets_code": {
+                            type: "numeric-string",
+                            min: 100,
+                            max: 999,
+                            nameToSend: "8",
+                        },
+                        "price_assets": {
+                            type: "numeric",
+                            min: 0,
+                            max: 10000,
+                            nameToSend: "9",
+                        },
+                        "national_code_bought_assets": {
+                            type: "numeric-string",
+                            min: 1,
+                            max: 100,
+                            nameToSend: "10",
+                        },
+                        "percent_owner": {
+                            type: "numeric-float",
+                            min: 0,
+                            max: 1,
+                            nameToSend: "11",
+                        },
+                    }
                 }
             }
         },
         11: {
             message: "msg-7",
             requestModel: {
+                type: "payload",
                 params: {
-                    lockCheckbox: true
+                    lockCheckbox: true,
+                    multipleRowsAllowed: {
+                        count: 2,
+                        table: "origin",
+                    },
+                    removeTableNameFromPayload: true,
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row_oid",
+                        },
+                        "assets_code": {
+                            type: "numeric-string",
+                            min: 100,
+                            max: 999,
+                            nameToSend: "8",
+                        },
+                        "price_assets": {
+                            type: "numeric",
+                            min: 0,
+                            max: 10000,
+                            nameToSend: "9",
+                        },
+                        "national_code_bought_assets": {
+                            type: "numeric-string",
+                            min: 1,
+                            max: 100,
+                            nameToSend: "10",
+                        },
+                        "percent_owner": {
+                            type: "numeric-float",
+                            min: 0,
+                            max: 1,
+                            nameToSend: "11",
+                        },
+                    }
                 }
             }
         },
         12: {
             message: "msg-7",
             requestModel: {
+                type: "payload",
                 params: {
-                    lockCheckbox: true
+                    lockCheckbox: true,
+                    multipleRowsAllowed: {
+                        count: 2,
+                        table: "origin",
+                    },
+                    removeTableNameFromPayload: true,
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row_oid",
+                        },
+                        "assets_code": {
+                            type: "numeric-string",
+                            min: 100,
+                            max: 999,
+                            nameToSend: "8",
+                        },
+                        "price_assets": {
+                            type: "numeric",
+                            min: 0,
+                            max: 10000,
+                            nameToSend: "9",
+                        },
+                        "national_code_bought_assets": {
+                            type: "numeric-string",
+                            min: 1,
+                            max: 100,
+                            nameToSend: "10",
+                        },
+                        "percent_owner": {
+                            type: "numeric-float",
+                            min: 0,
+                            max: 1,
+                            nameToSend: "11",
+                        },
+                    }
                 }
             }
         },
         13: {
             message: "msg-6",
             requestModel: {
+                type: "payload",
                 params: {
-                    lockCheckbox: true
+                    lockCheckbox: true,
+                    removeTableNameFromPayload: true,
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row_oid",
+                        },
+                        "row_status": {
+                            type: "null",
+                            mustBeNull: true,
+                            nameToSend: "column_7",
+                        },
+                    }
                 }
             }
         },
         14: {
             message: "msg-6",
             requestModel: {
+                type: "payload",
                 params: {
-                    lockCheckbox: true
+                    lockCheckbox: true,
+                    removeTableNameFromPayload: true,
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row_oid",
+                        },
+                        "row_status": {
+                            type: "null",
+                            mustBeNull: true,
+                            nameToSend: "column_7",
+                        },
+                    }
                 }
             }
         },

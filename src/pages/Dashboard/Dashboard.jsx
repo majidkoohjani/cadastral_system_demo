@@ -70,7 +70,7 @@ export default function Dashboard() {
                     <Outlet />
                 </article>
             </main>
-            <footer className="fixed-footer">
+            <footer className={`fixed-footer ${language === 'fa' ? 'fa' : 'en'}`}>
                 <img src={footerImage} alt="Footer image" />
             </footer>
         </div>

@@ -9,6 +9,7 @@ import Service from "../pages/Dashboard/Services/Service/Service";
 import DataTable from "../pages/Dashboard/DataTable/DataTable";
 import Storage from "./helpers/Storage";
 import Logout from "../pages/Login/Logout";
+import Inbox from "../pages/Dashboard/Inbox/Inbox";
 
 const ProtectedRoute = ({user, redirectPath = "/login"}) => {
     const navigate = useNavigate();
@@ -41,6 +42,7 @@ const MyRouter = () => {
                         ["/", "/home", "/dashboard", "/خانه"].map((route, index) => {
                             return (
                                 <Route path={route} key={index} element={<Dashboard />}>
+                                    <Route path="inbox" element={<Inbox />} />
                                     <Route path="services" element={<Services />} />
                                     <Route path="service/:id/sub-services" element={<Service />} />
                                     <Route path="service/:id/sub-services/:subServiceID" element={<DataTable />} />

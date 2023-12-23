@@ -3,6 +3,38 @@ export default {
         "fa": "",
         "en": ""
     },
+    "fill-values": {
+        "fa": "مقادیر را کامل کنید",
+        "en": "Fill the values!"
+    },
+    "chat-input__subject": {
+        "fa": "موضوع چت (عدد شماره خدمت و زیر خدمتی که در آن قرار داری)",
+        "en": "Subject (service and subservice number)"
+    },
+    "chat-input__houseId": {
+        "fa": "عدد شناسه کاداستری ملک مقصد را وارد کن",
+        "en": "Enter the cadastral code of destination"
+    },
+    "chat-input__code": {
+        "fa": "عدد کد چهارگانه مقصد را وارد کن",
+        "en": "Enter the quadripartite code of destination"
+    },
+    "chat-input__nationalCode": {
+        "fa": "اگر کد ملی گیرنده پیام را داری وارد کن (کد ملی ستون 10 ردیف مقصد)",
+        "en": "Enter the receiver`s id if available (destination row`s column 10`s id)"
+    },
+    "chat-input__text": {
+        "fa": "اولین پیام این چت را وارد کن(فقط انگلیسی مجاز است). با توجه به زیر خدمتی که در آن هستی از این پیام های آماده هم میتوانی استفاده کنی",
+        "en": "Enter the first message (English only). You can choose the preset messages based on the subservice you are using."
+    },
+    "send": {
+        "fa": "ارسال",
+        "en": "send"
+    },
+    "chat-box__title": {
+        "fa": "شما در این زیر خدمت مجار به ایجاد یک چت هستید",
+        "en": "You are allowed to chat in this subservice"
+    },
     "current-dt": {
         "fa": "زمان جاری سیستم",
         "en": "Current date time"

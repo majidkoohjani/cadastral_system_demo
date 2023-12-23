@@ -103,7 +103,14 @@
     & > footer.fixed-footer {
         position: absolute;
         bottom: 0;
-        left: 5%;
+
+        &.fa {
+            left: 5%;
+        }
+
+        &.en {
+            right: 5%;
+        }
 
         & > img {
             max-width: 250px;

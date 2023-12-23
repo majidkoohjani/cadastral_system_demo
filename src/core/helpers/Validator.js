@@ -11,8 +11,14 @@ export default class Validator
             case "numeric-string":
                 validated = this.#checkNumericStringValue(valueToCheck, rules?.min, rules?.max);
                 break;
+            case "numeric-float":
+                validated = this.#checkFloatValue(valueToCheck, rules?.min, rules?.max);
+                break;
             case "checkbox":
                 validated = true;
+                break;
+            case "null":
+                validated = !valueToCheck || valueToCheck.length < 1;
                 break;
             default:
                 break;
@@ -32,10 +38,14 @@ export default class Validator
             neededTables.forEach(tableName => {
                 let neededFields = Object.keys(requestModel.params[tableName]);
 
-                let fieldsNotExist = neededFields.filter(fieldName => !dataToSend[tableName].hasOwnProperty(fieldName));
-
-                if (!fieldsNotExist.length) {
+                if (requestModel.params?.multipleRowsAllowed) {
                     validated = true;
+                } else {
+                    let fieldsNotExist = neededFields.filter(fieldName => !dataToSend[tableName].hasOwnProperty(fieldName));
+                    
+                    if (!fieldsNotExist.length) {
+                        validated = true;
+                    }
                 }
             });
 
@@ -64,6 +74,23 @@ export default class Validator
         });
 
         return result;
+    }
+
+    #checkFloatValue = (valueToCheck, min = null, max = null) => {
+        min = min ?? 0;
+        max = max ?? 1;
+        valueToCheck = +valueToCheck;
+
+        if (valueToCheck) {
+            if (!Number.isNaN(valueToCheck)) {
+
+                if (valueToCheck >= +min && valueToCheck <= +max) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 
     #checkNumericValue = (valueToCheck, min = null, max = null) => {

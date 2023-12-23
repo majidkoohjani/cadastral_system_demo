@@ -1,3 +1,4 @@
+import fun from "../constants/fun";
 import Main from "./Main";
 
 export default class ServicesUpdate
@@ -22,7 +23,7 @@ export default class ServicesUpdate
             default:
                 break;
         }
-
+        
         return this.#apiBridge[`${requestType}Request`](url, dataToSend);
     }
 
@@ -71,10 +72,27 @@ export default class ServicesUpdate
             fields.map(field => {
                 if (field !== "check") {
                     if (pattern.hasOwnProperty("removeTableNameFromPayload") && pattern?.removeTableNameFromPayload === true) {
-                        finalData = {
-                            ...finalData,
-                            [pattern[table][field]?.nameToSend ?? field]: ServicesUpdate.#checkDataValidationForServer(data[table][field], pattern[table][field]),
-                        };
+                        if (pattern?.multipleRowsAllowed) {
+                            let items = Array(pattern.multipleRowsAllowed.count).fill(0);
+
+                            items.map((item, index) => {
+                                let rowIDs = Object.keys(data[table]);
+
+                                rowIDs.map(rowId => {
+                                    if (data[table][rowId]["this_is"] == index + 1) {
+                                        finalData[`${fun[index + 1]}_row_oid`] = {
+                                            ...finalData[`${fun[index + 1]}_row_oid`],
+                                            [pattern[table][field]?.nameToSend ?? field]: data[table][rowId][field],
+                                        };
+                                    }
+                                })
+                            });
+                        } else {
+                            finalData = {
+                                ...finalData,
+                                [pattern[table][field]?.nameToSend ?? field]: ServicesUpdate.#checkDataValidationForServer(data[table][field], pattern[table][field]),
+                            };
+                        }
                     }
                     else {
                         finalData[table] = {
@@ -95,6 +113,9 @@ export default class ServicesUpdate
         switch (rules.type.toLocaleLowerCase()) {
             case "numeric":
                 finalValue = `${value}`.length < `${rules.max}`.length ? `${value}`.padStart(`${rules.max}`.length, "0") : value;
+                break;
+            case "null":
+                finalValue = null;
                 break;
             default:
                 finalValue = value;
