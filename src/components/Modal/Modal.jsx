@@ -25,7 +25,7 @@ export default function Modal(props) {
         onCloseModal();
     }
 
-    return <>
+    return (
         <div className={`modal fade`} id={id} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby={`${id}Label`} aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
@@ -36,12 +36,8 @@ export default function Modal(props) {
                     <div className="modal-body">
                         { children ?? "" }
                     </div>
-                    {/* <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" className="btn btn-primary">Understood</button>
-                    </div> */}
                 </div>
             </div>
         </div>
-    </>;
+    );
 }

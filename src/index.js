@@ -4,7 +4,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import AuthComponent from "./components/Auth/AuthComponent";
 import Preloader from "./components/Preloader/Preloader";
 import { ToastContainer } from "react-toastify";
-import Storage from "./core/helpers/Storage";
+// import Storage from "./core/helpers/Storage";
 import * as bootstrap from "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-toastify/dist/ReactToastify.css";

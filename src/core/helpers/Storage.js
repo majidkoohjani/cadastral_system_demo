@@ -1,3 +1,5 @@
+import CookieManager from "./Cookies";
+
 export default class Storage {
     // Properties
     static #errorMessage = "Storage.js file > Storage class > ";
@@ -30,6 +32,7 @@ export default class Storage {
 
     // Public methods
     static setLanguage(value = null) {
+        CookieManager.setCookie("lang", value);
         return this.#setter("language", value);
     }
 
@@ -38,6 +41,7 @@ export default class Storage {
 
         if (lang === null) {
             this.#setter("language", "en");
+            CookieManager.setCookie("lang", "en");
         }
 
         return this.#getter("language");

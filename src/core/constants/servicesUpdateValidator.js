@@ -492,16 +492,52 @@ const servicesRules =  {
         16: {
             message: "msg-9",
             requestModel: {
+                type: "payload",
                 params: {
-                    lockCheckbox: true
+                    lockCheckbox: true,
+                    multipleRowsAllowed: {
+                        count: "*",
+                        unordered: true,
+                        table: "origin",
+                    },
+                    tableNameForPayload: "self",
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row_oid",
+                        },
+                        "row_status": {
+                            type: "null",
+                            mustBeNull: true,
+                            nameToSend: "7",
+                        },
+                    }
                 }
             }
         },
         17: {
             message: "msg-9",
             requestModel: {
+                type: "payload",
                 params: {
-                    lockCheckbox: true
+                    lockCheckbox: true,
+                    multipleRowsAllowed: {
+                        count: "*",
+                        unordered: true,
+                        table: "origin",
+                    },
+                    tableNameForPayload: "self",
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row_oid",
+                        },
+                        "row_status": {
+                            type: "null",
+                            mustBeNull: true,
+                            nameToSend: "7",
+                        },
+                    }
                 }
             }
         },
@@ -516,16 +552,52 @@ const servicesRules =  {
         19: {
             message: "msg-9",
             requestModel: {
+                type: "payload",
                 params: {
-                    lockCheckbox: true
+                    lockCheckbox: true,
+                    multipleRowsAllowed: {
+                        count: "*",
+                        unordered: true,
+                        table: "origin",
+                    },
+                    tableNameForPayload: "self",
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row_oid",
+                        },
+                        "row_status": {
+                            type: "null",
+                            mustBeNull: true,
+                            nameToSend: "7",
+                        },
+                    }
                 }
             }
         },
         20: {
             message: "msg-9",
             requestModel: {
+                type: "payload",
                 params: {
-                    lockCheckbox: true
+                    lockCheckbox: true,
+                    multipleRowsAllowed: {
+                        count: "*",
+                        unordered: true,
+                        table: "origin",
+                    },
+                    tableNameForPayload: "self",
+                    origin: {
+                        rowID: {
+                            type: "auto",
+                            nameToSend: "row_oid",
+                        },
+                        "row_status": {
+                            type: "null",
+                            mustBeNull: true,
+                            nameToSend: "7",
+                        },
+                    }
                 }
             }
         },

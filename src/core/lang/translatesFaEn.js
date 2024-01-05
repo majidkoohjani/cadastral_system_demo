@@ -3,6 +3,46 @@ export default {
         "fa": "",
         "en": ""
     },
+    "apply": {
+        "fa": "تایید",
+        "en": "Apply"
+    },
+    "reset-message": {
+        "fa": "عملیاتی که میخواهید انجام دهید ممکن است باعث از دست رفتن یا تغییر در پایگاه داده شود. آیا از عملکرد خود اطمینان دارید؟",
+        "en": "Operation may cause important changes on database or data lost. Are you sure about it?"
+    },
+    "cancel": {
+        "fa": "انصراف",
+        "en": "Cancel"
+    },
+    "reset-data-warning": {
+        "fa": "هشدار تغییر داده های اساسی",
+        "en": "Change critical data warning"
+    },
+    "change-password": {
+        "fa": "تغییر کلمه عبور",
+        "en": "Change password"
+    },
+    "users-list": {
+        "fa": "لیست کاربران",
+        "en": "Users list"
+    },
+    "operations": {
+        "fa": "عملیات",
+        "en": "Operations"
+    },
+    "reset-db": {
+        "fa": "بازنشانی کل داده ها",
+        "en": "Reset database"
+    },
+    "change-all-password": {
+        "fa": "تغییر رمز کل کاربران",
+        "en": "Change password for all users"
+    },
+    "admin-title": {
+        "fa": "پنل مدیریت",
+        "en": "Administration panel"
+    },
     "fill-values": {
         "fa": "مقادیر را کامل کنید",
         "en": "Fill the values!"

@@ -9,9 +9,11 @@ import footerImage from "../../assets/images/08.png";
 import { translate } from "../../core/helpers/Translator";
 import "./Dashboard.scss";
 import Clock from "../../components/Clock/Clock";
+import { parseDateTime } from "../../core/helpers/DateTime";
 
 export default function Dashboard() {
     const language = Storage.getLanguage();
+    const loginInfo = Storage.getLoginInfo();
     document.title = `${translate("dashboard-title")} | ${translate("site-main-title")}`;
 
     return (
@@ -25,7 +27,7 @@ export default function Dashboard() {
                         <div className="col-3">
                             <ul className="m-0">
                                 <li>
-                                    {`${translate("user-nc")}: ${Storage.getLoginInfo().displayName}`}
+                                    {`${translate("user-nc")}: ${loginInfo.displayName}`}
                                 </li>
                                 <li>
                                     {`${translate("nc-type")}: `}
@@ -35,7 +37,7 @@ export default function Dashboard() {
                         <div className="col-4">
                             <ul className="m-0">
                                 <li>
-                                    {`${translate("last-login")}: `}
+                                    {`${translate("last-login")}: ${parseDateTime(loginInfo.previousLogin)}`}
                                 </li>
                                 <li>
                                     {`${translate("current-dt")}: `}<Clock />
@@ -56,6 +58,12 @@ export default function Dashboard() {
                     <ul className="my-0 p-0 aside-list">
                         {
                             asideItems.map(item => {
+                                if (item?.justAdmin) {
+                                    if (loginInfo?.isAdmin !== true) {
+                                        return;
+                                    }
+                                }
+                                
                                 return <li key={item.id} className="aside-list__item">
                                     <Link to={item?.location ?? item.file} target={item?.download === true ? "_blank" : "_self"} download={item?.download === true ? "true" : false} className="aside-list__item__link">
                                         <img src={item.icon} alt={item.icon} />

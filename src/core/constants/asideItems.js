@@ -46,6 +46,14 @@ export default [
     },
     {
         id: 7,
+        faText: "پنل مدیریت",
+        enText: "admin panel",
+        icon: require("../../assets/images/admin.png"),
+        location: "/control-panel",
+        justAdmin: true,
+    },
+    {
+        id: 8,
         faText: "خروج از سامانه",
         enText: "log out",
         icon: require("../../assets/images/logout.png"),

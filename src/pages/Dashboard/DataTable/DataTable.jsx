@@ -47,7 +47,7 @@ export default function DataTable(props) {
         eventBus.dispatchEvent("enablePreloader");
         Services.getData(`${serviceID},${subServiceID}`).then(response => {
             let fetchedData = response.data;
-            let {obj = null, destination = null, origin = null, lockedColumn = "" } = fetchedData;
+            let {obj = null, destination = null, origin = null, transaction = null, lockedColumn = "" } = fetchedData;
 
             let tempData = {
                 origin: [],
@@ -109,7 +109,37 @@ export default function DataTable(props) {
                     origin: [...origin],
                     destination: [...destination]
                 };
+            } else if(transaction !== null) {
+                if (transaction.length > 0) {
+                    if (transaction[0]?.hasOwnProperty("from_") && transaction[0]?.hasOwnProperty("to_")) {
+                        let tmpOrigin = [];
+                        let tmpDest = [];
+
+                        transaction.map(record => {
+                            tmpOrigin = [
+                                ...tmpOrigin,
+                                {...record.from_}
+                            ];
+                            
+                            tmpDest = [
+                                ...tmpDest,
+                                {...record.to_}
+                            ];
+                        });
+
+                        tempData = {
+                            origin: [...tmpOrigin],
+                            destination: [...tmpDest],
+                        };
+                    } else {
+                        tempData = tempData = {
+                            origin: [...transaction],
+                            destination: [],
+                        };
+                    }
+                }
             }
+
             setData({...tempData});
             setMessage(updateRules?.message ?? "");
             setSm(`${fetchedData?.message ?? ""}`);
@@ -222,31 +252,50 @@ export default function DataTable(props) {
                     }
                 } else {
                     if (updateRules.requestModel?.params?.multipleRowsAllowed) {
-                        let tempdata = {...dataToBeUpdated};
-
-                        let thisIs = 0;
-                        if (Object.keys(tempdata?.[tableName] ?? {}).length < 1) {
-                            thisIs = 1;
+                        if (updateRules.requestModel?.params?.multipleRowsAllowed?.unordered) {
+                            let tempdata = {...dataToBeUpdated};
+    
+                            tempdata = {
+                                ...tempdata,
+                                [tableName]: [
+                                    ...tempdata?.[tableName] ?? [],
+                                    {
+                                        rowID,
+                                        [cellName]: dataToValidate,
+                                    }
+                                ]
+                            };
+    
+                            setDataToBeUpdated({
+                                ...tempdata
+                            });
                         } else {
-                            thisIs = 2;
-                        }
-
-                        tempdata = {
-                            ...tempdata,
-                            [tableName]: {
-                                ...tempdata?.[tableName],
-                                [rowID]: {
-                                    ...tempdata?.[tableName]?.[rowID],
-                                    rowID,
-                                    [cellName]: dataToValidate,
-                                    "this_is": tempdata?.[tableName]?.[rowID]?.["this_is"] ?? thisIs
-                                }
+                            let tempdata = {...dataToBeUpdated};
+    
+                            let thisIs = 0;
+                            if (Object.keys(tempdata?.[tableName] ?? {}).length < 1) {
+                                thisIs = 1;
+                            } else {
+                                thisIs = 2;
                             }
-                        };
-
-                        setDataToBeUpdated({
-                            ...tempdata
-                        });
+    
+                            tempdata = {
+                                ...tempdata,
+                                [tableName]: {
+                                    ...tempdata?.[tableName],
+                                    [rowID]: {
+                                        ...tempdata?.[tableName]?.[rowID],
+                                        rowID,
+                                        [cellName]: dataToValidate,
+                                        "this_is": tempdata?.[tableName]?.[rowID]?.["this_is"] ?? thisIs
+                                    }
+                                }
+                            };
+    
+                            setDataToBeUpdated({
+                                ...tempdata
+                            });
+                        }
                     } else {
                         setDataToBeUpdated({
                             ...dataToBeUpdated,

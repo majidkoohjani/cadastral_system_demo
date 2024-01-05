@@ -69,39 +69,102 @@ export default class ServicesUpdate
         tables.map(table => {
             let fields = Object.keys(pattern[table]);
 
-            fields.map(field => {
-                if (field !== "check") {
-                    if (pattern.hasOwnProperty("removeTableNameFromPayload") && pattern?.removeTableNameFromPayload === true) {
-                        if (pattern?.multipleRowsAllowed) {
-                            let items = Array(pattern.multipleRowsAllowed.count).fill(0);
+            if (Array.isArray(data[table])) {
+                let tmpFinalArray = [];
+                data[table].map(record => {
+                    let tmpFinalObj = {};
 
-                            items.map((item, index) => {
-                                let rowIDs = Object.keys(data[table]);
-
-                                rowIDs.map(rowId => {
-                                    if (data[table][rowId]["this_is"] == index + 1) {
-                                        finalData[`${fun[index + 1]}_row_oid`] = {
-                                            ...finalData[`${fun[index + 1]}_row_oid`],
-                                            [pattern[table][field]?.nameToSend ?? field]: data[table][rowId][field],
+                    fields.map(field => {
+                        if (field !== "check") {
+                            if (pattern.hasOwnProperty("tableNameForPayload")) {
+                                if (pattern?.multipleRowsAllowed) {
+                                    if (pattern?.multipleRowsAllowed?.unordered) {
+                                        tmpFinalObj = {
+                                            ...tmpFinalObj,
+                                            [pattern[table][field]?.nameToSend ?? field]: ServicesUpdate.#checkDataValidationForServer(record[field], pattern[table][field]),
                                         };
                                     }
-                                })
-                            });
-                        } else {
-                            finalData = {
-                                ...finalData,
+                                }
+                            }
+                        }
+                    });
+
+                    tmpFinalArray.push(tmpFinalObj);
+                });
+                finalData[pattern.tableNameForPayload] = [...tmpFinalArray];
+            }
+            else {
+                fields.map(field => {
+                    if (field !== "check") {
+                        if (pattern.hasOwnProperty("removeTableNameFromPayload") && pattern?.removeTableNameFromPayload === true) {
+                            if (pattern?.multipleRowsAllowed) {
+                                let items = Array(pattern.multipleRowsAllowed.count).fill(0);
+    
+                                items.map((item, index) => {
+                                    let rowIDs = Object.keys(data[table]);
+    
+                                    rowIDs.map(rowId => {
+                                        if (data[table][rowId]["this_is"] == index + 1) {
+                                            finalData[`${fun[index + 1]}_row_oid`] = {
+                                                ...finalData[`${fun[index + 1]}_row_oid`],
+                                                [pattern[table][field]?.nameToSend ?? field]: data[table][rowId][field],
+                                            };
+                                        }
+                                    })
+                                });
+                            } else {
+                                finalData = {
+                                    ...finalData,
+                                    [pattern[table][field]?.nameToSend ?? field]: ServicesUpdate.#checkDataValidationForServer(data[table][field], pattern[table][field]),
+                                };
+                            }
+                        }
+                        else if (pattern.hasOwnProperty("tableNameForPayload")) {
+                            if (pattern?.multipleRowsAllowed) {
+                                if (pattern?.multipleRowsAllowed?.unordered) {
+                                    data[table].map(record => {
+                                        finalData[pattern.tableNameForPayload] = [
+                                            ...finalData?.[pattern.tableNameForPayload] ?? [],
+                                            {
+                                                [pattern[table][field]?.nameToSend ?? field]: ServicesUpdate.#checkDataValidationForServer(data[table][field], pattern[table][field]),
+                                            },
+                                        ];
+                                    });
+    
+                                    console.log(finalData);
+                                } else {
+                                    let items = Array(pattern.multipleRowsAllowed.count).fill(0);
+        
+                                    items.map((item, index) => {
+                                        let rowIDs = Object.keys(data[table]);
+        
+                                        rowIDs.map(rowId => {
+                                            if (data[table][rowId]["this_is"] == index + 1) {
+                                                finalData[`${fun[index + 1]}_row_oid`] = {
+                                                    ...finalData[`${fun[index + 1]}_row_oid`],
+                                                    [pattern[table][field]?.nameToSend ?? field]: data[table][rowId][field],
+                                                };
+                                            }
+                                        })
+                                    });
+                                }
+                            } else {
+                                finalData = {
+                                    ...finalData,
+                                    [pattern[table][field]?.nameToSend ?? field]: ServicesUpdate.#checkDataValidationForServer(data[table][field], pattern[table][field]),
+                                };
+                            }
+                        }
+                        else {
+                            finalData[table] = {
+                                ...finalData[table],
                                 [pattern[table][field]?.nameToSend ?? field]: ServicesUpdate.#checkDataValidationForServer(data[table][field], pattern[table][field]),
                             };
                         }
                     }
-                    else {
-                        finalData[table] = {
-                            ...finalData[table],
-                            [pattern[table][field]?.nameToSend ?? field]: ServicesUpdate.#checkDataValidationForServer(data[table][field], pattern[table][field]),
-                        };
-                    }
-                }
-            });
+                });
+            }
+
         });
 
         return finalData;

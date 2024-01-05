@@ -25,12 +25,14 @@ export default function AuthComponent(props) {
     const loginHandler = () => {
         eventBus.dispatchEvent("enablePreloader");
         Authentication.login(username, password).then(response => {
-            const {access_token, user: { national_code, name }} = response.data;
+            const {access_token, user: { national_code, name, previous_login, IsAdmin = null }} = response.data;
 
             Storage.setLoginInfo({
                 token: access_token,
                 username: national_code,
-                displayName: name
+                displayName: name,
+                previousLogin: previous_login,
+                ...(IsAdmin === true ? {isAdmin: true} : {}),
             });
 
             toast.success(translate("welcome"), {

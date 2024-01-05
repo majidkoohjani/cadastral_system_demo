@@ -24,36 +24,6 @@
     .buttons-and-messenger {
         display: flex;
         column-gap: 90px;
-    
-        & > .btn {
-            padding: 6px 8px;
-            border-radius: 8px;
-            border: 1px solid;
-            color: $black;
-            font-size: 0.75rem;
-            width: 130px;
-            height: 40px;
-            font-weight: 400;
-            text-transform: capitalize;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-    
-            &.btn-red {
-                background-color: $red--ed;
-                border-color: $red--ed;
-            }
-        
-            &.btn-green {
-                background-color: $green-76;
-                border-color: $green-76;
-            }
-        
-            &.btn-cyan {
-                background-color: $green-8d;
-                border-color: $green-8d;
-            }
-        }
     }
 }
 
