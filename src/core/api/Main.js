@@ -8,7 +8,9 @@ class Main
     postRequest = async (url = "", data = {}) => {
         return axios.post(`${this.#urlGenerator(url)}`, {...data}, {
             headers: {
-                Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`
+                Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`,
+                Accept_Lang: "en",
+                Accept_Lang_Client: Storage.getLanguage() ?? "en",
             }
         });
     }
@@ -17,7 +19,9 @@ class Main
         return axios.get(`${this.#urlGenerator(url)}`, {
             data: {...data},
             headers: {
-                Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`
+                Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`,
+                Accept_Lang: "en",
+                Accept_Lang_Client: Storage.getLanguage() ?? "en",
             }
         });
     }
@@ -25,7 +29,9 @@ class Main
     putRequest = async (url = "", data = {}) => {
         return axios.put(`${this.#urlGenerator(url)}`, {...data}, {
             headers: {
-                Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`
+                Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`,
+                Accept_Lang: "en",
+                Accept_Lang_Client: Storage.getLanguage() ?? "en",
             }
         });
     }
@@ -33,7 +39,9 @@ class Main
     deleteRequest = async (url = "", data = {}) => {
         return axios.delete(`${this.#urlGenerator(url)}`, {
             headers: {
-                Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`
+                Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`,
+                Accept_Lang: "en",
+                Accept_Lang_Client: Storage.getLanguage() ?? "en",
             }
         });
     }
@@ -41,7 +49,9 @@ class Main
     patchRequest = async (url = "", data = {}) => {
         return axios.patch(`${this.#urlGenerator(url)}`, {...data}, {
             headers: {
-                Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`
+                Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`,
+                Accept_Lang: "en",
+                Accept_Lang_Client: Storage.getLanguage() ?? "en",
             }
         });
     }

@@ -328,7 +328,8 @@ export default function DataTable(props) {
                 const {status, data} = response;
 
                 switch (status) {
-                    case 200 || 201:
+                    case 200:
+                    case 201:
                         toast.success(translate("updated-successfully"), {
                             position: toast.POSITION.TOP_RIGHT
                         });

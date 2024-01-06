@@ -8,6 +8,30 @@
     height: 240px;
     margin: 10px auto;
 
+    & > map {
+        & > area {
+            // position: relative;
+
+            // &:hover::after {
+            //     content: attr(title);
+            //     padding: 40px 8px;
+            //     position: absolute;
+            //     left: 0;
+            //     top: 100%;
+            //     z-index: 1;
+            //     background:red;
+            // }
+        }
+
+        & > .map-tooltip {
+            display: flex;
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+    }
+
     // &-section {
     //     &:nth-child(odd) {
     //         flex: 0 0 60%;

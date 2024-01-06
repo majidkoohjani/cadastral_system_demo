@@ -3,6 +3,14 @@ export default {
         "fa": "",
         "en": ""
     },
+    "map-1-desc": {
+        "fa": "",
+        "en": ""
+    },
+    "map-1-title": {
+        "fa": "",
+        "en": ""
+    },
     "apply": {
         "fa": "تایید",
         "en": "Apply"

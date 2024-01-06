@@ -57,6 +57,7 @@ export default class Storage {
 
     static deleteLoginInfo() {
         this.#delete("userInfo");
+        CookieManager.deleteCookies(["domain", "SameSite", "Secure"]);
     }
 
     static setNextReloadMessage(messages = []) {

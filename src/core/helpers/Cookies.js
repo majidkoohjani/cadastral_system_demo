@@ -1,7 +1,7 @@
 export default class CookieManager
 {
     static setCookie(name = "", value = "", path = "/") {
-        document.cookie = `${name}=${value}; path=${path}`;
+        document.cookie = `${name}=${value}; path=${path}; domain=.metacadastralsystem.com;SameSite=None; Secure=True`;
     }
 
     static getCookie = (name = "") => {
