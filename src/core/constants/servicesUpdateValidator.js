@@ -484,6 +484,7 @@ const servicesRules =  {
         15: {
             message: "msg-8",
             requestModel: {
+                type: "payload",
                 params: {
                     lockCheckbox: true
                 }
@@ -544,6 +545,7 @@ const servicesRules =  {
         18: {
             message: "msg-8",
             requestModel: {
+                type: "payload",
                 params: {
                     lockCheckbox: true
                 }
@@ -1643,7 +1645,7 @@ const servicesRules =  {
         1: {
             message: "msg-2",
             requestModel: {
-                type: "payload",
+                type: "inurl",
                 params: {
                     lockCheckbox: false,
                     removeTableNameFromPayload: true,
@@ -1731,7 +1733,7 @@ const servicesRules =  {
         5: {
             message: "msg-2",
             requestModel: {
-                type: "payload",
+                type: "inurl",
                 params: {
                     lockCheckbox: false,
                     removeTableNameFromPayload: true,
@@ -1819,7 +1821,7 @@ const servicesRules =  {
         9: {
             message: "msg-2",
             requestModel: {
-                type: "payload",
+                type: "inurl",
                 params: {
                     lockCheckbox: false,
                     removeTableNameFromPayload: true,
@@ -1971,7 +1973,7 @@ const servicesRules =  {
         3: {
             message: "msg-2",
             requestModel: {
-                type: "payload",
+                type: "inurl",
                 params: {
                     lockCheckbox: false,
                     removeTableNameFromPayload: true,
@@ -2000,7 +2002,7 @@ const servicesRules =  {
         5: {
             message: "msg-2",
             requestModel: {
-                type: "payload",
+                type: "inurl",
                 params: {
                     lockCheckbox: false,
                     removeTableNameFromPayload: true,

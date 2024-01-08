@@ -209,174 +209,272 @@ export default function DataTable(props) {
     }
 
     const handleCellValueChanged = (e, rowIDInProgram, columnID, tableName = "origin", rowID, cellName = "") => {
-        // const [tableName, rowID, cellName] = data.fieldName.split("|");
-        if (updateRules.hasOwnProperty("requestModel")) {
-            if (dataToBeUpdated[tableName]?.hasOwnProperty("rowID") && dataToBeUpdated[tableName]["rowID"] !== rowID)
-            {
-                resetElement(e);
-                toast.error(translate("error-just-one-row"), {
-                    position: toast.POSITION.TOP_RIGHT
-                });
-                return;
+        if (serviceID == 2 && (subServiceID == 15 || subServiceID == 18)) {
+            let tmpDataToBeUpdated = {...dataToBeUpdated};
+
+            let record = data[tableName].find(row => row["_id"] === rowID);
+
+            if (record) {
+                if (record.code == "3") {
+                    let {self = []} = tmpDataToBeUpdated;
+                    
+                    let records = self.filter(row => row.row_oid !== rowID);
+                    let recordFinal = {
+                        "row_oid": rowID,
+                        "8": e.target.value,
+                    };
+
+                    let final = [
+                        ...records,
+                        recordFinal
+                    ];
+
+                    tmpDataToBeUpdated.self = [...final];
+                }
+                else if (record.code == "4") {
+                    let {family = []} = tmpDataToBeUpdated;
+                    
+                    let records = family.filter(row => row.row_oid !== rowID);
+                    let recordFinal = {
+                        "row_oid": rowID,
+                        "8": e.target.value,
+                    };
+
+                    let final = [
+                        ...records,
+                        recordFinal
+                    ];
+
+                    tmpDataToBeUpdated.family = [...final];
+                }
+
+                setDataToBeUpdated({...tmpDataToBeUpdated});
             }
-
-            if (e.target.type === "checkbox" && e.target.checked === true) {
-                let selectedOne = data[tableName].find(item => item._id === rowID && item?.selected === true);
-
-                if (selectedOne) {
+        }
+        else {
+            // const [tableName, rowID, cellName] = data.fieldName.split("|");
+            if (updateRules.hasOwnProperty("requestModel")) {
+                if (dataToBeUpdated[tableName]?.hasOwnProperty("rowID") && dataToBeUpdated[tableName]["rowID"] !== rowID)
+                {
                     resetElement(e);
-                    toast.error(translate("recall-request-denied"), {
+                    toast.error(translate("error-just-one-row"), {
                         position: toast.POSITION.TOP_RIGHT
                     });
                     return;
                 }
-            }
-
-            let dataToValidate = e.target.type === "checkbox" ? e.target.checked : e.target.value;
-
-            if (validator.validate(dataToValidate, {...updateRules.requestModel.params[tableName][cellName]})) {
-                if (e.target.type === "checkbox" && dataToValidate === false) {
-                    if (updateRules.requestModel.params[tableName]["check"]?.canBeUsedAsDelete) {
-                        setDataToBeUpdated({
-                            ...dataToBeUpdated,
-                            [tableName]: {
-                                rowID,
-                                [cellName]: dataToValidate,
-                            }
+    
+                if (e.target.type === "checkbox" && e.target.checked === true) {
+                    let selectedOne = data[tableName].find(item => item._id === rowID && item?.selected === true);
+    
+                    if (selectedOne) {
+                        resetElement(e);
+                        toast.error(translate("recall-request-denied"), {
+                            position: toast.POSITION.TOP_RIGHT
                         });
-                    } else {
-                        setDataToBeUpdated({
-                            ...dataToBeUpdated,
-                            [tableName]: {}
-                        });
+                        return;
                     }
-                } else {
-                    if (updateRules.requestModel?.params?.multipleRowsAllowed) {
-                        if (updateRules.requestModel?.params?.multipleRowsAllowed?.unordered) {
-                            let tempdata = {...dataToBeUpdated};
+                }
     
-                            tempdata = {
-                                ...tempdata,
-                                [tableName]: [
-                                    ...tempdata?.[tableName] ?? [],
-                                    {
-                                        rowID,
-                                        [cellName]: dataToValidate,
-                                    }
-                                ]
-                            };
+                let dataToValidate = e.target.type === "checkbox" ? e.target.checked : e.target.value;
     
+                if (validator.validate(dataToValidate, {...updateRules.requestModel.params[tableName][cellName]})) {
+                    if (e.target.type === "checkbox" && dataToValidate === false) {
+                        if (updateRules.requestModel.params[tableName]["check"]?.canBeUsedAsDelete) {
                             setDataToBeUpdated({
-                                ...tempdata
+                                ...dataToBeUpdated,
+                                [tableName]: {
+                                    rowID,
+                                    [cellName]: dataToValidate,
+                                }
                             });
                         } else {
-                            let tempdata = {...dataToBeUpdated};
-    
-                            let thisIs = 0;
-                            if (Object.keys(tempdata?.[tableName] ?? {}).length < 1) {
-                                thisIs = 1;
-                            } else {
-                                thisIs = 2;
-                            }
-    
-                            tempdata = {
-                                ...tempdata,
-                                [tableName]: {
-                                    ...tempdata?.[tableName],
-                                    [rowID]: {
-                                        ...tempdata?.[tableName]?.[rowID],
-                                        rowID,
-                                        [cellName]: dataToValidate,
-                                        "this_is": tempdata?.[tableName]?.[rowID]?.["this_is"] ?? thisIs
-                                    }
-                                }
-                            };
-    
                             setDataToBeUpdated({
-                                ...tempdata
+                                ...dataToBeUpdated,
+                                [tableName]: {}
                             });
                         }
                     } else {
-                        setDataToBeUpdated({
-                            ...dataToBeUpdated,
-                            [tableName]: {
-                                rowID,
-                                [cellName]: dataToValidate,
+                        if (updateRules.requestModel?.params?.multipleRowsAllowed) {
+                            if (updateRules.requestModel?.params?.multipleRowsAllowed?.unordered) {
+                                let tempdata = {...dataToBeUpdated};
+        
+                                tempdata = {
+                                    ...tempdata,
+                                    [tableName]: [
+                                        ...tempdata?.[tableName] ?? [],
+                                        {
+                                            rowID,
+                                            [cellName]: dataToValidate,
+                                        }
+                                    ]
+                                };
+        
+                                setDataToBeUpdated({
+                                    ...tempdata
+                                });
+                            } else {
+                                let tempdata = {...dataToBeUpdated};
+        
+                                let thisIs = 0;
+                                if (Object.keys(tempdata?.[tableName] ?? {}).length < 1) {
+                                    thisIs = 1;
+                                } else {
+                                    thisIs = 2;
+                                }
+        
+                                tempdata = {
+                                    ...tempdata,
+                                    [tableName]: {
+                                        ...tempdata?.[tableName],
+                                        [rowID]: {
+                                            ...tempdata?.[tableName]?.[rowID],
+                                            rowID,
+                                            [cellName]: dataToValidate,
+                                            "this_is": tempdata?.[tableName]?.[rowID]?.["this_is"] ?? thisIs
+                                        }
+                                    }
+                                };
+        
+                                setDataToBeUpdated({
+                                    ...tempdata
+                                });
                             }
-                        });
+                        } else {
+                            setDataToBeUpdated({
+                                ...dataToBeUpdated,
+                                [tableName]: {
+                                    rowID,
+                                    [cellName]: dataToValidate,
+                                }
+                            });
+                        }
                     }
+                } else {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    toast.error(translate("wrong-value-entered"), {
+                        position: toast.POSITION.TOP_RIGHT
+                    });
                 }
             } else {
-                e.stopPropagation();
-                e.preventDefault();
-                toast.error(translate("wrong-value-entered"), {
+                toast.error(translate("call-frontend"), {
                     position: toast.POSITION.TOP_RIGHT
                 });
             }
-        } else {
-            toast.error(translate("call-frontend"), {
-                position: toast.POSITION.TOP_RIGHT
-            });
         }
     }
     
     const handleSubmitBtn = () => {
-        if (validator.validateNeededFields({...updateRules.requestModel}, {...dataToBeUpdated})) {
+        if (serviceID == 2 && (subServiceID == 15 || subServiceID == 18)) {
             eventBus.dispatchEvent("enablePreloader");
-
-            ServicesUpdate.update(`${serviceID}/${subServiceID}`, {...updateRules.requestModel}, dataToBeUpdated).then(response => {
-                const {status, data} = response;
-
-                switch (status) {
-                    case 200:
-                    case 201:
-                        toast.success(translate("updated-successfully"), {
+    
+                ServicesUpdate.update(`${serviceID}/${subServiceID}`, {...updateRules.requestModel}, dataToBeUpdated).then(response => {
+                    const {status, data} = response;
+    
+                    switch (status) {
+                        case 200:
+                        case 201:
+                            toast.success(translate("updated-successfully"), {
+                                position: toast.POSITION.TOP_RIGHT
+                            });
+                            break;
+                        default:
+                            toast.error(translate("updated-failed"), {
+                                position: toast.POSITION.TOP_RIGHT
+                            });
+                            break;
+                    }
+    
+                    Storage.setNextReloadMessage([
+                        {
+                            message: data?.message ?? ""
+                        },
+                        {
+                            message: data?.message2 ?? ""
+                        },
+                    ]);
+                }).catch(error => {
+                    Storage.setNextReloadMessage([
+                        {
+                            message: error?.response?.data?.message ?? ""
+                        },
+                        {
+                            message: error?.response?.data?.message2 ?? ""
+                        },
+                    ]);
+    
+                    if (error.code === "ERR_NETWORK") {
+                        toast.error(translate("500-error"), {
                             position: toast.POSITION.TOP_RIGHT
                         });
-                        break;
-                    default:
-                        toast.error(translate("updated-failed"), {
+                    } else {
+                        toast.error(`${translate("updated-failed")}\r\n${error.message}`, {
                             position: toast.POSITION.TOP_RIGHT
                         });
-                        break;
-                }
-
-                Storage.setNextReloadMessage([
-                    {
-                        message: data?.message ?? ""
-                    },
-                    {
-                        message: data?.message2 ?? ""
-                    },
-                ]);
-            }).catch(error => {
-                Storage.setNextReloadMessage([
-                    {
-                        message: error?.response?.data?.message ?? ""
-                    },
-                    {
-                        message: error?.response?.data?.message2 ?? ""
-                    },
-                ]);
-
-                if (error.code === "ERR_NETWORK") {
-                    toast.error(translate("500-error"), {
-                        position: toast.POSITION.TOP_RIGHT
-                    });
-                } else {
-                    toast.error(`${translate("updated-failed")}\r\n${error.message}`, {
-                        position: toast.POSITION.TOP_RIGHT
-                    });
-                }
-            }).finally(() => {
-                eventBus.dispatchEvent("disablePreloader");
-                navigate(0);
-                // fetchData();
-            });
+                    }
+                }).finally(() => {
+                    eventBus.dispatchEvent("disablePreloader");
+                    // navigate(0);
+                    // fetchData();
+                });
         } else {
-            toast.error(translate("error-just-one-row"), {
-                position: toast.POSITION.TOP_RIGHT
-            });
+            if (validator.validateNeededFields({...updateRules.requestModel}, {...dataToBeUpdated})) {
+                eventBus.dispatchEvent("enablePreloader");
+    
+                ServicesUpdate.update(`${serviceID}/${subServiceID}`, {...updateRules.requestModel}, dataToBeUpdated).then(response => {
+                    const {status, data} = response;
+    
+                    switch (status) {
+                        case 200:
+                        case 201:
+                            toast.success(translate("updated-successfully"), {
+                                position: toast.POSITION.TOP_RIGHT
+                            });
+                            break;
+                        default:
+                            toast.error(translate("updated-failed"), {
+                                position: toast.POSITION.TOP_RIGHT
+                            });
+                            break;
+                    }
+    
+                    Storage.setNextReloadMessage([
+                        {
+                            message: data?.message ?? ""
+                        },
+                        {
+                            message: data?.message2 ?? ""
+                        },
+                    ]);
+                }).catch(error => {
+                    Storage.setNextReloadMessage([
+                        {
+                            message: error?.response?.data?.message ?? ""
+                        },
+                        {
+                            message: error?.response?.data?.message2 ?? ""
+                        },
+                    ]);
+    
+                    if (error.code === "ERR_NETWORK") {
+                        toast.error(translate("500-error"), {
+                            position: toast.POSITION.TOP_RIGHT
+                        });
+                    } else {
+                        toast.error(`${translate("updated-failed")}\r\n${error.message}`, {
+                            position: toast.POSITION.TOP_RIGHT
+                        });
+                    }
+                }).finally(() => {
+                    eventBus.dispatchEvent("disablePreloader");
+                    // navigate(0);
+                    // fetchData();
+                });
+            } else {
+                toast.error(translate("error-just-one-row"), {
+                    position: toast.POSITION.TOP_RIGHT
+                });
+            }
         }
     }
 

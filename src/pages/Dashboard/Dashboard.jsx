@@ -16,6 +16,16 @@ export default function Dashboard() {
     const loginInfo = Storage.getLoginInfo();
     document.title = `${translate("dashboard-title")} | ${translate("site-main-title")}`;
 
+    let userType = loginInfo?.naturalOrLegal ?? "";
+
+    if (userType.includes("حقیقی")) {
+        userType = translate("natural");
+    } else if (userType.includes("حقوقی")) {
+        userType = translate("legal");
+    } else if (userType.includes("ادمین")) {
+        userType = translate("admin");
+    }
+
     return (
         <div className={`container-fluid dashboard-page ${language === 'fa' ? 'rtl' : 'ltr'}`}>
             <header className="row">
@@ -30,7 +40,7 @@ export default function Dashboard() {
                                     {`${translate("user-nc")}: ${loginInfo.displayName}`}
                                 </li>
                                 <li>
-                                    {`${translate("nc-type")}: `}
+                                    {`${translate("nc-type")}: ${userType}`}
                                 </li>
                             </ul>
                         </div>

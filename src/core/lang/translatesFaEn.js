@@ -3,6 +3,18 @@ export default {
         "fa": "",
         "en": ""
     },
+    "natural": {
+        "fa": "حقیقی",
+        "en": "Natural"
+    },
+    "legal": {
+        "fa": "حقوقی",
+        "en": "Legal"
+    },
+    "admin": {
+        "fa": "مدیر",
+        "en": "Admin"
+    },
     "map-1-desc": {
         "fa": "",
         "en": ""

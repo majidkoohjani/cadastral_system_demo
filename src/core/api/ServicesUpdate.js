@@ -7,6 +7,7 @@ export default class ServicesUpdate
 
     static update = async (serviceIdentifierString = "", requestModel = null, data = {}) => {
         let url = `services/${serviceIdentifierString}`;
+        let [serviceId, subServiceId] = serviceIdentifierString.split("/");
         let dataToSend = {};
 
         let {type = "", params = {}, requestType = "post"} = requestModel;
@@ -18,7 +19,11 @@ export default class ServicesUpdate
                 url += `/${tmpUrl}`;
                 break;
             case "payload":
-                dataToSend = ServicesUpdate.#getDataToSend(params, data);
+                if(serviceId == 2 && (subServiceId == 15 || subServiceId == 18)) {
+                    dataToSend = {...data};
+                } else {
+                    dataToSend = ServicesUpdate.#getDataToSend(params, data);
+                }
                 break;
             default:
                 break;
@@ -130,8 +135,6 @@ export default class ServicesUpdate
                                             },
                                         ];
                                     });
-    
-                                    console.log(finalData);
                                 } else {
                                     let items = Array(pattern.multipleRowsAllowed.count).fill(0);
         
