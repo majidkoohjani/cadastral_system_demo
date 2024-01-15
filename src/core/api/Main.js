@@ -9,8 +9,8 @@ class Main
         return axios.post(`${this.#urlGenerator(url)}`, {...data}, {
             headers: {
                 Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`,
-                Accept_Lang: "en",
-                Accept_Lang_Client: Storage.getLanguage() ?? "en",
+                "Accept-Lang": "en",
+                "Accept-Lang-Client": Storage.getLanguage() ?? "en",
             }
         });
     }
@@ -20,8 +20,8 @@ class Main
             data: {...data},
             headers: {
                 Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`,
-                Accept_Lang: "en",
-                Accept_Lang_Client: Storage.getLanguage() ?? "en",
+                "Accept-Lang": "en",
+                "Accept-Lang-Client": Storage.getLanguage() ?? "en",
             }
         });
     }
@@ -30,8 +30,8 @@ class Main
         return axios.put(`${this.#urlGenerator(url)}`, {...data}, {
             headers: {
                 Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`,
-                Accept_Lang: "en",
-                Accept_Lang_Client: Storage.getLanguage() ?? "en",
+                "Accept-Lang": "en",
+                "Accept-Lang-Client": Storage.getLanguage() ?? "en",
             }
         });
     }
@@ -40,8 +40,8 @@ class Main
         return axios.delete(`${this.#urlGenerator(url)}`, {
             headers: {
                 Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`,
-                Accept_Lang: "en",
-                Accept_Lang_Client: Storage.getLanguage() ?? "en",
+                "Accept-Lang": "en",
+                "Accept-Lang-Client": Storage.getLanguage() ?? "en",
             }
         });
     }
@@ -50,8 +50,8 @@ class Main
         return axios.patch(`${this.#urlGenerator(url)}`, {...data}, {
             headers: {
                 Authorization: `Bearer ${Storage.getLoginInfo()?.token ?? ""}`,
-                Accept_Lang: "en",
-                Accept_Lang_Client: Storage.getLanguage() ?? "en",
+                "Accept-Lang": "en",
+                "Accept-Lang-Client": Storage.getLanguage() ?? "en",
             }
         });
     }

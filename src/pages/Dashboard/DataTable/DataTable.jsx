@@ -139,9 +139,10 @@ export default function DataTable(props) {
                     }
                 }
             }
+            let tmpMsg = `${translate(updateRules?.message ?? "")}\n ${translate(updateRules?.specialMessage ?? "")}`;
 
             setData({...tempData});
-            setMessage(updateRules?.message ?? "");
+            setMessage(tmpMsg);
             setSm(`${fetchedData?.message ?? ""}`);
             setLockColumns(lockedColumn);
             setDataToBeUpdated({});
@@ -414,7 +415,7 @@ export default function DataTable(props) {
                     }
                 }).finally(() => {
                     eventBus.dispatchEvent("disablePreloader");
-                    // navigate(0);
+                    navigate(0);
                     // fetchData();
                 });
         } else {
@@ -467,7 +468,7 @@ export default function DataTable(props) {
                     }
                 }).finally(() => {
                     eventBus.dispatchEvent("disablePreloader");
-                    // navigate(0);
+                    navigate(0);
                     // fetchData();
                 });
             } else {
@@ -618,12 +619,12 @@ export default function DataTable(props) {
     return (
         <>
             {
-                message?.length > 0 &&
+                (message?.length > 0 || serverMessages?.length > 0 || sm?.length > 0) &&
                 <div className="message-box">
                     {
                         sm?.length ? <>{sm}<br /></> : ""
                     }
-                    { translate(message) }
+                    { message }
                     {
                         serverMessages?.length ? serverMessages.map((serverMessage, index) => {
                             return <React.Fragment key={index}>

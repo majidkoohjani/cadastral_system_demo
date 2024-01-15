@@ -1,7 +1,126 @@
+import { useEffect, useState } from "react";
 import "./Inbox.scss";
+import ChatApi from "../../../core/api/ChatApi";
+import eventBus from "../../../core/helpers/EventBus";
+import { translate } from "../../../core/helpers/Translator";
+
+const chatApi = new ChatApi();
 
 export default function Inbox(props) {
+    const [chats, setChats] = useState([]);
+    const [selectedChat, setSelectedChat] = useState(null);
+    const [selectedChatMessages, setSelectedChatMessages] = useState([]);
+
+    useEffect(() => {
+        document.title = `${translate("chats")} | ${translate("site-main-title")}`;
+        getChats();
+    }, []);
+
+    const reset = () => {
+        setSelectedChat(null);
+        setSelectedChatMessages([]);
+    }
+
+    const getChats = () => {
+        eventBus.dispatchEvent("enablePreloader");
+
+        chatApi.getChatsList().then(response => {
+            let {data = null, status} = response;
+
+            switch (status) {
+                case 200:
+                    setChats([...data?.chats ?? []]);
+                    break;
+                default:
+                    break;
+            }
+        }).catch(error => {
+            console.log(error);
+        }).finally(() => {
+            eventBus.dispatchEvent("disablePreloader");
+        });
+    }
+
+    const openChatMessages = (chosenChat = null) => {
+        if (!chosenChat) {
+            return;
+        }
+
+        setSelectedChat({...chosenChat});
+
+        eventBus.dispatchEvent("enablePreloader");
+
+        chatApi.getChatMessages(chosenChat.id).then(response => {
+            let {data = null, status} = response;
+
+            switch (status) {
+                case 200:
+                    setSelectedChatMessages([...data?.messages ?? []]);
+                    break;
+                default:
+                    break;
+            }
+        }).catch(error => {
+            console.log(error);
+        }).finally(() => {
+            eventBus.dispatchEvent("disablePreloader");
+        });
+    }
+
     return (
-        <>No design was provided!</>
+        <div className="container">
+            {
+                chats.length > 0 ? 
+                <div className="row chats__container">
+                    <div className="col-12 chats__header">
+                        <h6>{translate("chats")}</h6>
+                    </div>
+                    <div className="col-3 chats__col">
+                        {
+                            chats.map((chat, index) => {
+                                return (
+                                    <div key={index} className={`chat__item ${selectedChat?.id === chat.id ? "active" : ""}`} onClick={() => openChatMessages({...chat})}>
+                                        <div className="chat__details">
+                                            <span>{ `${translate("send-to")}: ${chat.to}` }</span>
+                                            <div>
+                                                {
+                                                    +chat.total_unread_message > 0 ? 
+                                                    <i className="fa-regular fa-check" /> : 
+                                                    <i className="fa-regular fa-check-double" style={{color: "green"}} />
+                                                }
+                                                {
+                                                    +chat.total_unread_message > 0 && 
+                                                    <span className="badge bg-danger">{ chat.total_unread_message } {translate("unread-message")}</span>
+                                                }
+                                            </div>
+                                        </div>
+                                        <div className="chat__last-message">
+                                            <span>{ chat.last_message }</span>
+                                            <span className="badge bg-warning">{ chat.subject }</span>
+                                        </div>
+                                    </div>
+                                );
+                            })
+                        }
+                    </div>
+                    <div className="col-9 chat__box">
+                        {
+                            selectedChatMessages.length > 0 ? 
+                            selectedChatMessages.map((message, index) => {
+                                return (
+                                    <div key={index} className={`message ${message.From.toLowerCase()}`}>
+                                        <span>{message.text}</span>
+                                    </div>
+                                );
+                            }) : 
+                            <span className="text-danger not-exist-text">{translate("no-messages")}</span>
+                        }
+                    </div>
+                </div> : 
+                <div className="alert alert-danger text-center">
+                    { translate("no-chats") }
+                </div>
+            }
+        </div>
     );
 }

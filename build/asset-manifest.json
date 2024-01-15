@@ -1,16 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.df20dba6.css",
-    "main.js": "/static/js/main.6a31201b.js",
+    "main.css": "/static/css/main.15e2cba2.css",
+    "main.js": "/static/js/main.441beb86.js",
     "static/media/help-en.pdf": "/static/media/help-en.8bc1fafcea0b2c2ab0bc.pdf",
     "static/media/help-fa.pdf": "/static/media/help-fa.f58983f924f2e211d0bf.pdf",
     "static/media/more-features.pdf": "/static/media/more-features.53d4ec10fe6ed3d7413d.pdf",
+    "static/media/fa-thin-100.ttf": "/static/media/fa-thin-100.5c968f9cdf977398b41b.ttf",
+    "static/media/fa-duotone-900.ttf": "/static/media/fa-duotone-900.5012e91f0fed479f79b3.ttf",
+    "static/media/fa-light-300.ttf": "/static/media/fa-light-300.8b18a77be77619201f1a.ttf",
+    "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.1fb710c67dcecf785a61.ttf",
     "static/media/faq.pdf": "/static/media/faq.26dc52fe7f9943c4653b.pdf",
+    "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.866bbb7a13a33d21b363.ttf",
     "static/media/aboutus-en.png": "/static/media/aboutus-en.3f0f5504ded14d017926.png",
     "static/media/aboutus-fa.png": "/static/media/aboutus-fa.21a71ebee2e8e468b5c0.png",
+    "static/media/fa-thin-100.woff2": "/static/media/fa-thin-100.3dbc498410b93155e54d.woff2",
+    "static/media/fa-light-300.woff2": "/static/media/fa-light-300.d66a62e82287b864947c.woff2",
+    "static/media/fa-duotone-900.woff2": "/static/media/fa-duotone-900.fd64474e3368ef87bf71.woff2",
+    "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.36168646e7d919287d07.woff2",
     "static/media/instructions.pdf": "/static/media/instructions.eed3633e74b1941bb20a.pdf",
+    "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.9ec24c50410b6d5138b7.woff2",
     "static/media/08.png": "/static/media/08.42e62b434ab3754111b7.png",
     "static/media/logo-fa.png": "/static/media/logo-fa.2d85516f8f3a075a8e8a.png",
+    "static/media/fa-brands-400.ttf": "/static/media/fa-brands-400.176a65f44a88183cf1dc.ttf",
+    "static/media/fa-brands-400.woff2": "/static/media/fa-brands-400.71509c349da645339ee4.woff2",
     "static/media/Yekan.svg": "/static/media/Yekan.6e28e0bda39475075d7b.svg",
     "static/media/Yekan.ttf": "/static/media/Yekan.f6a0838b6690eaaa2898.ttf",
     "static/media/Yekan.eot": "/static/media/Yekan.9db58f99bcd38a0e67b6.eot",
@@ -29,6 +41,8 @@
     "static/media/logout.png": "/static/media/logout.705a0251c7b9a6a6b506.png",
     "static/media/404.png": "/static/media/404.f512aab15f6fa8b14cd7.png",
     "static/media/user.png": "/static/media/user.786038b11d5462a4085e.png",
+    "static/media/fa-v4compatibility.ttf": "/static/media/fa-v4compatibility.32ccbdff2ea10853c22c.ttf",
+    "static/media/fa-v4compatibility.woff2": "/static/media/fa-v4compatibility.0c36d6c273b2f5540753.woff2",
     "static/media/instagram.svg": "/static/media/instagram.4569a848b3beae00017a8193dd316b02.svg",
     "static/media/aparat.svg": "/static/media/aparat.426eca7653e02c564360e3072711f213.svg",
     "static/media/globe.svg": "/static/media/globe.43d6edcf6a8861a03adb6cefcae07b20.svg",
@@ -36,11 +50,11 @@
     "static/media/linkedin.svg": "/static/media/linkedin.cef3f322bc95950205776e364742c5f9.svg",
     "static/media/envelope.svg": "/static/media/envelope.cf6c0ab26f7ba9d4e7e41788fd300738.svg",
     "index.html": "/index.html",
-    "main.df20dba6.css.map": "/static/css/main.df20dba6.css.map",
-    "main.6a31201b.js.map": "/static/js/main.6a31201b.js.map"
+    "main.15e2cba2.css.map": "/static/css/main.15e2cba2.css.map",
+    "main.441beb86.js.map": "/static/js/main.441beb86.js.map"
   },
   "entrypoints": [
-    "static/css/main.df20dba6.css",
-    "static/js/main.6a31201b.js"
+    "static/css/main.15e2cba2.css",
+    "static/js/main.441beb86.js"
   ]
 }

@@ -3,6 +3,58 @@ export default {
         "fa": "",
         "en": ""
     },
+    "no-messages": {
+        "fa": "پیامی وجود ندارد",
+        "en": "No messages found!"
+    },
+    "send-to": {
+        "fa": "ارسال شده به",
+        "en": "Send to"
+    },
+    "unread-message": {
+        "fa": "پیام ناخوانده",
+        "en": "unread messages"
+    },
+    "chats": {
+        "fa": "پیام های کاربران",
+        "en": "Chats"
+    },
+    "no-chats": {
+        "fa": "گفت و گویی موجود نیست.",
+        "en": "Nothing found!!!"
+    },
+    "sm-8": {
+        "fa": "لطفا قبل از ثبت استعلام بگیر تا اشتباها در یک ملک حساب بانکی تکراری ثبت نکنی.",
+        "en": "Please make an inquiry before submitting so you don't repeat a bank account in the property."
+    },
+    "sm-7": {
+        "fa": "برای ثبت دوباره حساب بانکی ات میتوانی به کارفرمایت پیام دهی.",
+        "en": "You can message your employer to resubmit your bank account."
+    },
+    "sm-6": {
+        "fa": "برای ثبت دوباره حساب بانکی ات میتوانی به سرپرست خانواده ات پیام دهی.",
+        "en": "You can message the head of the family to resubmit your bank account."
+    },
+    "sm-5": {
+        "fa": "شما میتوانید بمنظور معامله کالا به فروشنده پیام ارسال کنید.",
+        "en": "You can send a message to a seller to trade movable properties."
+    },
+    "sm-4": {
+        "fa": "برای اینکه ببینید کدام کاربران فراخوان جذب سرمایه داده اند به زیرخدمت 2 مراجعه کنید. شما در این زیرخدمت میتوانید به کاربر دیگر پیام ارسال کنید.",
+        "en": "Go to subservice 2 for fundraising announcements. You can send a message to another user in this subservice."
+    },
+    "sm-3": {
+        "fa": "اگر در ملکی که صاحب فعالیت هستی صاحب بدنه ثابت ملک هم باشی در جایگاه مقصد ردیفی بنمایش در نمی اید تا اشتباها به خودت اجاره واریز نکنی.",
+        "en": "If you own the activity of your real estate, there would not be a destination row to prevent you depositing rent to yourself."
+    },
+    "sm-2": {
+        "fa": "اگر صاحب ملک محل سکونتت باشی در جایگاه مقصد ردیفی بنمایش در نمی اید تا اشتباها به خودت اجاره واریز نکنی.",
+        "en": "If you own your home there would not be a destination row to prevent you depositing rent to yourself."
+    },
+    "sm-1": {
+        "fa": "شما در این زیرخدمت میتوانید به کاربر دیگر پیام ارسال کنید.",
+        "en": "You can send a message to another user in this subservice."
+    },
     "natural": {
         "fa": "حقیقی",
         "en": "Natural"
@@ -119,6 +171,14 @@ export default {
         "fa": "لطفا عدد مجاز وارد کنید",
         "en": "Please enter a permitted number in the cell"
     },
+    "msg-32": {
+        "fa": "لطفا مقدار تراکنش را در ستون 22 فقط یک ردیف از مبدا و ستون 22 فقط یک ردیف از مقصد وارد کن. لطفا مقدار تراکنش در مبدا و مقصد شبیه هم باشد. دکمه ثبت را بزن.",
+        "en": "Please enter the transaction amount in only one origin row in column 22 and only one destination row in column 22  The transaction amount must be the same in origin and destination. Hit the submit button."
+    },
+    "msg-31": {
+        "fa": "لطفا شماره حساب بانکی خود را در ردیفی که در ستون 5 عدد 3 وجود دارد در ستون 8 ثبت کن و شماره حساب بانکی کارگران را در ردیفهایی که در ستون 5 عدد 4 وجود دارد در ستون 8 ثبت کن  و دکمه ثبت را بزن",
+        "en": 'Please enter your bank account number in column 8 (choose the row with "3" in column 5). Please enter the worker’s bank accounts in column 8 (choose the row with “4" in column 5). Hit the submit button.'
+    },
     "msg-30": {
         "fa": "لطفا بدانید همه ملکهای بالاتر از میدان، محدوده محله بالا هستند و همه ملکهای پایینتر از میدان، محدوده محله پایین هستند. اگر ملک مرتبطت بالاتر از میدان است ملک 43 دفتر محله ات است و اگر پایینتر از میدان است دفتر محله ات ملک 25 است",
         "en": "Please know, all properties above the square are the neighborhood above and all properties below the square are the neighborhood below. If the aforementioned property is above the square the manager's office is property 43 and if it is below the square is property 25"
@@ -150,44 +210,44 @@ export default {
         "en": `Please don't change any of the data. Please know that in the demo, this subservice covers basic needs transactions and mistakenly, might show auctions, investment offers and real estate purchases.`
     },
     "msg-24": {
-        "fa": "a قبض",
-        "en": "a قبض"
+        "fa": "قبض",
+        "en": "قبض"
     },
     "msg-23": {
-        "fa": "a مسکن",
-        "en": "a مسکن"
+        "fa": "مسکن",
+        "en": "مسکن"
     },
     "msg-22": {
-        "fa": "a درمان",
-        "en": "a درمان"
+        "fa": "درمان",
+        "en": "درمان"
     },
     "msg-21": {
-        "fa": "a مبلمان",
-        "en": "a مبلمان"
+        "fa": "مبلمان",
+        "en": "مبلمان"
     },
     "msg-20": {
-        "fa": "a جابجایی",
-        "en": "a جابجایی"
+        "fa": "جابجایی",
+        "en": "جابجایی"
     },
     "msg-19": {
-        "fa": "a مدرسه",
-        "en": "a مدرسه"
+        "fa": "مدرسه",
+        "en": "مدرسه"
     },
     "msg-18": {
-        "fa": "a انتظامی",
-        "en": "a انتظامی"
+        "fa": "انتظامی",
+        "en": "انتظامی"
     },
     "msg-17": {
-        "fa": "a تفریح",
-        "en": "a تفریح"
+        "fa": "تفریح",
+        "en": "تفریح"
     },
     "msg-16": {
         "fa": "50 - a = b",
         "en": "50 - a = b"
     },
     "msg-15": {
-        "fa": "a پوشاک",
-        "en": "a پوشاک"
+        "fa": "پوشاک",
+        "en": "پوشاک"
     },
     "msg-14": {
         "fa": "لطفا مقدار تراکنش را در ستون 22 فقط یک ردیف از مبدا و ستون 22 فقط یک ردیف از مقصد وارد کن. لطفا مقدار تراکنش در مبدا و مقصد شبیه هم باشد. در تراکنشهای معیشتی شما میتوانید مقدار تراکنش را بیشتر از موجودی بانکی تان وارد کنید. دکمه ثبت را بزن.",
@@ -198,8 +258,8 @@ export default {
         "en": "100 – a = b"
     },
     "msg-12": {
-        "fa": "a خوراک",
-        "en": "a خوراک"
+        "fa": "خوراک",
+        "en": "خوراک"
     },
     "msg-11": {
         "fa": "لطفا بدانید برای چهار نیاز معیشتی حیاتی( خوراک، درمان، مسکن، قبض)، هر کدام تا  100 واحد پول تامین هستید و برای شش نیاز دیگر، هر کدام تا 50 واحد پول تامین هستید( عدد قابل اجرا).",
@@ -218,8 +278,8 @@ export default {
         "en": 'Please enter your bank account number in column 8 (choose the row with "3" in column 5). Please enter the family’s bank accounts in column 8 (choose the row with “4" in column 5). Hit the submit button.'
     },
     "msg-7": {
-        "fa": "لطفا ابتدا اطلاعات یک کد کالا را وارد کن و دکمه ثبت را بزن و سپس اطلاعات کد کالای بعدی را وارد کن. برای این منظور از چهار ردیف متعلق به یک کد کالا فقط دو ردیف شماره فرد را مد نظر قرار بده و در ستون 8  و 9 و  10 و 11 داده وارد کن. لطفا در مورد یک کد کالا مجموع درصد دو صاحب آن را بیشتر از صد درصد یعنی 1.00 وارد نکن.",
-        "en": "Please enter the information of one product code and  hit the submit button and then enter the next product code. Each product code has four rows. Only use the two odd numbered rows for entering the data in columns 8,9,10 and 11. Please do not make the combined share of the owners higher than 1.00"
+        "fa": "لطفا ابتدا اطلاعات یک کد کالای منقول را وارد کن و دکمه ثبت را بزن و سپس اطلاعات کد کالای بعدی را وارد کن. لطفا برای ثبت هر کد کالا، دو ردیف خالی صدر جدول را در نظر بگیر و در ستون هشت و نه و ده و یازده داده وارد کن. داده ستون هشت در هر دو ردیف باید مشابه باشد. داده ستون نه در هر دو ردیف باید مشابه باشد. در ستون ده میتوانی کدملیهای متفاوت در هر ردیف وارد کنی. لطفا در ستون یازده در مورد یک کد کالا مجموع درصد دو صاحب آن را بیشتر از صد درصد یعنی 1.00 وارد نکن.",
+        "en": "Please enter the information of one movable property and hit the submit button and then enter the next. For registering one movable property, please consider 2 empty rows at the top of chart and enter the data in columns 8, 9, 10 and 11. Data of column 8 in both rows has to be similar. Data of column 9 in both rows has to be similar. In column 10 you can enter different ids in 2 rows. Regarding column 11, please do not make the combined share of 2 owners higher than 1.00."
     },
     "msg-6": {
         "fa": "لطفا در یک ردیف دلخواهت در ستون 7 عدد 1 را حذف کن و دکمه ثبت را بزن",
@@ -235,11 +295,11 @@ export default {
     },
     "msg-3": {
         "fa": "لطفا مقدار تراکنش را در ستون 22 فقط یک ردیف از مبدا و ستون 22 فقط یک ردیف از مقصد وارد کن. لطفا مقدار تراکنش در مبدا و مقصد شبیه هم باشد. دکمه ثبت را بزن",
-        "en": "Please enter the transaction amount in only one origin row in column 22 and only one destination row in column 22. The transaction amount must be the same in origin and destination."
+        "en": "Please enter the transaction amount in only one origin row in column 22 and only one destination row in column 22. The transaction amount must be the same in origin and destination. Hit the submit button."
     },
     "msg-2": {
-        "fa": "لطفا در ردیف دلخواهت قبل از ستون زمان ( ستون شماره صفر) تیک بزن و دکمه ثبت را بزن",
-        "en": "Please hit  √ on column 0 (before the date column) in your desired row and  hit the submit button."
+        "fa": "لطفا در ردیف دلخواهت قبل از ستون زمان ( ستون شماره صفر) تیک بزن و دکمه ثبت را بزن. در زیرخدمتهای فراخوانی، اگر کاربر از فراخوان دادن پشیمان شد میتواند تیک را بردارد و ثبت بزند.",
+        "en": "Please hit  √ on column 0 (before the date column) in your desired row and  hit the submit button. In the announcement subservices, if the user changes their mind regarding an announcement they made, they can remove the √ and submit."
     },
     "msg-1": {
         "fa": "لطفا داده ها را تغییر ندهید.",

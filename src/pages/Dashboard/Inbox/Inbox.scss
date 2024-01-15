@@ -1,0 +1,122 @@
+.chats__container {
+    border: 1px solid #ccc;
+    max-width: 92%;
+    max-height: 70dvh;
+    height: 100%;
+    overflow: hidden;
+
+    & > .chats__header {
+        background-color: #ccc;
+        padding: 8px 16px;
+    }
+
+    & > .chats__col {
+        display: flex;
+        flex-direction: column;
+        column-gap: 8px;
+        border: 1px solid #ccc;
+        padding: 0;
+        height: calc(100% - 43px);
+        overflow-y: scroll;
+
+        & > .chat__item {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            border-bottom: 1px solid #ccc;
+            padding: 8px 8px;
+            cursor: pointer;
+            row-gap: 12px;
+
+            &:is(:hover, .active) {
+                background-color: #f8f8f8;
+                transition: all 0.5s;
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            & > .chat__details {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                & > span {
+                    font-size: 0.75rem;
+                }
+
+                // & > div {
+                //     & > span {
+
+                //     }
+                // }
+            }
+
+            & > .chat__last-message {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                & > span {
+                    &:first-child {
+                        font-size: 1rem;
+                        color: #94909086;
+                    }
+
+                    &:last-child {
+                        padding: 4px 8px;
+                        font-size: 0.75rem;
+                    }
+                }
+            }
+        }
+    }
+
+    & > .chat__box {
+        border: 1px solid #ccc;
+        height: calc(100% - 43px);
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        overflow-x: hidden;
+        column-gap: 8px;
+        padding: 16px 4px;
+        background-color: #fff;
+        z-index: 1;
+
+        & > .message {
+            background-color: #f1f1f1;
+            border-radius: 48px;
+            padding: 4px 16px;
+            max-width: 50%;
+            width: fit-content;
+
+            & > span {
+                font-size: 1rem;
+                color: #333;
+                word-break: break-all;
+                white-space: wrap;
+            }
+
+            &.user {
+                margin-right: auto;
+                margin-left: 0;
+                background-color: #EFF8FF;
+            }
+
+            &.me {
+                background-color: #EEFFDE;
+                margin-left: auto;
+                margin-right: 0;
+            }
+        }
+
+        & > .not-exist-text {
+            margin: auto;
+            text-align: center;
+            font-size: 1rem;
+        }
+    }
+}
