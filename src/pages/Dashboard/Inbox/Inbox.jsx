@@ -4,6 +4,7 @@ import ChatApi from "../../../core/api/ChatApi";
 import eventBus from "../../../core/helpers/EventBus";
 import { translate } from "../../../core/helpers/Translator";
 import { toast } from "react-toastify";
+import { parseDateTime } from "../../../core/helpers/DateTime";
 
 const chatApi = new ChatApi();
 
@@ -123,7 +124,7 @@ export default function Inbox(props) {
                                             </div>
                                         </div>
                                         <div className="chat__last-message">
-                                            <span>{ chat.last_message }</span>
+                                            <span className="one-line-text" title={chat.last_message}>{ chat.last_message }</span>
                                             <span className="badge bg-warning">{ chat.subject }</span>
                                         </div>
                                     </div>
@@ -138,7 +139,10 @@ export default function Inbox(props) {
                                 selectedChatMessages.map((message, index) => {
                                     return (
                                         <div key={index} className={`message ${message.From.toLowerCase()}`}>
-                                            <span>{message.text}</span>
+                                            <div>
+                                                <span>{message.text}</span>
+                                            </div>
+                                            <span>{parseDateTime(message.datetime)}</span>
                                         </div>
                                     );
                                 }) : 
