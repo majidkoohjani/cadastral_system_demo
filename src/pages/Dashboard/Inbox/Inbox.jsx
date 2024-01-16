@@ -3,6 +3,7 @@ import "./Inbox.scss";
 import ChatApi from "../../../core/api/ChatApi";
 import eventBus from "../../../core/helpers/EventBus";
 import { translate } from "../../../core/helpers/Translator";
+import { toast } from "react-toastify";
 
 const chatApi = new ChatApi();
 
@@ -10,6 +11,7 @@ export default function Inbox(props) {
     const [chats, setChats] = useState([]);
     const [selectedChat, setSelectedChat] = useState(null);
     const [selectedChatMessages, setSelectedChatMessages] = useState([]);
+    const [messageToSend, setMessageToSend] = useState("");
 
     useEffect(() => {
         document.title = `${translate("chats")} | ${translate("site-main-title")}`;
@@ -19,6 +21,7 @@ export default function Inbox(props) {
     const reset = () => {
         setSelectedChat(null);
         setSelectedChatMessages([]);
+        setMessageToSend("");
     }
 
     const getChats = () => {
@@ -67,6 +70,31 @@ export default function Inbox(props) {
         });
     }
 
+    const handleSendMessage = () => {
+        if (!selectedChat || messageToSend.length < 1) {
+            toast.error(translate("message-empty"));
+            return;
+        }
+
+        eventBus.dispatchEvent("enablePreloader");
+        chatApi.sendMessage(selectedChat.id, messageToSend).then(response => {
+            let {data = null, status} = response;
+
+            switch (status) {
+                case 200:
+                    openChatMessages({...selectedChat});
+                    setMessageToSend("");
+                    break;
+                default:
+                    break;
+            }
+        }).catch(error => {
+            console.log(error);
+        }).finally(() => {
+            eventBus.dispatchEvent("disablePreloader");
+        });
+    }
+
     return (
         <div className="container">
             {
@@ -104,16 +132,25 @@ export default function Inbox(props) {
                         }
                     </div>
                     <div className="col-9 chat__box">
+                        <div className="chat_messages">
+                            {
+                                selectedChatMessages.length > 0 ? 
+                                selectedChatMessages.map((message, index) => {
+                                    return (
+                                        <div key={index} className={`message ${message.From.toLowerCase()}`}>
+                                            <span>{message.text}</span>
+                                        </div>
+                                    );
+                                }) : 
+                                <span className="text-danger not-exist-text">{translate("no-messages")}</span>
+                            }
+                        </div>
                         {
-                            selectedChatMessages.length > 0 ? 
-                            selectedChatMessages.map((message, index) => {
-                                return (
-                                    <div key={index} className={`message ${message.From.toLowerCase()}`}>
-                                        <span>{message.text}</span>
-                                    </div>
-                                );
-                            }) : 
-                            <span className="text-danger not-exist-text">{translate("no-messages")}</span>
+                            selectedChat && 
+                            <div className="message__entrance">
+                                <input type="text" className="message-input" placeholder={translate("message-placeholder")} autoFocus name="message-box" value={messageToSend} onChange={e => setMessageToSend(e.target.value)} />
+                                <button className="send-message__btn" onClick={handleSendMessage}>{ translate("send") }</button>
+                            </div>
                         }
                     </div>
                 </div> : 

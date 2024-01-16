@@ -3,6 +3,10 @@ export default {
         "fa": "",
         "en": ""
     },
+    "message-empty": {
+        "fa": "متن پیام خالی بوده یا چتی انتخاب نشده است.",
+        "en": "No chat is selected or message is null"
+    },
     "no-messages": {
         "fa": "پیامی وجود ندارد",
         "en": "No messages found!"
@@ -1068,6 +1072,10 @@ export default {
     "default-placeholder": {
         "fa": "مقدار را وارد کنید",
         "en": "enter the value"
+    },
+    "message-placeholder": {
+        "fa": "پیام خود را بنویسید...",
+        "en": "Enter your message..."
     },
     "updated-successfully": {
         "fa": "عملیات با موفقیت انجام شد.",
