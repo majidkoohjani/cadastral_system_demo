@@ -7,19 +7,17 @@ import { toast } from "react-toastify";
 
 export default function Chat(props) {
     const [subject, setSubject] = useState("");
-    const [houseId, setHouseId] = useState("");
-    const [code, setCode] = useState("");
     const [nationalCode, setNationalCode] = useState("");
     const [text, setText] = useState("");
 
     const handleSendChat = () => {
-        if (subject.length < 1 || houseId.length < 1 || code.length < 1 || text.length < 1) {
+        if (subject.length < 1 || text.length < 1) {
             toast.error(translate("fill-values"), {
                 position: toast.POSITION.TOP_RIGHT
             });
         } else {
             eventBus.dispatchEvent("enablePreloader");
-            ChatApi.sendMessage(subject, houseId, code, text, nationalCode).then(response => {
+            ChatApi.sendMessage(subject, text, nationalCode).then(response => {
                 toast.success(translate("updated-successfully"), {
                     position: toast.POSITION.TOP_RIGHT
                 });
@@ -31,24 +29,35 @@ export default function Chat(props) {
         }
     }
 
+    const handleCheckJustEnAndSet = (e) => {
+        let value = e.target.value;
+        let name = e.target.name;
+
+        if ((/^[~`!@#$%^&*()_+=[\]\\{}|;':",.\/<>?a-zA-Z0-9-\s]+$/.test(value) || value.length < 1 )) {
+            if (name === "subject") {
+                setSubject(value);
+            }
+            else if (name === "nationalCode") {
+                setNationalCode(value);
+            }
+            else if (name === "text") {
+                setText(value);
+            }
+        }
+    }
+
     return (
         <div className="chat-box">
             <span className="chat-box__title">{translate("chat-box__title")}</span>
             <div className="chat-box__main">
                 <div>
-                    <input type="text" placeholder={translate("chat-input__subject")} name="subject" required value={subject} onChange={(e) => setSubject(e.target.value)} />
+                    <input type="text" placeholder={translate("chat-input__subject")} name="subject" required value={subject} onChange={handleCheckJustEnAndSet} />
                 </div>
                 <div>
-                    <input type="text" placeholder={translate("chat-input__houseId")} name="houseId" required value={houseId} onChange={(e) => setHouseId(e.target.value)} />
+                    <input type="text" placeholder={translate("chat-input__nationalCode")} name="nationalCode" value={nationalCode} onChange={handleCheckJustEnAndSet} />
                 </div>
                 <div>
-                    <input type="text" placeholder={translate("chat-input__code")} name="code" required value={code} onChange={(e) => setCode(e.target.value)} />
-                </div>
-                <div>
-                    <input type="text" placeholder={translate("chat-input__nationalCode")} name="nationalCode" value={nationalCode} onChange={(e) => setNationalCode(e.target.value)} />
-                </div>
-                <div>
-                    <textarea rows={2} placeholder={translate("chat-input__text")} name="text" required value={text} onChange={(e) => setText(e.target.value)} />
+                    <textarea rows={2} placeholder={translate("chat-input__text")} name="text" required value={text} onChange={handleCheckJustEnAndSet} />
                 </div>
             </div>
             <div className="chat-box__btn">

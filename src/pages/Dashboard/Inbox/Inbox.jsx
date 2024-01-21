@@ -96,6 +96,14 @@ export default function Inbox(props) {
         });
     }
 
+    const controlAndSetMessage = (e) => {
+        let value = e.target.value;
+
+        if ((/^[~`!@#$%^&*()_+=[\]\\{}|;':",.\/<>?a-zA-Z0-9-\s]+$/.test(value) || value.length < 1 )) {
+            setMessageToSend(value);
+        }
+    }
+
     return (
         <div className="container">
             {
@@ -152,7 +160,7 @@ export default function Inbox(props) {
                         {
                             selectedChat && 
                             <div className="message__entrance">
-                                <input type="text" className="message-input" placeholder={translate("message-placeholder")} autoFocus name="message-box" value={messageToSend} onChange={e => setMessageToSend(e.target.value)} />
+                                <input type="text" className="message-input" placeholder={translate("message-placeholder")} autoFocus name="message-box" value={messageToSend} onChange={controlAndSetMessage} />
                                 <button className="send-message__btn" onClick={handleSendMessage}>{ translate("send") }</button>
                             </div>
                         }

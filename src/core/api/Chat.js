@@ -4,11 +4,9 @@ class ChatApi
 {
     static #apiBridge = new Main();
 
-    static sendMessage = async (subject = "", houseId = "", code = "", text = "", nationalCode = "") => {
+    static sendMessage = async (subject = "", text = "", nationalCode = "") => {
         let data = {
             subject,
-            house_id: houseId,
-            code,
             text,
         };
 
