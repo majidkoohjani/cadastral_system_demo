@@ -5,6 +5,7 @@ import eventBus from "../../../core/helpers/EventBus";
 import { translate } from "../../../core/helpers/Translator";
 import { toast } from "react-toastify";
 import { parseDateTime } from "../../../core/helpers/DateTime";
+import ChatMessages from "../../../core/constants/ChatMessages";
 
 const chatApi = new ChatApi();
 
@@ -13,6 +14,8 @@ export default function Inbox(props) {
     const [selectedChat, setSelectedChat] = useState(null);
     const [selectedChatMessages, setSelectedChatMessages] = useState([]);
     const [messageToSend, setMessageToSend] = useState("");
+    const [predefinedMessages, setPredefinedMessages] = useState([]);
+    const [showPredefinedMessages, setShowPredefinedMessages] = useState(false);
 
     useEffect(() => {
         document.title = `${translate("chats")} | ${translate("site-main-title")}`;
@@ -23,6 +26,8 @@ export default function Inbox(props) {
         setSelectedChat(null);
         setSelectedChatMessages([]);
         setMessageToSend("");
+        setPredefinedMessages([]);
+        setShowPredefinedMessages(false);
     }
 
     const getChats = () => {
@@ -51,6 +56,23 @@ export default function Inbox(props) {
         }
 
         setSelectedChat({...chosenChat});
+        
+        let serviceId = null;
+        let subServiceId = null;
+        let serviceAndSubArray = chosenChat.subject.split(",");
+
+        serviceAndSubArray.forEach(serviceAndSubArrayItem => {
+            let [name, id] = serviceAndSubArrayItem.split(":");
+
+            if (name.toLowerCase() === "service") {
+                serviceId = +id;
+            }
+            else {
+                subServiceId = +id;
+            }
+        });
+
+        setPredefinedMessages([...ChatMessages?.[serviceId]?.[subServiceId] ?? []]);
 
         eventBus.dispatchEvent("enablePreloader");
 
@@ -117,6 +139,17 @@ export default function Inbox(props) {
         }
     }
 
+    const openPredefinedMessages = () => {
+        setShowPredefinedMessages(true);
+    }
+
+    const selectPredefinedMessage = (text = "") => {
+        if (text.length > 0) {
+            setMessageToSend(text);
+            setShowPredefinedMessages(false);
+        }
+    }
+
     return (
         <div className="container">
             {
@@ -175,7 +208,24 @@ export default function Inbox(props) {
                             selectedChat && 
                             <div className="message__entrance">
                                 <input type="text" className="message-input" placeholder={translate("message-placeholder")} autoFocus name="message-box" value={messageToSend} onChange={controlAndSetMessage} />
+                                <button className="predefined-messages__btn" onClick={() => setShowPredefinedMessages(!showPredefinedMessages)} title={translate("present-messages")}>
+                                    <i className={`fa-regular fa-angle-${showPredefinedMessages ? "up" : "down"}`} />
+                                </button>
                                 <button className="send-message__btn" onClick={handleSendMessage}>{ translate("send") }</button>
+                                {
+                                    showPredefinedMessages && 
+                                    <div className="predefined-messages">
+                                        {
+                                            predefinedMessages.map((record, index) => {
+                                                return (
+                                                    <div className="predefined-message" key={index} onClick={() => selectPredefinedMessage(record.text)}>
+                                                        <span>{ record.text }</span>
+                                                    </div>
+                                                );
+                                            })
+                                        }
+                                    </div>
+                                }
                             </div>
                         }
                     </div>

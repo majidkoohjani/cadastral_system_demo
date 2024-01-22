@@ -3,6 +3,154 @@ export default {
         "fa": "",
         "en": ""
     },
+    "map-desc-1": {
+        "fa": "نوع دهگانه معیشتی: مسکن",
+        "en": "Type of Basic Needs: Housing"
+    },
+    "map-desc-2": {
+        "fa": "نوع دهگانه معیشتی: انتظامی",
+        "en": "Type of Basic Needs: Gov"
+    },
+    "map-desc-3": {
+        "fa": "نوع دهگانه معیشتی: جابجایی",
+        "en": "Type of Basic Needs: Transportation"
+    },
+    "map-desc-4": {
+        "fa": "نوع دهگانه معیشتی: مدرسه",
+        "en": "Type of Basic Needs: School"
+    },
+    "map-desc-5": {
+        "fa": "نوع دهگانه معیشتی: درمان",
+        "en": "Type of Basic Needs: Healthcare"
+    },
+    "map-desc-6": {
+        "fa": "نوع دهگانه معیشتی: مبلمان",
+        "en": "Type of Basic Needs: Furniture"
+    },
+    "map-desc-7": {
+        "fa": "نوع دهگانه معیشتی: پوشاک",
+        "en": "Type of Basic Needs: Clothing"
+    },
+    "map-desc-8": {
+        "fa": "نوع دهگانه معیشتی: تفریح",
+        "en": "Type of Basic Needs: Entertainment"
+    },
+    "map-desc-9": {
+        "fa": "نوع دهگانه معیشتی: خوراک",
+        "en": "Type of Basic Needs: Food"
+    },
+    "map-desc-10": {
+        "fa": "نوع دهگانه معیشتی: قبض",
+        "en": "Type of Basic Needs: Utilities"
+    },
+    "map-desc-11": {
+        "fa": "نوع دهگانه معیشتی: ندارد چون فعالیت ندارد",
+        "en": "Type of Basic Needs: no activity"
+    },
+    "map-1": {
+        "fa": "مسکن",
+        "en": "Housing"
+    },
+    "map-2": {
+        "fa": "بانک دولتی",
+        "en": "Government Bank"
+    },
+    "map-3": {
+        "fa": "وزارتخانه مالیات",
+        "en": "Revenue Service"
+    },
+    "map-4": {
+        "fa": "محل خرید شارژ بلیط اتوبوس و مترو ( حقوقی خصوصی)",
+        "en": "Ticket Place (Private)"
+    },
+    "map-5": {
+        "fa": "وزارت کشور ( در نسخه دمو میتواند شهرداری فرض شود)",
+        "en": "Federal Government (Mayor's Office in Demo)"
+    },
+    "map-6": {
+        "fa": "مدرسه (حقوقی خصوصی)",
+        "en": "School(Private)"
+    },
+    "map-7": {
+        "fa": "بیمارستان (حقوقی خصوصی)",
+        "en": "Hospital(Private)"
+    },
+    "map-8": {
+        "fa": "فروشگاه لوازم خانگی ( صاحبش شخص حقیقی است)",
+        "en": "Retail Store(Natural Person Owned)"
+    },
+    "map-9": {
+        "fa": "شرکت حمل و نقل( حقوقی خصوصی)",
+        "en": "Transportation Company (Private)"
+    },
+    "map-10": {
+        "fa": "فروشگاه پوشاک (صاحبش شخص حقیقی است)",
+        "en": "Clothing Store(Natural Person Owned)"
+    },
+    "map-11": {
+        "fa": "سینما( حقوقی خصوصی)",
+        "en": "Cinema(Private)"
+    },
+    "map-12": {
+        "fa": "کارخانه پوشاک( حقوقی خصوصی)",
+        "en": "Clothing Factory (Private)"
+    },
+    "map-13": {
+        "fa": "نانوایی( صاحبش شخص حقیقی است)",
+        "en": "Bakery (Natural Person Owned"
+    },
+    "map-14": {
+        "fa": "دفتر مدیر محله پایین( حقوقی دولتی محدوده ای)",
+        "en": "Lower Neighborhood Management (Local governmental)"
+    },
+    "map-15": {
+        "fa": "پمپ بنزین( حقوقی خصوصی)",
+        "en": "Gas Station (Private)"
+    },
+    "map-16": {
+        "fa": "اداره آب و فاضلاب( حقوقی دولتی)",
+        "en": "Water Utility Company (governmental)"
+    },
+    "map-17": {
+        "fa": "دادگاه( حقوقی دولتی)",
+        "en": "Court (governmental)"
+    },
+    "map-18": {
+        "fa": "اداره برق( حقوقی دولتی)",
+        "en": "Electric Utility Company (governmental)"
+    },
+    "map-19": {
+        "fa": "تعمیرگاه ماشین( صاحبش شخص حقیقی است)",
+        "en": "Car Repair Shop(Natural Person Owned)"
+    },
+    "map-20": {
+        "fa": "اداره گاز( حقوقی دولتی)",
+        "en": "Gas Company(governmental)"
+    },
+    "map-21": {
+        "fa": "کارخانه تولید لوازم خانگی و اداری و صنعتی( حقوقی خصوصی)",
+        "en": "office-industrial supply Manufacturing (Private)"
+    },
+    "map-22": {
+        "fa": "فروشگاه موادغذایی( حقوقی خصوصی)",
+        "en": "Grocery Store (Private)"
+    },
+    "map-23": {
+        "fa": "دفتر مدیر محله بالا( حقوقی دولتی محدوده ای)",
+        "en": "Upper Neighborhood Management (Local governmental)"
+    },
+    "map-24": {
+        "fa": "پارک(دولتی)",
+        "en": "Park( governmental)"
+    },
+    "map-25": {
+        "fa": "زمین بایر ( فعالیت ندارد)",
+        "en": "wasteland (barren field)"
+    },
+    "map-26": {
+        "fa": "زمین کشاورزی ( حقوقی خصوصی)",
+        "en": "Agriculture (Private)"
+    },
     "present-messages": {
         "fa": "پیام های آماده",
         "en": "Present messages"
