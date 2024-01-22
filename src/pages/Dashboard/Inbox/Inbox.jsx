@@ -108,7 +108,7 @@ export default function Inbox(props) {
         <div className="container">
             {
                 chats.length > 0 ? 
-                <div className="row chats__container">
+                <div className="row chats__container" style={{direction: "ltr"}}>
                     <div className="col-12 chats__header">
                         <h6>{translate("chats")}</h6>
                     </div>

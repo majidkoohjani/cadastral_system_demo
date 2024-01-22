@@ -3,6 +3,10 @@ export default {
         "fa": "",
         "en": ""
     },
+    "chat-not-allowed": {
+        "fa": "مجاز به ارسال پیام نیستید.",
+        "en": "You are not allowed."
+    },
     "message-empty": {
         "fa": "متن پیام خالی بوده یا چتی انتخاب نشده است.",
         "en": "No chat is selected or message is null"

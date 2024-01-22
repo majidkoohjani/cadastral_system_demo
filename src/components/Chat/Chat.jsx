@@ -1,14 +1,18 @@
 import "./Chat.scss";
 import { translate } from "../../core/helpers/Translator";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ChatApi from '../../core/api/Chat';
 import eventBus from "../../core/helpers/EventBus";
 import { toast } from "react-toastify";
 
-export default function Chat(props) {
+export default function Chat({subjectt = ""}) {
     const [subject, setSubject] = useState("");
     const [nationalCode, setNationalCode] = useState("");
     const [text, setText] = useState("");
+
+    useEffect(() => {
+        setSubject(subjectt);
+    }, [subjectt]);
 
     const handleSendChat = () => {
         if (subject.length < 1 || text.length < 1) {
@@ -51,7 +55,7 @@ export default function Chat(props) {
             <span className="chat-box__title">{translate("chat-box__title")}</span>
             <div className="chat-box__main">
                 <div>
-                    <input type="text" placeholder={translate("chat-input__subject")} name="subject" required value={subject} onChange={handleCheckJustEnAndSet} />
+                    <input type="text" placeholder={translate("chat-input__subject")} name="subject" required defaultValue={subject} readOnly disabled />
                 </div>
                 <div>
                     <input type="text" placeholder={translate("chat-input__nationalCode")} name="nationalCode" value={nationalCode} onChange={handleCheckJustEnAndSet} />

@@ -11,6 +11,7 @@ import "./DataTable.scss";
 import ServicesUpdate from "../../../core/api/ServicesUpdate";
 import Validator from "../../../core/helpers/Validator";
 import Chat from "../../../components/Chat/Chat";
+import Chatables from "../../../core/constants/Chatables";
 
 const validator = new Validator();
 
@@ -22,6 +23,7 @@ export default function DataTable(props) {
     const [sm, setSm] = useState("");
     const [serverMessages, setServerMessages] = useState([...Storage.getNextReloadMessages()]);
     const [lockColumns, setLockColumns] = useState("");
+    const [showMessage, setShowMessage] = useState(false);
     const navigate = useNavigate(); 
     /*
     * The structure will be like below:
@@ -616,6 +618,17 @@ export default function DataTable(props) {
         });
     }
 
+    const handleShowChatBox = () => {
+        if (Chatables?.[+serviceID]) {
+            if (Chatables[+serviceID].includes(+subServiceID)) {
+                setShowMessage(!showMessage);
+                return;
+            }
+        }
+
+        toast.error(translate("chat-not-allowed"));
+    }
+
     return (
         <>
             {
@@ -646,14 +659,17 @@ export default function DataTable(props) {
             }
             <div className="row justify-content-center align-items-center map-message">
                 <div className="col-6">
-                    <Chat />
+                    {
+                        showMessage && 
+                        <Chat subjectt={`service: ${serviceID}, subservice: ${subServiceID}`} />
+                    }
                 </div>
                 <div className="col-6">
                     <Map />
                 </div>
                 <div className="col-12">
                     <div className="buttons-and-messenger">
-                        <button className="btn btn-cyan">{ translate("send-msg-to-user") }</button>
+                        <button className="btn btn-cyan" onClick={handleShowChatBox}>{ translate("send-msg-to-user") }</button>
                         <button className="btn btn-green" onClick={handleSubmitBtn}>{ translate("submit") }</button>
                         <Link className="btn btn-red" to={`/service/${serviceID}/sub-services`}>{ translate("exit-subservice") }</Link>
                     </div>
