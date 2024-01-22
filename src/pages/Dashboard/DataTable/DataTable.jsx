@@ -661,7 +661,7 @@ export default function DataTable(props) {
                 <div className="col-6">
                     {
                         showMessage && 
-                        <Chat subjectt={`service: ${serviceID}, subservice: ${subServiceID}`} />
+                        <Chat subjectt={[serviceID, subServiceID]} />
                     }
                 </div>
                 <div className="col-6">

@@ -4,14 +4,18 @@ import { useEffect, useState } from "react";
 import ChatApi from '../../core/api/Chat';
 import eventBus from "../../core/helpers/EventBus";
 import { toast } from "react-toastify";
+import ChatMessages from "../../core/constants/ChatMessages";
 
-export default function Chat({subjectt = ""}) {
+export default function Chat({subjectt = []}) {
     const [subject, setSubject] = useState("");
     const [nationalCode, setNationalCode] = useState("");
     const [text, setText] = useState("");
+    const [messages, setMessages] = useState([]);
+    const [showMessages, setShowMessages] = useState(false);
 
     useEffect(() => {
-        setSubject(subjectt);
+        setSubject(`service: ${subjectt[0]}, subservice: ${subjectt[1]}`);
+        setReadyMessages(subjectt);
     }, [subjectt]);
 
     const handleSendChat = () => {
@@ -50,6 +54,23 @@ export default function Chat({subjectt = ""}) {
         }
     }
 
+    const setReadyMessages = (subject = []) => {
+        let [serviceId, subServiceID] = subject;
+
+        let tmpMessages = ChatMessages[serviceId][subServiceID];
+
+        tmpMessages = tmpMessages.filter(message => message?.isPrimary);
+
+        setMessages([...tmpMessages]);
+    }
+
+    const handleMessageSelect = (selectedMessageText = "") => {
+        if (selectedMessageText.length > 0) {
+            setText(selectedMessageText);
+            setShowMessages(false);
+        }
+    }
+
     return (
         <div className="chat-box">
             <span className="chat-box__title">{translate("chat-box__title")}</span>
@@ -60,8 +81,26 @@ export default function Chat({subjectt = ""}) {
                 <div>
                     <input type="text" placeholder={translate("chat-input__nationalCode")} name="nationalCode" value={nationalCode} onChange={handleCheckJustEnAndSet} />
                 </div>
-                <div>
+                <div className="include-messages">
                     <textarea rows={2} placeholder={translate("chat-input__text")} name="text" required value={text} onChange={handleCheckJustEnAndSet} />
+                    <button className="ready-messages__btn" onClick={() => setShowMessages(!showMessages)}>
+                        { translate("present-messages") }
+                        <i className="fa-regular fa-angle-down" />
+                    </button>
+                    {
+                        showMessages && 
+                        <div className="ready-messages">
+                            {
+                                messages.map((message, index) => {
+                                    return (
+                                        <div className="ready-message" key={index} onClick={() => handleMessageSelect(message.text)}>
+                                            <span>{message.text}</span>
+                                        </div>
+                                    );
+                                })
+                            }
+                        </div>
+                    }
                 </div>
             </div>
             <div className="chat-box__btn">

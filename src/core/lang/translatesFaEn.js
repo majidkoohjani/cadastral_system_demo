@@ -3,6 +3,10 @@ export default {
         "fa": "",
         "en": ""
     },
+    "present-messages": {
+        "fa": "پیام های آماده",
+        "en": "Present messages"
+    },
     "chat-not-allowed": {
         "fa": "مجاز به ارسال پیام نیستید.",
         "en": "You are not allowed."
@@ -140,8 +144,8 @@ export default {
         "en": "Enter the quadripartite code of destination"
     },
     "chat-input__nationalCode": {
-        "fa": "اگر کد ملی گیرنده پیام را داری وارد کن (کد ملی ستون 10 ردیف مقصد)",
-        "en": "Enter the receiver`s id if available (destination row`s column 10`s id)"
+        "fa": "کدملی گیرنده پیام را وارد کن",
+        "en": "Enter the receiver’s id"
     },
     "chat-input__text": {
         "fa": "اولین پیام این چت را وارد کن(فقط انگلیسی مجاز است). با توجه به زیر خدمتی که در آن هستی از این پیام های آماده هم میتوانی استفاده کنی",

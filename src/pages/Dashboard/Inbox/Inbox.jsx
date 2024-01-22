@@ -59,6 +59,19 @@ export default function Inbox(props) {
 
             switch (status) {
                 case 200:
+                    let removedUnreadMessages = chats.map(chat => {
+                        if (chat.id == chosenChat.id) {
+                            let tmpDelete = {...chat};
+
+                            tmpDelete.hasOwnProperty("total_unread_message") && delete tmpDelete.total_unread_message;
+
+                            return {...tmpDelete};
+                        }
+
+                        return {...chat};
+                    });
+
+                    setChats([...removedUnreadMessages]);
                     setSelectedChatMessages([...data?.messages ?? []]);
                     break;
                 default:
@@ -118,6 +131,7 @@ export default function Inbox(props) {
                                 return (
                                     <div key={index} className={`chat__item ${selectedChat?.id === chat.id ? "active" : ""}`} onClick={() => openChatMessages({...chat})}>
                                         <div className="chat__details">
+                                            <div className="like-avatar" style={{backgroundColor: `${'#' + Math.floor(Math.random()*16777215).toString(16)}`}}>{chat.to}</div>
                                             <span>{ `${translate("send-to")}: ${chat.to}` }</span>
                                             <div>
                                                 {
