@@ -24,6 +24,7 @@ export default function DataTable(props) {
     const [serverMessages, setServerMessages] = useState([...Storage.getNextReloadMessages()]);
     const [lockColumns, setLockColumns] = useState("");
     const [showMessage, setShowMessage] = useState(false);
+    const [showLocationOnMap, setShowLocationOnMap] = useState(null);
     const navigate = useNavigate(); 
     /*
     * The structure will be like below:
@@ -481,6 +482,29 @@ export default function DataTable(props) {
         }
     }
 
+    const handleHouseIdPopup = (record) => {
+        if ((record?.time < 1 || record?.time?.length < 1)) {
+            setShowLocationOnMap(record ? `${record.house_id}` : null);
+        }
+        else if (record?.time > 0 || record?.time?.length > 0) {
+            if (data?.origin?.length === data?.destination?.length) {
+                let oppositeTable = record.tableCaption === "origin" ? "destination" : "origin";
+                
+                let oppositeRecord = data[oppositeTable][record.index];
+
+                if (oppositeRecord) {
+                    setShowLocationOnMap(record ? [`${record.house_id}`, `${oppositeRecord.house_id}`] : null);
+                }
+            }
+            else {
+                setShowLocationOnMap(record ? `${record.house_id}` : null);
+            }
+        }
+        else if (record === null) {
+            setShowLocationOnMap(null);
+        }
+    }
+
     const renderTable = () => {
         let tableCaptions = ["destination", "origin"];
 
@@ -541,7 +565,7 @@ export default function DataTable(props) {
                 </thead>
                 <tbody>
                 {
-                    data[tableCaption].map((record, index) => <tr key={index} data-row={index + 1}>
+                    data[tableCaption].map((record, index) => <tr key={index} data-row={index + 1} onMouseEnter={() => {handleHouseIdPopup({...record, index, tableCaption})}} onMouseLeave={() => {handleHouseIdPopup(null)}}>
                         <th className="horizontal-view">
                             <input type="checkbox" name={`${tableCaption}-check-${index}`} key={record?.selected ?? false} data-before-update={record?.selected ?? false} onChange={(e) => handleCellValueChanged(e, index + 1, 0, tableCaption, record["_id"], "check" )} disabled={updateRules.requestModel.params.lockCheckbox} defaultChecked={record?.selected ?? false} />
                         </th>
@@ -658,14 +682,14 @@ export default function DataTable(props) {
                 </div>
             }
             <div className="row justify-content-center align-items-center map-message">
-                <div className="col-6">
+                <div className="col-4">
                     {
                         showMessage && 
                         <Chat subjectt={[serviceID, subServiceID]} />
                     }
                 </div>
-                <div className="col-6">
-                    <Map />
+                <div className="col-8">
+                    <Map location={showLocationOnMap} />
                 </div>
                 <div className="col-12">
                     <div className="buttons-and-messenger">

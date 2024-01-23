@@ -1,28 +1,54 @@
 .map {
     display: flex;
-    flex-wrap: wrap;
-    // justify-content: space-between;
     row-gap: 5px;
     column-gap: 10px;
-    width: 410px;
     height: 240px;
     margin: 10px auto;
 
-    & > map {
-        & > area {
-            // position: relative;
-
-            // &:hover::after {
-            //     content: attr(title);
-            //     padding: 40px 8px;
-            //     position: absolute;
-            //     left: 0;
-            //     top: 100%;
-            //     z-index: 1;
-            //     background:red;
-            // }
+    & > .tooltips__container {
+        & > .map-tooltip__out {
+            display: flex;
+            // justify-content: center;
+            align-items: center;
+            column-gap: 8px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            z-index: 100;
+            height: fit-content;
+            margin-bottom: 4px;
+    
+            & > .icon {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-image: url("./bg.png");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 100% 100%;
+                min-height: 65px;
+                min-width: fit-content;
+                overflow: hidden;
+    
+                & > img {
+                    max-width: 32px;
+                    max-height: 32px;
+                    object-fit: scale-down;
+                    object-position: center;
+                    margin-bottom: 8px;
+                }
+            }
+    
+            & > .text {
+                & > span {
+                    font-size: 0.8rem;
+                    font-weight: 500;
+                }
+            }
         }
+    }
 
+
+    & > map {
         & > .map-tooltip {
             display: flex;
             justify-content: center;
@@ -48,11 +74,9 @@
                 & > img {
                     max-width: 32px;
                     max-height: 32px;
-                    // height: 100%;
                     object-fit: scale-down;
                     object-position: center;
                     margin-bottom: 8px;
-                    // aspect-ratio: 1/1;
                 }
             }
 
@@ -62,20 +86,6 @@
                     font-weight: 500;
                 }
             }
-            // width: 100px;
-            // height: 100px;
         }
     }
-
-    // &-section {
-    //     &:nth-child(odd) {
-    //         flex: 0 0 60%;
-    //         background-color: yellow;
-    //     }
-
-    //     &:nth-child(even) {
-    //         flex: 0 0 30%;
-    //         background-color: black;
-    //     }
-    // }
 }

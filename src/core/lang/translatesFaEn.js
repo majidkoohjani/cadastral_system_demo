@@ -3,6 +3,14 @@ export default {
         "fa": "",
         "en": ""
     },
+    "origin": {
+        "fa": "مبدا",
+        "en": "Origin"
+    },
+    "destination": {
+        "fa": "مقصد",
+        "en": "Destination"
+    },
     "map-desc-1": {
         "fa": "نوع دهگانه معیشتی: مسکن",
         "en": "Type of Basic Needs: Housing"

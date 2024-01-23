@@ -1,12 +1,33 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import mapItems from "../../../core/constants/mapItems";
 import map from "../../../assets/images/map.png";
 import "./Map.scss";
 import { translate } from "../../../core/helpers/Translator";
 
-export default function Map(props) {
+export default function Map({ location = null }) {
     const [hoveredItem, setHoveredItem] = useState(null);
+    const [hoveredItemLoc1, setHoveredItemLoc1] = useState(null);
+    const [hoveredItemLoc2, setHoveredItemLoc2] = useState(null);
     const mapTooltipRef = useRef();
+
+    useEffect(() => {
+        if (location) {
+            if (typeof location === "string") {
+                let numericLocation = +location;
+                setHoveredItemLoc1({...mapItems[numericLocation]});
+            }
+            else if (Array.isArray(location)) {
+                let numericLocation1 = +location[0];
+                let numericLocation2 = +location[1];
+
+                setHoveredItemLoc1({...mapItems[numericLocation1]});
+                setHoveredItemLoc2({...mapItems[numericLocation2]});
+            }
+        } else {
+            setHoveredItemLoc1(null);
+            setHoveredItemLoc2(null);
+        }
+    }, [location]);
 
     const handleAreaHover = (e) => {
         let hoveredId = +e.target.alt;
@@ -22,7 +43,7 @@ export default function Map(props) {
     return (
         <div className="map">
             <img src={map} useMap="#image-map" />
-            <map name="image-map">
+            <map name="image-map" id="imageMap">
                 <area target="" alt="1" href="#" coords="0,110,23,68" shape="rect" onMouseLeave={(e) => handleAreaLeave(e)} onMouseMove={(e) => handleAreaHover(e)} />
                 <area target="" alt="2" href="#" coords="44,110,24,69" shape="rect" onMouseLeave={(e) => handleAreaLeave(e)} onMouseMove={(e) => handleAreaHover(e)} />
                 <area target="" alt="3" href="#" coords="67,110,44,69" shape="rect" onMouseLeave={(e) => handleAreaLeave(e)} onMouseMove={(e) => handleAreaHover(e)} />
@@ -87,6 +108,43 @@ export default function Map(props) {
                     </div>
                 }
             </map>
+            <div className="tooltips__container">
+                {
+                    hoveredItemLoc1 && 
+                    <div className="map-tooltip__out">
+                        <div className="icon" style={{backgroundColor: hoveredItemLoc1.color}}>
+                            <img src={`/metacadicons/${hoveredItemLoc1?.icon}`} width="32" height="32" />
+                        </div>
+                        <div className="text">
+                            {
+                                hoveredItemLoc2 && 
+                                <>
+                                    <span>{ translate("origin") }</span>
+                                    <br />
+                                </>
+                            }
+                            <span>{ translate(hoveredItemLoc1?.title) }</span>
+                            <br />
+                            <span>{ translate(hoveredItemLoc1?.desc) }</span>
+                        </div>
+                    </div>
+                }
+                {
+                    hoveredItemLoc2 && 
+                    <div className="map-tooltip__out">
+                        <div className="icon" style={{backgroundColor: hoveredItemLoc2.color}}>
+                            <img src={`/metacadicons/${hoveredItemLoc2?.icon}`} width="32" height="32" />
+                        </div>
+                        <div className="text">
+                            <span>{ translate("destination") }</span>
+                            <br />
+                            <span>{ translate(hoveredItemLoc2?.title) }</span>
+                            <br />
+                            <span>{ translate(hoveredItemLoc2?.desc) }</span>
+                        </div>
+                    </div>
+                }
+            </div>
         </div>
     );
 }
