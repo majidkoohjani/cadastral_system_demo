@@ -546,16 +546,16 @@ const services = [
                 title: "sub-service-7-10",
                 description: ""
             },
-            {
-                id: 11,
-                title: "sub-service-7-11",
-                description: ""
-            },
-            {
-                id: 12,
-                title: "sub-service-7-12",
-                description: ""
-            },
+            // {
+            //     id: 11,
+            //     title: "sub-service-7-11",
+            //     description: ""
+            // },
+            // {
+            //     id: 12,
+            //     title: "sub-service-7-12",
+            //     description: ""
+            // },
         ],
     },
     {

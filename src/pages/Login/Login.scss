@@ -45,6 +45,45 @@
                 display: inline-block;
                 margin: 0 10px;
 
+                position: relative;
+
+                & > .contact-info {
+                    display: flex;
+                    flex-direction: column;
+                    row-gap: 4px;
+                    background-color: white;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    padding: 6px 12px;
+                    position: absolute;
+                    bottom: 100%;
+                    right: -150%;
+
+                    & > .contact-item {
+                        display: flex;
+                        flex-direction: row-reverse;
+                        column-gap: 8px;
+
+                        & > img {
+                            width: 20px;
+                            height: 20px;
+                            object-fit: contain;
+                        }
+
+                        & > a {
+                            direction: ltr;
+                        }
+                    }
+                }
+
+                & > .btn-contact-login {
+                    padding: 0;
+                    border: none;
+                    outline: none;
+                    background-color: transparent;
+                    color: $green--00;
+                }
+
                 .language--change {
                     background-color: transparent;
                     border: none;
@@ -62,7 +101,6 @@
 
                 & > a {
                     color: $green--00;
-                    
                 }
             }
         }

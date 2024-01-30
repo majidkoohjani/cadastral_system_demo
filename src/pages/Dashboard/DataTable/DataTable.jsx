@@ -17,6 +17,7 @@ const validator = new Validator();
 
 export default function DataTable(props) {
     const {id: serviceID, subServiceID} = useParams();
+    const lang = Storage.getLanguage();
     const updateRules = getSubServiceUpdateRules(serviceID, subServiceID);
     const [data, setData] = useState(null);
     const [message, setMessage] = useState("");
@@ -493,7 +494,22 @@ export default function DataTable(props) {
                 let oppositeRecord = data[oppositeTable][record.index];
 
                 if (oppositeRecord) {
-                    setShowLocationOnMap(record ? [`${record.house_id}`, `${oppositeRecord.house_id}`] : null);
+                    if (oppositeRecord?.time > 0 || oppositeRecord?.time?.length > 0) {
+                        let origin_hid = 0;
+                        let destination_hid = 0;
+    
+                        if (record.tableCaption === "origin") {
+                            origin_hid = record.house_id;
+                            destination_hid = oppositeRecord.house_id;
+                        } else {
+                            origin_hid = oppositeRecord.house_id;
+                            destination_hid = record.house_id;
+                        }
+    
+                        setShowLocationOnMap(record ? [`${origin_hid}`, `${destination_hid}`] : null);
+                    } else {
+                        setShowLocationOnMap(record ? `${record.house_id}` : null);
+                    }
                 }
             }
             else {
@@ -509,11 +525,11 @@ export default function DataTable(props) {
         let tableCaptions = ["destination", "origin"];
 
         return tableCaptions.map(tableCaption => {
-            return <table key={tableCaption} className={`data-table ${(tableCaption === "destination" && Storage.getLanguage() === "en") && 'order-1'}`}>
+            return <table key={tableCaption} className={`data-table ${(tableCaption === "destination" && lang === "en") && 'order-1'}`}>
                 <caption>{ translate(`${tableCaption}-table`) }</caption>
-                <thead>
+                <thead className={lang === "en" ? "en-font" : ""}>
                 <tr className="static-tr">
-                    <th className="horizontal-view">{ translate("column-number") }</th>
+                    <th className="horizontal-view" style={{fontSize: "3px"}}>{ translate("column-number") }</th>
                     <td>1</td>
                     <td>2</td>
                     <td>3</td>
@@ -539,7 +555,13 @@ export default function DataTable(props) {
                 </tr>
                 <tr className="static-tr">
                     <th className="horizontal-view">{ translate("column-title") }</th>
-                    <td className="horizontal-view" style={{width: "76px"}}>{ translate("col-1") }</td>
+                    <td className="horizontal-view" style={{width: "76px"}}>
+                        { translate("col-1") }
+                        <br/>
+                        (YYYY, MM, DD, HH, MM, SS)
+                        <br/>
+                        (UTC+3:30)
+                    </td>
                     <td className="horizontal-view" style={{width: "16px"}}>{ translate("col-2") }</td>
                     <td className="horizontal-view" style={{width: "16px"}}>{ translate("col-3") }</td>
                     <td className="horizontal-view" style={{width: "16px"}}>{ translate("col-4") }</td>

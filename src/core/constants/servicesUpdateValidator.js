@@ -294,6 +294,7 @@ const servicesRules =  {
         },
         9: {
             message: "msg-6",
+            specialMessage: "sm-11",
             requestModel: {
                 type: "payload",
                 params: {
@@ -315,6 +316,7 @@ const servicesRules =  {
         },
         10: {
             message: "msg-7",
+            specialMessage: "sm-10",
             requestModel: {
                 type: "payload",
                 params: {
@@ -359,6 +361,7 @@ const servicesRules =  {
         },
         11: {
             message: "msg-7",
+            specialMessage: "sm-10",
             requestModel: {
                 type: "payload",
                 params: {
@@ -403,6 +406,7 @@ const servicesRules =  {
         },
         12: {
             message: "msg-7",
+            specialMessage: "sm-10",
             requestModel: {
                 type: "payload",
                 params: {
@@ -447,6 +451,7 @@ const servicesRules =  {
         },
         13: {
             message: "msg-6",
+            specialMessage: "sm-11",
             requestModel: {
                 type: "payload",
                 params: {
@@ -468,6 +473,7 @@ const servicesRules =  {
         },
         14: {
             message: "msg-6",
+            specialMessage: "sm-11",
             requestModel: {
                 type: "payload",
                 params: {
@@ -920,7 +926,7 @@ const servicesRules =  {
         },
         18: {
             message: "msg-1",
-            specialMessage: "sm-2",
+            // specialMessage: "sm-2",
             requestModel: {
                 params: {
                     lockCheckbox: true
@@ -936,7 +942,8 @@ const servicesRules =  {
             }
         },
         20: {
-            message: "msg-14",
+            message: "",
+            specialMessage: "sm-9",
             requestModel: {
                 type: "payload",
                 params: {

@@ -9,7 +9,7 @@ export default [
     {
         id: 2,
         faText: "دستور العمل کار با سامانه",
-        enText: "user manual",
+        enText: "Instructions",
         icon: require("../../assets/images/instruction.png"),
         file: require("../../assets/instructions.pdf"),
         download: true
@@ -17,7 +17,7 @@ export default [
     {
         id: 3,
         faText: "پیام های کاربران",
-        enText: "user`s messages",
+        enText: "messages",
         icon: require("../../assets/images/message.png"),
         location: "/inbox"
     },

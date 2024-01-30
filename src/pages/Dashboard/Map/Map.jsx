@@ -123,6 +123,8 @@ export default function Map({ location = null }) {
                                     <br />
                                 </>
                             }
+                            <span>{ `${translate("col-2")}: ${hoveredItemLoc1.id}` }</span>
+                            <br />
                             <span>{ translate(hoveredItemLoc1?.title) }</span>
                             <br />
                             <span>{ translate(hoveredItemLoc1?.desc) }</span>
@@ -137,6 +139,8 @@ export default function Map({ location = null }) {
                         </div>
                         <div className="text">
                             <span>{ translate("destination") }</span>
+                            <br />
+                            <span>{ `${translate("col-2")}: ${hoveredItemLoc2.id}` }</span>
                             <br />
                             <span>{ translate(hoveredItemLoc2?.title) }</span>
                             <br />

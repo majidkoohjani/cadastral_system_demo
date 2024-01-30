@@ -165,7 +165,8 @@ export default function Inbox(props) {
                                     <div key={index} className={`chat__item ${selectedChat?.id === chat.id ? "active" : ""}`} onClick={() => openChatMessages({...chat})}>
                                         <div className="chat__details">
                                             <div className="like-avatar" style={{backgroundColor: `${'#' + Math.floor(Math.random()*16777215).toString(16)}`}}>{chat.to}</div>
-                                            <span>{ `${translate("send-to")}: ${chat.to}` }</span>
+                                            {/* <span>{ `${translate("send-to")}: ${chat.to}` }</span> */}
+                                            <span className="badge bg-warning">{ chat.subject }</span>
                                             <div>
                                                 {
                                                     +chat.total_unread_message > 0 ? 
@@ -180,7 +181,6 @@ export default function Inbox(props) {
                                         </div>
                                         <div className="chat__last-message">
                                             <span className="one-line-text" title={chat.last_message}>{ chat.last_message }</span>
-                                            <span className="badge bg-warning">{ chat.subject }</span>
                                         </div>
                                     </div>
                                 );

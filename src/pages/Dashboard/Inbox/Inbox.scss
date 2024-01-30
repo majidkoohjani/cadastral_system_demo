@@ -60,7 +60,7 @@
                 }
 
                 & > span {
-                    font-size: 1rem;
+                    font-size: 0.75rem;
                 }
 
                 & > div:last-child {
@@ -169,6 +169,7 @@
                 height: 100%;
                 width: 100%;
                 padding: 8px 16px;
+                direction: ltr;
             }
 
             & > .predefined-messages {

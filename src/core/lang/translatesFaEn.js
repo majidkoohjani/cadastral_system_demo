@@ -191,6 +191,18 @@ export default {
         "fa": "گفت و گویی موجود نیست.",
         "en": "Nothing found!!!"
     },
+    "sm-11": {
+        "fa": "در این زیرخدمت فقط کالایی که مالکیت کامل دارید ( سلول یازده عدد 1 باشد) نمایش داده میشود چون شما در مورد کالایی که مالکیت صددرصد کالا را ندارید (سلول یازده کمتر از 1 است ) نمیتوانید کالا را حذف کنید و فقط میتوانید از طریق زیرخدمتهای دیگر قیمت کالا را در حد سهم خود تغییر دهید و یا بنام شخص دیگری کنید.",
+        "en": "In this subservice only the products that you have full ownership (1 in cell 11) will be shown since you cannot remove products which you do not fully own(cell 11 is less than 1) You can only change the price or transfer ownership of your share in other subservices."
+    },
+    "sm-10": {
+        "fa": "چنانچه در ردیف بالا، در سلول یازده عدد 1 وارد کردی ( مالکیت کامل) پس نباید در ردیف پایین در سلول ده و یازده داده وارد کنی. در ردیف پایین، سلول هشت و نه باید کپی از سلول بالاییشان باشند.",
+        "en": "If you have entered 1 (full ownership) in cell 11 above, you should not enter any numbers in cells 10 and 11 below. Cells 8 and 9 below have to be the same as the row above."
+    },
+    "sm-9": {
+        "fa": "لطفا مقدار تراکنش را در ستون 22 فقط یک ردیف از مبدا و ستون 22 فقط یک ردیف از مقصد وارد کن. لطفا مقدار تراکنش در مبدا و مقصد شبیه هم باشد. در تراکنشهای معیشتی شما میتوانید مقدار تراکنش را بیشتر از موجودی بانکی تان وارد کنید. دکمه ثبت را بزن. اگر صاحب ملک محل سکونتت باشی در جایگاه مقصد ردیفی بنمایش در نمی اید تا اشتباها به خودت اجاره واریز نکنی.",
+        "en": "Please enter the transaction amount in only one origin row in column 22 and only one destination row in column 22  The transaction amount must be the same in origin and destination. In basic needs transactions you can enter a number higher than your bank account’s balance. Hit the submit button. If you own your home there would not be a destination row to prevent you depositing rent to yourself."
+    },
     "sm-8": {
         "fa": "لطفا قبل از ثبت استعلام بگیر تا اشتباها در یک ملک حساب بانکی تکراری ثبت نکنی.",
         "en": "Please make an inquiry before submitting so you don't repeat a bank account in the property."
@@ -630,8 +642,8 @@ export default {
         "en": "I want to change my movable property owner’s ID because I sold it"
     },
     "sub-service-2-9": {
-        "fa": "میخواهم کالای منقولی که هدیه گرفته ام و یا خریده ام را در ملک فروشگاه حذف کنم تا به ملک جدید تغییر مکان دهم",
-        "en": "I want to remove the movable property I received as a gift or purchased from a store (relocate it to new place)"
+        "fa": "میخواهم کالای منقولی که هدیه گرفته ام و یا خریده ام و یا داشته ام را در ملک مبدا حذف کنم تا به ملک جدید تغییر مکان دهم",
+        "en": "I want to remove/relocate the movable property I previously owned, bought or were gifted from the origin to a new real estate."
     },
     "sub-service-2-10": {
         "fa": "میخواهم کالای منقولی که هدیه گرفته ام و یا خریده ام را در ملک مسکونی که صاحب فعالیت ملک هستم اضافه کنم (فقط کاربر حقیقی)",
@@ -686,7 +698,7 @@ export default {
         "en": "I want to see the ads for work (Natural Person only)"
     },
     "service-3": {
-        "fa": "میخواهم برای رفع نیازهای معیشتی ام تراکنش انجام دهم و یا وضعیت ده نیاز معیشتی ام را ببینم) فقط کاربر حقیقی مجاز است(",
+        "fa": "میخواهم برای رفع نیازهای معیشتی ام تراکنش انجام دهم و یا وضعیت ده نیاز معیشتی ام را ببینم (فقط کاربر حقیقی مجاز است)",
         "en": "I want to see the status of my basic needs in this month and conduct transactions for my basic needs (Natural Person only)"
     },
     "sub-service-3-1": {
@@ -886,7 +898,7 @@ export default {
         "en": "I want to see the date and type of my movable property on deposit"
     },
     "service-6": {
-        "fa": "میخواهم بدون خارج شدن از ملک، کارهای اداری ام را انجام دهم )دبیرخانه واحد کشوری(",
+        "fa": "میخواهم بدون خارج شدن از ملک، کارهای اداری ام را انجام دهم (دبیرخانه واحد کشوری)",
         "en": "I want to conduct administrative work (National Secretariat Office)"
     },
     "sub-service-6-1": {
@@ -926,7 +938,7 @@ export default {
         "en": "I want to see the letter ids I sent and received regarding city fees, judicial work and taxation"
     },
     "service-7": {
-        "fa": "میخواهم فراخوان جذب سرمایه یا مزایده یا مناقصه داشته باشم و یا شرکت کنم ) عدالت در اطلاع رسانی(",
+        "fa": "میخواهم فراخوان جذب سرمایه یا مزایده یا مناقصه داشته باشم و یا شرکت کنم (عدالت در اطلاع رسانی)",
         "en": "I want to advertise/participate in a fundraising, auction or tender offer(fairness in coverage)"
     },
     "sub-service-7-1": {
@@ -978,40 +990,40 @@ export default {
         "en": "I want to change the owner of my real estate or movable property in order to secure money for a tender offer"
     },
     "service-8": {
-        "fa": "میخواهم داراییهای عمومی را شفاف ببینم و در مدیریت بهتر منابع عمومی همفکری کنم) شفافیت اموال عمومی طبق یک دستورالعمل یکسان و همه همزمان(",
+        "fa": "میخواهم داراییهای عمومی را شفاف ببینم و در مدیریت بهتر منابع عمومی همفکری کنم( شفافیت اموال عمومی طبق یک دستورالعمل یکسان و همه همزمان)",
         "en": "I want to see the governmental properties and consult for their better management(synchronized transparency of government resources under one guideline)"
     },
     "sub-service-8-1": {
-        "fa": "میخواهم بعنوان یک مدیر دولتی، فراخوان همفکری در مورد یک پروژه عمرانی دهم (فقط کاربر با کدملی حقوقی)",
-        "en": "As a government official I want to advertise a consultation for a civil engineering project (Legal Person only)"
+        "fa": "میخواهم بعنوان یک مدیر دولتی، فراخوان همفکری در مورد یک پروژه عمرانی دهم (فقط کدملی 001 تا 010 مجاز است)",
+        "en": "As a government official I want to advertise a consultation for a civil engineering project (Legal Governmental Person only: 001-010)"
     },
     "sub-service-8-2": {
-        "fa": "میخواهم بعنوان عضوی از مردم، فراخوانهای همفکری پروژه های دولتی را ببینم و برای استفاده بهینه از بیت المال در آینده همفکری کنم ",
-        "en": "As a citizen, I want to see the government consultation ads and consult on the better use of government resources"
+        "fa": "میخواهم بعنوان عضوی از مردم، فراخوانهای همفکری پروژه های دولتی را ببینم و برای استفاده بهینه از بیت المال در آینده همفکری کنم (همه اشخاص حقیقی و حقوقی)",
+        "en": "As a citizen, I want to see the government consultation ads and consult on the better use of government resources (all Users Legal/Natural)."
     },
     "sub-service-8-3": {
-        "fa": "میخواهم بعنوان عضوی از مردم، ملکهایی که در حال حاضر متعلق به اموال عمومی هستند را ببینم",
-        "en": "As a citizen, I want to see the governmental properties"
+        "fa": "میخواهم بعنوان عضوی از مردم، ملکهایی که در حال حاضر متعلق به اموال عمومی هستند را ببینم ( همه اشخاص حقیقی و حقوقی)",
+        "en": "As a citizen, I want to see the governmental properties (all Users Legal/Natural)."
     },
     "sub-service-8-4": {
-        "fa": "میخواهم بعنوان عضوی از مردم، کالاهای منقولی که در حال حاضر متعلق به اموال عمومی هستند را ببینم",
-        "en": "As a citizen, I want to see the governmental movable properties"
+        "fa": "میخواهم بعنوان عضوی از مردم، کالاهای منقولی که در حال حاضر متعلق به اموال عمومی هستند را ببینم ( همه اشخاص حقیقی و حقوقی)",
+        "en": "As a citizen, I want to see the governmental movable properties (all Users Legal/Natural)."
     },
     "sub-service-8-5": {
-        "fa": "میخواهم بعنوان عضوی از مردم، ملکها و کالاهای منقولی که در گذشته متعلق به دولت بوده است را ببینم",
-        "en": "As a citizen, I want to see the previously government owned property and movable properties"
+        "fa": "میخواهم بعنوان عضوی از مردم، ملکها و کالاهای منقولی که در گذشته متعلق به دولت بوده است را ببینم ( همه اشخاص حقیقی و حقوقی)",
+        "en": "As a citizen, I want to see the previously government owned property and movable properties (all Users Legal/Natural)."
     },
     "sub-service-8-6": {
-        "fa": "میخواهم بعنوان عضوی از مردم، موجودی حسابهای بانکی که در حال حاضر متعلق به اموال عمومی هستند را ببینم",
-        "en": "As a citizen, I want to see the balance of government accounts"
+        "fa": "میخواهم بعنوان عضوی از مردم، موجودی حسابهای بانکی که در حال حاضر متعلق به اموال عمومی هستند را ببینم ( همه اشخاص حقیقی و حقوقی)",
+        "en": "As a citizen, I want to see the balance of government accounts (all Users Legal/Natural)."
     },
     "sub-service-8-7": {
-        "fa": "میخواهم بعنوان عضوی از مردم، تراکنشهای بانکی که از حسابهای بانکی دولتی شارژ ارسال شده است را ببینم",
-        "en": "As a citizen, I want to see the government funded bank transactions"
+        "fa": "میخواهم بعنوان عضوی از مردم، تراکنشهای بانکی که از حسابهای بانکی دولتی شارژ ارسال شده است را ببینم ( همه اشخاص حقیقی و حقوقی)",
+        "en": "As a citizen, I want to see the government funded bank transactions (all Users Legal/Natural)."
     },
     "sub-service-8-8": {
-        "fa": "میخواهم بعنوان عضوی از مردم، تراکنشهای بانکی که به حسابهای بانکی دولتی شارژ واریز شده است را ببینم",
-        "en": "As a citizen, I want to see deposits into government accounts"
+        "fa": "میخواهم بعنوان عضوی از مردم، تراکنشهای بانکی که به حسابهای بانکی دولتی شارژ واریز شده است را ببینم ( همه اشخاص حقیقی و حقوقی)",
+        "en": "As a citizen, I want to see deposits into government accounts (all Users Legal/Natural)."
     },
     "service-9": {
         "fa": "میخواهم در رفع فقر از جامعه ام مشارکت کنم",
@@ -1046,12 +1058,12 @@ export default {
         "en": "I want to participate in managing my neighborhood"
     },
     "sub-service-10-1": {
-        "fa": "میخواهم محدوده محله محل سکونتم را بدانم",
-        "en": "I want to know my neighborhood’s area"
+        "fa": "میخواهم بعنوان یک شخص حقیقی، محدوده محله مرتبط به محل سکونتم و یا محل اشتغالم و یا محل فعالیتم را بدانم و بدانم دفتر مدیر محله ام کجاست",
+        "en": "As a Natural Person, I want to know the area of my living, work or activity space's neighborhood and the neighborhood manager's office."
     },
     "sub-service-10-2": {
-        "fa": "میخواهم ببینم دفتر مدیر محله ام کجاست و به مدیر محله ام پیام دهم",
-        "en": "I want to know the management office of my neighborhood and send a message to the neighborhood manager"
+        "fa": "میخواهم بعنوان یک شخص حقوقی، محدوده محله مرتبط به محل فعالیتم را بدانم و بدانم دفتر مدیر محله ام کجاست",
+        "en": "As a Legal Person, I want to know the area of my activity space's neighborhood and the neighborhood manager's office."
     },
     "col-1": {
         "fa": "زمان",
@@ -1070,11 +1082,11 @@ export default {
         "en": "Activity Code (Type of Basic Needs)"
     },
     "col-5": {
-        "fa": "کد چهارگانه (چهار بخش اول)",
+        "fa": "کد چهارگانه (چهار بخش اطلاعاتی ملک)",
         "en": "Quadripartite Code (Table’s Four Parts)"
     },
     "col-6": {
-        "fa": "کد ملی صاحب فعالبت ملک",
+        "fa": "کد ملی صاحب فعالیت ملک",
         "en": "Activity Space Owner ID"
     },
     "col-7": {
@@ -1102,31 +1114,31 @@ export default {
         "en": "Owner’s Share of the Price"
     },
     "col-13": {
-        "fa": "نوع کد ملی حقیقی است یا حقوقی",
+        "fa": "نوع کدملی (حقیقی/ حقوقی)",
         "en": "Type of Owner’s ID (Legal/Natural)"
     },
     "col-14": {
-        "fa": "حقوقی دولتی است یا خصوصی",
+        "fa": "نوع حقوقی ( خصوصی/ دولتی)",
         "en": "Type of Legal (Private/Governmental)"
     },
     "col-15": {
-        "fa": "دولتی محدوده ای است یا کشوری",
+        "fa": "نوع دولتی ( کشوری / محدوده ای)",
         "en": "Type of Government (Local/National)"
     },
     "col-16": {
-        "fa": "کد ملیهای حقیقی ستون 10",
+        "fa": "سهامداران ستون ده",
         "en": "Column 10’s Shareholders"
     },
     "col-17": {
-        "fa": "درصد سهم هر حقیقی",
+        "fa": "درصد سهم هر سهامدار",
         "en": "Stock Owner’s Share"
     },
     "col-18": {
-        "fa": "درصد سهم هر حقیقی از کل دارایی",
+        "fa": "درصد سهم هر سهامدار از کل دارایی",
         "en": "Stock Owner’s Share of the Property"
     },
     "col-19": {
-        "fa": "سهم هر حقیقی از قیمت دارایی",
+        "fa": "سهم هر سهامدار از قیمت دارایی",
         "en": "Stock Owner’s Share of the Price"
     },
     "col-20": {
@@ -1191,11 +1203,11 @@ export default {
     },
     "origin-table": {
         "fa": "ردیف اطلاعات مبدا",
-        "en": "origin table"
+        "en": "origin"
     },
     "destination-table": {
         "fa": "ردیف اطلاعات مقصد",
-        "en": "destination table"
+        "en": "destination"
     },
     "search-website": {
         "fa": "جست و جو در سایت",
@@ -1238,8 +1250,8 @@ export default {
         "en": "enter the value"
     },
     "message-placeholder": {
-        "fa": "پیام خود را بنویسید...",
-        "en": "Enter your message..."
+        "fa": "Type your own (English only) or use the preset messages",
+        "en": "Type your own (English only) or use the preset messages"
     },
     "updated-successfully": {
         "fa": "عملیات با موفقیت انجام شد.",
