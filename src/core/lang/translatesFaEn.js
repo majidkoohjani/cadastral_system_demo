@@ -3,6 +3,14 @@ export default {
         "fa": "",
         "en": ""
     },
+    "permitted-values-msg": {
+        "fa": "اعداد مجاز در این سلول: x تا y",
+        "en": "Permitted numbers in the cell: x to y"
+    },
+    "permitted-values-msg-wmm": {
+        "fa": "مقادیر عددی مجاز وارد کنید.",
+        "en": "Enter only permitted numeric values."
+    },
     "origin": {
         "fa": "مبدا",
         "en": "Origin"

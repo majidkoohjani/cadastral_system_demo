@@ -36,6 +36,17 @@
     height: 45%;
     overflow-y: scroll;
 
+    & > .tooltip-data_table {
+        width: 100px;
+        border: 2px solid #808080;
+        border-radius: 8px;
+        text-align: center;
+        background-color: white;
+        position: fixed;
+        display: none;
+        z-index: 3;
+    }
+
     & > .data-table {
         direction: ltr;
         border-collapse: separate;
@@ -141,6 +152,17 @@
                         background-color: #ffffff;
                         border: none;
                         outline: none;
+                        position: relative;
+
+                        &.active-tooltip::after {
+                            content: " ";
+                            width: 60px;
+                            height: 60px;
+                            position: absolute;
+                            background-color: red;
+                            top: 0;
+                            right: 0;
+                        }
 
                         &:focus {
                             outline: none;

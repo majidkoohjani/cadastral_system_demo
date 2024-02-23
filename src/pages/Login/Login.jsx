@@ -82,7 +82,7 @@ export default function Login() {
                                 <div className="contact-info">
                                     <div className="contact-item">
                                         <img src={email} width={20} height={20} />
-                                        <a href="mailto: info@metacadastralsystem.com">info@metacadastralsystem.com</a>
+                                        <a href="mailto: metacadastre@gmail.com">metacadastre@gmail.com</a>
                                     </div>
                                     <div className="contact-item">
                                         <img width={20} height={20} src={whatsapp} />

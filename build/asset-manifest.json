@@ -1,15 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.e7385e6b.css",
-    "main.js": "/static/js/main.91f65eac.js",
+    "main.css": "/static/css/main.ac0b7b9b.css",
+    "main.js": "/static/js/main.4033b869.js",
     "static/media/help-en.pdf": "/static/media/help-en.8bc1fafcea0b2c2ab0bc.pdf",
     "static/media/help-fa.pdf": "/static/media/help-fa.f58983f924f2e211d0bf.pdf",
-    "static/media/more-features.pdf": "/static/media/more-features.53d4ec10fe6ed3d7413d.pdf",
+    "static/media/more-features-en.pdf": "/static/media/more-features-en.53d4ec10fe6ed3d7413d.pdf",
+    "static/media/more-features-fa.pdf": "/static/media/more-features-fa.53d4ec10fe6ed3d7413d.pdf",
     "static/media/fa-thin-100.ttf": "/static/media/fa-thin-100.5c968f9cdf977398b41b.ttf",
     "static/media/fa-duotone-900.ttf": "/static/media/fa-duotone-900.5012e91f0fed479f79b3.ttf",
     "static/media/fa-light-300.ttf": "/static/media/fa-light-300.8b18a77be77619201f1a.ttf",
     "static/media/fa-regular-400.ttf": "/static/media/fa-regular-400.1fb710c67dcecf785a61.ttf",
-    "static/media/faq.pdf": "/static/media/faq.26dc52fe7f9943c4653b.pdf",
+    "static/media/faq-en.pdf": "/static/media/faq-en.26dc52fe7f9943c4653b.pdf",
+    "static/media/faq-fa.pdf": "/static/media/faq-fa.26dc52fe7f9943c4653b.pdf",
     "static/media/fa-solid-900.ttf": "/static/media/fa-solid-900.866bbb7a13a33d21b363.ttf",
     "static/media/aboutus-en.png": "/static/media/aboutus-en.3f0f5504ded14d017926.png",
     "static/media/aboutus-fa.png": "/static/media/aboutus-fa.21a71ebee2e8e468b5c0.png",
@@ -17,7 +19,8 @@
     "static/media/fa-light-300.woff2": "/static/media/fa-light-300.d66a62e82287b864947c.woff2",
     "static/media/fa-duotone-900.woff2": "/static/media/fa-duotone-900.fd64474e3368ef87bf71.woff2",
     "static/media/fa-regular-400.woff2": "/static/media/fa-regular-400.36168646e7d919287d07.woff2",
-    "static/media/instructions.pdf": "/static/media/instructions.eed3633e74b1941bb20a.pdf",
+    "static/media/instructions-en.pdf": "/static/media/instructions-en.eed3633e74b1941bb20a.pdf",
+    "static/media/instructions-fa.pdf": "/static/media/instructions-fa.eed3633e74b1941bb20a.pdf",
     "static/media/fa-solid-900.woff2": "/static/media/fa-solid-900.9ec24c50410b6d5138b7.woff2",
     "static/media/08.png": "/static/media/08.42e62b434ab3754111b7.png",
     "static/media/logo-fa.png": "/static/media/logo-fa.2d85516f8f3a075a8e8a.png",
@@ -50,11 +53,11 @@
     "static/media/linkedin.svg": "/static/media/linkedin.cef3f322bc95950205776e364742c5f9.svg",
     "static/media/envelope.svg": "/static/media/envelope.cf6c0ab26f7ba9d4e7e41788fd300738.svg",
     "index.html": "/index.html",
-    "main.e7385e6b.css.map": "/static/css/main.e7385e6b.css.map",
-    "main.91f65eac.js.map": "/static/js/main.91f65eac.js.map"
+    "main.ac0b7b9b.css.map": "/static/css/main.ac0b7b9b.css.map",
+    "main.4033b869.js.map": "/static/js/main.4033b869.js.map"
   },
   "entrypoints": [
-    "static/css/main.e7385e6b.css",
-    "static/js/main.91f65eac.js"
+    "static/css/main.ac0b7b9b.css",
+    "static/js/main.4033b869.js"
   ]
 }

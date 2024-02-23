@@ -1,3 +1,7 @@
+import Storage from "../helpers/Storage";
+
+const lang = Storage.getLanguage();
+
 export default [
     {
         id: 1,
@@ -11,7 +15,7 @@ export default [
         faText: "دستور العمل کار با سامانه",
         enText: "Instructions",
         icon: require("../../assets/images/instruction.png"),
-        file: require("../../assets/instructions.pdf"),
+        file: require(`../../assets/instructions-${lang}.pdf`),
         download: true
     },
     {
@@ -26,14 +30,14 @@ export default [
         faText: "ارتباط با پشتیبانی",
         enText: "support",
         icon: require("../../assets/images/user.png"),
-        location: "/support"
+        location: "mailto: metacadastresystem@gmail.com"
     },
     {
         id: 5,
         faText: "سوالات متداول",
         enText: "FAQ",
         icon: require("../../assets/images/faq.png"),
-        file: require("../../assets/faq.pdf"),
+        file: require(`../../assets/faq-${lang}.pdf`),
         download: true
     },
     {
@@ -41,7 +45,7 @@ export default [
         faText: "قابلیت های بیشتر",
         enText: "more features",
         icon: require("../../assets/images/features.png"),
-        file: require("../../assets/more-features.pdf"),
+        file: require(`../../assets/more-features-${lang}.pdf`),
         download: true
     },
     {
