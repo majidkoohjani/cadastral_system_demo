@@ -10,6 +10,7 @@ import { translate } from "../../core/helpers/Translator";
 import "./Dashboard.scss";
 import Clock from "../../components/Clock/Clock";
 import { parseDateTime } from "../../core/helpers/DateTime";
+import { toast } from "react-toastify";
 
 export default function Dashboard() {
     const language = Storage.getLanguage();
@@ -24,6 +25,14 @@ export default function Dashboard() {
         userType = translate("legal");
     } else if (userType.includes("ادمین")) {
         userType = translate("admin");
+    }
+
+    const copyMail = (mail = "metacadastre@gmail.com") => {
+        Storage.copyToClipboard(mail);
+        
+        toast.success(translate("text-copied"), {
+            position: toast.POSITION.TOP_RIGHT
+        });
     }
 
     return (
@@ -75,10 +84,17 @@ export default function Dashboard() {
                                 }
                                 
                                 return <li key={item.id} className="aside-list__item">
-                                    <Link to={item?.location ?? item.file} target={item?.download === true ? "_blank" : "_self"} download={item?.download === true ? "true" : false} className="aside-list__item__link">
-                                        <img src={item.icon} alt={item.icon} />
-                                        { item[`${language}Text`] }
-                                    </Link>
+                                    {
+                                        item?.clickToCopyLocation === true ? 
+                                        <span className="aside-list__item__link" title={item.location} onClick={() => copyMail(item.location)}>
+                                            <img src={item.icon} alt={item.icon} />
+                                            { item[`${language}Text`] }
+                                        </span> : 
+                                        <Link to={item?.location ?? item.file} target={item?.download === true ? "_blank" : "_self"} download={item?.download === true ? "true" : false} className="aside-list__item__link">
+                                            <img src={item.icon} alt={item.icon} />
+                                            { item[`${language}Text`] }
+                                        </Link>
+                                    }
                                 </li>;
                             })
                         }

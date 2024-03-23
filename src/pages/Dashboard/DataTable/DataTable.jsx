@@ -54,6 +54,10 @@ export default function DataTable(props) {
             let fetchedData = response.data;
             let {obj = null, destination = null, origin = null, transaction = null, lockedColumn = "" } = fetchedData;
 
+            if (lockedColumn.length < 1 && obj?.lockedColumn) {
+                lockedColumn = obj.lockedColumn;
+            }
+            
             let tempData = {
                 origin: [],
                 destination: [],
@@ -523,27 +527,46 @@ export default function DataTable(props) {
     }
 
     const handleFocus = (e, isBlur = false,tableName = "", cellName = "", columnID = null) => {
-        if (isBlur) {
-            dataTableTooltipRef.current.style = `display: none;`;
-        } else {
-            if (columnID) {
-                let lockBits = lockColumns.split("");
-
-                if (+lockBits[columnID - 1] != 0) {
-                    let min = updateRules?.requestModel?.params?.[tableName]?.[cellName]?.["min"] ?? null;
-                    let max = updateRules?.requestModel?.params?.[tableName]?.[cellName]?.["max"] ?? null;
+        if (lockColumns.length > 0) {
+            if (isBlur) {
+                dataTableTooltipRef.current.style = `display: none;`;
+            } else {
+                if (columnID) {
+                    let lockBits = lockColumns.split("");
                     let message = "";
-
-                    if (min && max) {
-                        message = translate("permitted-values-msg");
-
-                        message = message.replace("x", min ?? " ").replace("y", max ?? " ");
-                    } else {
-                        message = translate("permitted-values-msg-wmm");
+    
+                    if (+lockBits[columnID - 1] != 0) {
+                        if (serviceID == 2 && (subServiceID == 15 || subServiceID == 18 )) {
+                            if (subServiceID == 15) {
+                                message = translate("permitted-values-msg");
+        
+                                message = message.replace("x", 321).replace("y", 400);
+                            }
+                            else if (subServiceID == 18) {
+                                message = translate("permitted-values-txt-for-18");
+                            }
+                        } else {
+                            let totalMinMax = updateRules?.requestModel?.params?.[tableName]?.[cellName]?.["minMaxForMessage"] ?? null;
+                            let min = updateRules?.requestModel?.params?.[tableName]?.[cellName]?.["minForMessage"] ?? null;
+                            let max = updateRules?.requestModel?.params?.[tableName]?.[cellName]?.["maxForMessage"] ?? null;
+        
+                            if (totalMinMax) {
+                                message = translate("permitted-values-txt");
+        
+                                message = message.replace("x", totalMinMax?.join(lang === "fa" ? " و " : ", ") ?? " ");
+                            }
+                            else if (min && max) {
+                                message = translate("permitted-values-msg");
+        
+                                message = message.replace("x", min ?? " ").replace("y", max ?? " ");
+                            } else {
+                                message = translate("permitted-values-msg-wmm");
+                            }
+                        }
+    
+                        dataTableTooltipRef.current.innerText = message;
+                        dataTableTooltipRef.current.style = `display: flex; top: ${e.clientY + 10}px; left: ${e.clientX - 50}px;`;
                     }
-
-                    dataTableTooltipRef.current.innerText = message;
-                    dataTableTooltipRef.current.style = `display: flex; top: ${e.clientY + 10}px; left: ${e.clientX - 50}px;`;
                 }
             }
         }

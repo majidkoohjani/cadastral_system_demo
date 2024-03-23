@@ -14,6 +14,10 @@ export default class Storage {
         return this.#getter(key);
     }
 
+    static copyToClipboard(value = "") {
+        navigator.clipboard.writeText(value);
+    }
+
     static #getter(key = "") {
         if (typeof key !== "string" || key.length < 1)
             throw `${this.#errorMessage}getter method > wrong input parameters!`;

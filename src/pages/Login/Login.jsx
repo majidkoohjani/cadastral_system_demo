@@ -20,6 +20,7 @@ import Storage from "../../core/helpers/Storage";
 import { translate } from "../../core/helpers/Translator";
 import "./Login.scss";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function Login() {
     const language = Storage.getLanguage();
@@ -28,6 +29,14 @@ export default function Login() {
 
     const handleContactBtn = () => {
         setShowContactInfo(!showContactInfo);
+    }
+
+    const copyMail = () => {
+        Storage.copyToClipboard("metacadastre@gmail.com");
+        
+        toast.success(translate("text-copied"), {
+            position: toast.POSITION.TOP_RIGHT
+        });
     }
 
     return (
@@ -82,7 +91,7 @@ export default function Login() {
                                 <div className="contact-info">
                                     <div className="contact-item">
                                         <img src={email} width={20} height={20} />
-                                        <a href="mailto: metacadastre@gmail.com">metacadastre@gmail.com</a>
+                                        <span onClick={copyMail}>metacadastre@gmail.com</span>
                                     </div>
                                     <div className="contact-item">
                                         <img width={20} height={20} src={whatsapp} />
@@ -114,13 +123,13 @@ export default function Login() {
                                 </div>
                             </a>
                         </li>
-                        <li className="social-media__list-item">
+                        {/* <li className="social-media__list-item">
                             <a href="mailto:Metacadastral.system@gmail.com" target="_blank" rel="noopener noreferrer">
                                 <div className="icon-container">
                                     <img src={email} alt="Email" />
                                 </div>
                             </a>
-                        </li>
+                        </li> */}
                         <li className="social-media__list-item">
                             <a href="http://www.linkedin.com/in/metacadastral-system-33352b281" target="_blank" rel="noopener noreferrer">
                                 <div className="icon-container">

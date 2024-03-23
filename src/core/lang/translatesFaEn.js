@@ -3,6 +3,18 @@ export default {
         "fa": "",
         "en": ""
     },
+    "text-copied": {
+        "fa": "آدرس ایمیل پشتیبانی کپی شد.",
+        "en": "Support e-mail address copied."
+    },
+    "permitted-values-txt-for-18": {
+        "fa": "اگر در این ردیف در سلول پنجم، کد چهارگانه عدد 3 باشد میتوانید در این سلول از عدد 301 تا 400 وارد کنید و اگر در این ردیف در سلول پنجم، کد چهارگانه عدد 4 باشد میتوانید در این سلول از عدد 321 تا 400 وارد کنید",
+        "en": "If in this row, in the fifth cell, the quadruple code number is 3, you can enter from 301 to 400 in this cell, and if in this row, in the fifth cell, the quadruple code number is 4, you can enter from 321 to 400 in this cell."
+    },
+    "permitted-values-txt": {
+        "fa": "اعداد مجاز در این سلول: x",
+        "en": "Permitted numbers in the cell: x"
+    },
     "permitted-values-msg": {
         "fa": "اعداد مجاز در این سلول: x تا y",
         "en": "Permitted numbers in the cell: x to y"
@@ -332,7 +344,7 @@ export default {
         "en": "send"
     },
     "chat-box__title": {
-        "fa": "شما در این زیر خدمت مجار به ایجاد یک چت هستید",
+        "fa": "شما در این زیر خدمت مجاز به ایجاد یک چت هستید",
         "en": "You are allowed to chat in this subservice"
     },
     "current-dt": {

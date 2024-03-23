@@ -30,7 +30,8 @@ export default [
         faText: "ارتباط با پشتیبانی",
         enText: "support",
         icon: require("../../assets/images/user.png"),
-        location: "mailto: metacadastresystem@gmail.com"
+        location: "mailto: metacadastresystem@gmail.com",
+        clickToCopyLocation: true,
     },
     {
         id: 5,

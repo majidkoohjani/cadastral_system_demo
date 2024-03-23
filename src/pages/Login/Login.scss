@@ -64,6 +64,10 @@
                         flex-direction: row-reverse;
                         column-gap: 8px;
 
+                        & > span {
+                            cursor: pointer;
+                        }
+
                         & > img {
                             width: 20px;
                             height: 20px;
