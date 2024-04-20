@@ -57,6 +57,10 @@ export default function DataTable(props) {
             if (lockedColumn.length < 1 && obj?.lockedColumn) {
                 lockedColumn = obj.lockedColumn;
             }
+
+            if ((serviceID == 3 && subServiceID == 23) || (serviceID == 9 && subServiceID == 1)) {
+                lockedColumn = "0000000000000000000001";
+            }
             
             let tempData = {
                 origin: [],
@@ -564,8 +568,12 @@ export default function DataTable(props) {
                             }
                         }
     
-                        dataTableTooltipRef.current.innerText = message;
-                        dataTableTooltipRef.current.style = `display: flex; top: ${e.clientY + 10}px; left: ${e.clientX - 50}px;`;
+                        if (updateRules?.requestModel?.params?.[tableName]?.[cellName]?.["mustBeNull"] === true) {
+                            // do nothing
+                        } else {
+                            dataTableTooltipRef.current.innerText = message;
+                            dataTableTooltipRef.current.style = `display: flex; top: ${e.clientY + 10}px; left: ${e.clientX - 50}px;`;
+                        }
                     }
                 }
             }
